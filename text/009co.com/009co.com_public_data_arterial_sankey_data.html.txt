@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+
+
+Human Arterial Blood Flow Sankey Chart Data
+Blog post / Sankey Chart
+This is table of data that is used to create the Sankey chart.  Target column contains the names of all of the arteries and the Source column holds the artery it branches off of.  The Value column number represents source-target link relative width eg bigger number = great width = greater blood flow.
+
+
+
+

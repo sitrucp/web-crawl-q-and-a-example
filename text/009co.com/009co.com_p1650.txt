@@ -1,0 +1,478 @@
+
+
+
+
+
+
+Xero.com data consolidation and reporting solution selection – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Xero.com data consolidation and reporting solution selection 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  October 28, 2021 
+
+
+Once upon a time, I was using Xero to record and manage a company’s finances and wanted to use Zebra Bi for Power BI to create interactive income statement actual vs plan vs budget reporting.
+Xero Features
+
+Zebra BI offers very compelling visualization tools to create financial reporting in Power BI and Excel specifically for comparing actuals vs plan and budget. Zebra BI’s product is a Power BI and Excel plugin. Using it in Power BI is as simple as choosing Zebra BI as a visualization in same way as any other Power BI chart object.
+Zebra BI Example Visualizations
+
+Xero API
+The primary challenge to using Power BI with Xero is deciding the best way to get data out of Xero so that it can be used by Power BI.
+Xero has an API that provides access to almost all of the Xero data. The API can be used directly or indirectly via many third parties. However, the API features and limitations require careful  consideration to determine if they meet your use case.
+The Xero API has some good documentation as well as an interactive API explorer that can be used in a no-code way to learn about the API endpoint features and data returned.
+Two methods of using the Xero API:
+
+
+
+Directly from Xero – The API can be used directly by registering for API access and developing your own code and process.
+Indirectly via third parties – There are also a variety of third parties include a range of SaaS platforms and tools that connect to the API and retrieve Xero data on your behalf. These provide a wide range of methods and Xero data “modelling” and transformation to enable it to be readily used for financial reporting.
+
+
+
+I ended up conducting a selection process to identify the best solution to get Xero data which considered a variety of Xero API and third party limitations.
+Requirements Summary
+
+
+
+Multi-year Xero data retrieval and analysis eg 2019, 2020, 2021.
+Use Power BI to enable Zebra BI reporting.
+Data must include actuals, budget and multiple forecasts, and ability to create previous year metrics.
+Method to allow ad-hoc “account mapping” eg ability to categorize accounts other than Xero tracking categories eg group all travel as “Travel”.
+Entirely automated to minimize manual effort required. This includes retrieval and transformation of Xero data and Power BI report refresh.
+
+
+
+Xero API Limitations
+
+
+
+API 11 month per call limit – need workarounds to get more.
+Scheduling – need method to schedule data refresh.
+Update existing data – either delete all or update existing data.
+Data modelling – Xero Report API’s provide Xero modelling however additional modelling required to get desired datasets.
+Budget data – need a method to incorporate Xero budget data. Xero is only recently providing budget data via API.
+Forecast data – need a method to incorporate forecast data. Xero does not have forecast data functionality. However, a workaround is to create a budget that has forecast data.
+Account grouping – how to categorize accounts other than Xero tracking categories eg group all travel as “Travel”.
+Implementation & support complexity – code, technical mix, processes, components, environments.
+All methods require extraction of Xero data into some intermediary storage location eg a datawarehouse or datamart.
+
+
+
+Summary
+The graphic below summarizes the selection investigation results and comparision and highlights my top two choices that best satisfied my requirements.
+Note this comparison doesn’t include costs. However, generally speaking, these solutions have more or less similar costs.
+
+My requirements were best met using Acterys which provides Xero API data ETL,  an advanced datawarehouse, and scheduling and user administration capabilities.  Of the remaining solutions FreshBI  was ranked second.
+Note that there are a lot of other potential solutions including the many Xero application partners  or the many cloud data integration tools but these were the ones that I found to be most useful.
+Solution Details
+FreshBI Power BI Custom Connector for Xero Accounting was initially selected primarily because it was quick and easy way to get Xero API data.
+
+
+
+The FreshBI team has developed their own custom Power BI Xero connector that they sell for a fixed price. Once you have the connector you are free to modify it as required which is what I did.
+The FreshBI connector connects to API and returns data to Power BI as Power BI queries. The connector can be accessed and the query code modified as desired to get data into desired shape or to modify it to retrieve multiple years of data.
+However, code required non-trivial modification to get desired data. Original connector retrieves only 1 year of pivoted format data. I modified the query code to unpivot the data months from columns to rows. Stopped before making further modifications to retrieve > 1 year data. (Interesting note: based on my discussions with FreshBI they said they may modify connector to provide this capability which they will make available as update to purchased connector).
+Connector cannot refresh from Xero from PBI Online. Only Microsoft ‘certified’ connectors have this capability and FreshBI said Microsoft will certify their connector only if it has many more users. Hence, a Power BI pbix file published to PBI Online can only refresh data by using the PBI Gateway which is free app that runs connector on laptop or on server and syncs Xero data and PBI Online dataset.
+Support complexity deemed high due to modifications, multiple components and environments.
+
+
+
+Acterys ultimately selected because it provides best supported, most robust Xero data solution.
+
+
+
+Acterys has developed a sophisticated modern BI data modelling and process which meets all data requirements eg actuals, budget, forecast, relational star schema, process to import budget and forecast, modify existing datasets.
+Includes Microsoft Azure SQL Server database for Xero data storage as reporting data source.
+Xero data refresh process includes scheduling, status email notifications, and previously retrieved update process. Changes made to data within past 7 days updated in Acterys database.
+Support complexity deemed medium, though Acterys solution is quite complex, it built and supported by Acterys, for all of their customers, which reduces end user support complexity.
+
+
+
+ODataLink and CData were not selected as they are essentially alternate methods of FreshBI connector API data acquisition, and do not offer additional data modelling other than Xero Report API. Interesting note: As a result of my discussions with them, OdataLink added new functionality to retrieve > 1 year data.
+Synchub not selected because while it provides excellent data syncing capabilities it does not have any data modelling simply providing raw Xero database table data.
+Xero PBI App is a Power BI application that is available in the Microsoft Power BI app store. It is considered only as a Xero “showcase”. While the reports can be modified, or new reports created using the dataset, the data has only rolling 1 year data, and it is not possible to have access to the report pbix file to inspect or modify the dataset, hence it is limited to the purpose of the “showcase” reporting.
+Hopefully this write-up was helpful when deciding how to get data out of Xero for analytical and reporting purposes. It seemed to me while researching this topic that there is still a lot of opportunity to provide Xero or other ERP / financial application data integration and reporting capability.
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+Business Intelligence – IT Black Box Challenge
+
+ 
+Leave a Comment 
+
+			 / Business Intelligence / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Canadian Government First Nations long term water advisory data
+
+ 
+Leave a Comment 
+
+			 / Business Intelligence, Excel Pivot Chart, Excel Pivot Table, Javascript, Plotly, Power Query, Python, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

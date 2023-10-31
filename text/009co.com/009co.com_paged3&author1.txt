@@ -1,0 +1,435 @@
+
+
+
+
+
+
+Curtis Pokrant – Page 3 – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+Author name: Curtis Pokrant
+
+
+
+ 
+
+
+
+
+
+ 
+Xero.com data consolidation and reporting solution selection  
+Leave a Comment 
+
+			 / Business Intelligence, ERP, Xero / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Once upon a time, I was using Xero to record and manage a company’s finances and wanted to use Zebra Bi for Power BI to create interactive income statement actual vs plan vs budget reporting. Xero Features Zebra BI offers very compelling visualization tools to create financial reporting in Power BI and Excel specifically for …
+  Xero.com data consolidation and reporting solution selection Read More »
+
+
+ 
+
+
+
+
+ 
+Canadian Government First Nations long term water advisory data  
+Leave a Comment 
+
+			 / Business Intelligence, Excel Pivot Chart, Excel Pivot Table, Javascript, Plotly, Power Query, Python, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+The Government of Canada is working with Canadian First Nations communities to end long-term drinking water advisories which have been in effect for more than 12 months since November 2015. This includes projects to build or renew drinking water infrastructure in these communities. The First Nation drinking water advisories were a big part of the …
+  Canadian Government First Nations long term water advisory data Read More »
+
+
+ 
+
+
+
+
+ 
+COVID-19 Data Analysis and Visualization Summary  
+Leave a Comment 
+
+			 / Amazon Web Services (AWS), D3.js, Geocoding, Javascript, Plotly, Power Query, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+This is a list of Canadian COVID-19 related data analysis and visualization that I created during 2020/21 pandemic. Canada COVID-19 Case Map – COVID-19 new and total cases and mortalities by Canadian provincial health regions. https://sitrucp.github.io/canada_covid_health_regions Canada COVID-19 Vaccination Schedule – Canada’s current and historical vaccine doses administered and doses distributed. Also includes two distribution …
+  COVID-19 Data Analysis and Visualization Summary Read More »
+
+
+ 
+
+
+
+
+ 
+TendiesTown.com – WallStreetBets gain and loss analysis  
+Leave a Comment 
+
+			 / API, Django, Plotly, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+For a 16 month period, from February 2020 to June 2021, TendiesTown.com used the Reddit API in an automated process to retrieve r/wallstreetbets posts tagged with “Gain” or “Loss” flair. The subReddit r/wallstreetbets is a stock and option trading discussion board that gained popularity during the 2020/2021 “meme stock” media frenzy. The retrieved posts were …
+  TendiesTown.com – WallStreetBets gain and loss analysis Read More »
+
+
+ 
+
+
+
+
+ 
+Use Excel Power Query to get data from Our World In Data  
+Leave a Comment 
+
+			 / Power Query / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Our World In Data (OWID) has been doing a hero’s job of collating the world’s covid vaccine distribution and administration data. They generate additional metrics and allow site visitors to analyse them in awesome interactive visualizations. However, I wanted to do some analysis that went beyond what was possible on the site. No problem, because …
+  Use Excel Power Query to get data from Our World In Data Read More »
+
+
+ 
+
+ 
+
+
+Posts navigation
+← Previous Page
+1
+2
+3
+4
+…
+17
+Next Page →
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+

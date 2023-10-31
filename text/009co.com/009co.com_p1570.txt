@@ -1,0 +1,541 @@
+
+
+
+
+
+
+TendiesTown.com – WallStreetBets gain and loss analysis – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+TendiesTown.com – WallStreetBets gain and loss analysis 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  July 8, 2021 
+
+
+For a 16 month period, from February 2020 to June 2021, TendiesTown.com used the Reddit API in an automated process to retrieve r/wallstreetbets posts tagged with “Gain” or “Loss” flair. The subReddit r/wallstreetbets is a stock and option trading discussion board that gained popularity during the 2020/2021 “meme stock” media frenzy.
+The retrieved posts were automatically categorized by gain or loss, post date, Reddit username, trade verification image url, and post url.
+These posts were then manually processed to identify the gain or loss amount and reported stock ticker(s).
+As of June 9, 2021, there were 4,582 trades with 2,585 gains and 1,997 losses recorded. Gain amounts totalled USD $389 million and losses USD $117 million.
+While 6,844 posts were retrieved from the subreddit, 2,262 (33%) of these were rejected because they were either duplicate posts, not actual gain or loss trades (per r/wallstreetbets flair guidelines) or it was not possible to identify the amount.
+The trades and more detailed analysis are available on the tendiestown.com website. As of June 9, 2021, the manual processing is no longer being done, so no new data will appear on the site.
+“Gain” and “Loss” flair are described in more detail in the community flair guidelines but essentially “Gain” = trade made money and “Loss”= trade lost money.
+Table 1: Summary statistics
+
+
+
+
+Gains
+Losses
+
+
+Count
+2,585
+1,997
+
+
+Sum
+$389,329,571
+$117,347,985
+
+
+Avg
+$150,611
+$58,762
+
+
+Median
+$24,138
+$12,120
+
+
+Min
+$138
+$100
+
+
+Max
+$8,000,000
+$14,776,725
+
+
+
+The 4,582 trades were made by 3,903 unique Reddit users. 492 of these Reddit users have more than one trade as shown in table 2 below.
+Table 2: Trade counts by unique Reddit users
+
+
+
+# trades
+count of Reddit users
+
+
+1
+3,411
+
+
+2
+378
+
+
+3
+73
+
+
+4
+22
+
+
+5
+11
+
+
+6
+5
+
+
+7
+1
+
+
+8
+
+2
+
+
+
+
+ 
+Charts 1 & 2: Daily and cumulative counts
+
+
+Charts 3 & 4: Daily and cumulative amounts
+
+
+Notable observations
+Early 2021 increase in trades
+The count and amount of trades rose significantly in the early months of 2021.  This can be explained by the surge of new users to the r/wallstreetbets subreddit due to huge increase in popular media reporting surrounding the GME, AMC meme stock craze.
+Gains greater than losses
+Gains consistently lead losses over the 16 month period.  Rather than simply concluding that r/wallstreetbets traders gain more than they lose, it suspected that the variance can be explained due to fact that it is easier to tell the world that you won, and harder to say you have lost.
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

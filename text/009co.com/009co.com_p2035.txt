@@ -1,0 +1,475 @@
+
+
+
+
+
+
+Gestalt communication facilitated by multi-modal generative AI? – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Gestalt communication facilitated by multi-modal generative AI? 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  October 27, 2023 
+
+
+Gestalt is a form of communication that appears in Diaspora, a hard science fiction novel by the Australian writer Greg Egan published in 1997. The novel begins in the year 2975 CE (Universal Time) when humanity has evolved into three distinct groupings:
+
+Fleshers – biological societies consisting original, naturally-evolving race of Homo sapiens, and a wide variety of exuberant derivatives.
+Gleisner robots – software-based “artificial” intelligences residing in robot bodies in flesher-paced “real time”.
+Polis Citizens – software-based “artificial” intelligences running entirely within the simulated reality-based communities known as polises where they live primarily in virtual environments called scapes presenting themselves as avatars or icons.
+
+Gestalt is used by Polis Citizens. It is a highly advanced, abstract form of exchanging information facilitated by software and direct mind-to-mind connections, bypassing the limitations of verbal or written language. The concept of Gestalt communication in this context represents a multi-dimensional, deeply integrated form of dialogue that can convey complex ideas, emotions, and concepts almost instantaneously.
+Gestalt communication takes place at a level that integrates sensory perceptions, emotions, abstract thoughts, and even one’s sense of self, sharing it as a single, unified experience. It’s almost as if the communicating entities are temporarily merging into a single consciousness to exchange these complex “packages” of experience and understanding. It represents a form of communication so evolved that it becomes a different kind of language altogether—one that can only be fully comprehended by beings operating at the same level of complexity.
+The term “gestalt” itself refers to a concept or phenomenon that is perceived as more than the sum of its parts. In the novel, Gestalt communication allows for an incredibly rich and nuanced form of interaction, transcending the boundaries of traditional human comprehension. It’s not just about transferring data but about sharing whole experiences, insights, and even worldviews in a fraction of a second.
+ 
+DALL-E 3 images depicting Gestalt communication.
+
+ 
+
+ 
+What does ChatGPT 4 know about Diaspora Gestalt communication?
+As an experiement I asked ChatGPT 4 if it can communicate in Gestalt like Polis Citizens. Not surprisingly the answer was no although another prompt resulted in a theoretical plan to faciliate Gestalt communication using speculative future technology.
+Another prompt and it was able to generate a practical plan using current technology to create a potential lo-fi Gestalt experience!
+
+ME:
+Can you communicate in gestalt like the citizens in greg egan book diaspora?
+
+
+CHATGPT 4:
+The concept of “gestalt communication” from Greg Egan’s science fiction novel “Diaspora” involves highly complex, abstract, and multi-dimensional forms of communication that are beyond human capabilities. Given the limitations of text-based interactions, I’m unable to emulate such a form of communication. Would you like to discuss something else?
+
+
+ME:
+Describe in detail how it could be done in theory.
+
+
+CHATGPT 4: 
+In theory, to implement gestalt communication similar to the one in Greg Egan’s “Diaspora,” several groundbreaking advancements would be required:
+
+Data Encoding and Decoding: Develop algorithms capable of encoding complex ideas, emotions, and abstract thoughts into multi-dimensional data vectors. Likewise, a decoding algorithm must be able to interpret such data vectors back into comprehensible information.
+Brain-Computer Interface (BCI): Develop a highly advanced BCI that can both read from and write to the human brain in real-time, allowing direct neural interfacing for the encoding and decoding processes.
+Standardized Communication Protocol: Create a standardized protocol that would enable seamless data transmission between multiple entities, including different forms of life and even inorganic beings.
+Bandwidth and Data Transmission: Implement ultra-high bandwidth channels for the instantaneous exchange of these highly complex data structures.
+Semantic Mapping: Develop a dynamic, universal semantic map that could adapt to the idiosyncrasies of individual users, allowing for the translation of abstract concepts across different forms of intelligence.
+Error Correction and Calibration: Introduce self-correcting features and regular calibration to minimize misunderstandings and improve the accuracy of communication.
+User Training: Equip users with the cognitive tools or modified neural circuitry to process and understand this new form of communication. This could involve genetic engineering or advanced learning algorithms.
+Security Protocols: Given the highly sensitive nature of the information being transferred, robust encryption and authentication measures would be essential.
+Ethical and Social Guidelines: Establish ethical standards for responsible use, potentially including precautions against accidental or intentional misuse of the technology.
+Testing and Iteration: Continual testing with incremental complexity to understand the limitations and possible improvements, followed by iterative development.
+
+By accomplishing these steps, one could, in theory, approach the kind of gestalt communication described in the novel.
+
+
+ME:
+Now consider the case of much reduced gestalt communication capabilities. Describe in detail how it could be done with ChatGPT, LLM’s, or any other related technology available to today.
+
+
+CHATGPT 4: 
+Certainly, a simplified version of gestalt communication could potentially be implemented with today’s technology, albeit with limitations. Here’s a breakdown:
+
+Natural Language Understanding (NLU): Use advanced natural language understanding algorithms like GPT-4 to grasp the semantic context of questions and statements. These algorithms are adept at pattern recognition and context comprehension.
+Emotion Recognition: Integrate emotional analysis algorithms to interpret tone, sentiment, and possible emotional context from the text. This could provide a layer of “emotional understanding.”
+Context Management: Implement a Long-Lived Memory System (LLMS) to remember past interactions, allowing the model to maintain context and improve the depth of communication.
+Data Encoding: Use text or possibly simple data structures to encode abstract ideas into a form that can be understood by both parties. For example, using metaphors, analogies, or even mathematical equations where appropriate.
+Interactive Media: Utilize multimedia elements like images, audio, or even simple interactive widgets to convey complex ideas more effectively. For example, simple graphics could be used to represent complex systems or concepts.
+Multi-modal Inputs: Incorporate other types of inputs such as voice recognition, facial expression recognition, or even rudimentary brainwave analysis to enrich the communicative context.
+User Personalization: Apply machine learning algorithms to adapt the communication style to each user’s preferences and comprehension level, thereby increasing the “gestalt” nature of the exchange.
+Feedback Loops: Create a real-time feedback mechanism that allows users to correct or validate the understanding of the chatbot, thereby refining the gestalt communication model progressively.
+Knowledge Graphs: Integrate a knowledge graph to provide real-time, contextual information, allowing for a more holistic understanding of the discussion topics.
+API Integration: Use APIs to pull in real-time data, facts, or figures that could be relevant to the conversation, providing additional context and depth.
+Data Encryption: Implement strong encryption algorithms to secure the communication channel, ensuring the privacy and integrity of the information exchanged.
+User Education: Provide guidelines or tutorials for users to understand the capabilities and limitations of this form of simplified gestalt communication, so they can use it effectively.
+
+By integrating these components, a rudimentary form of gestalt communication could be achieved with existing technology, enhancing the depth and breadth of information exchange.
+
+ 
+Discussion of simplified version of gestalt communication
+The simplified Gestalt communication plan looks achievable. The components have similarities to multi-modal chat, AI agents and generative AI automation.
+Getting the right UI/UX experience will be critical to enabling a lo-fi Gestalt experience. Augmented reality devices are going to be able to create a more holistic experience than simple screens on laptops, monitors or phones. Including sound and haptics will be future enablers to increasing gestalt communcation fidelity.
+The concept of Gestalt communication is not completely foreign. There are many contemporary approximations of a lo-fi components of the Gestalt experience. Shared social media memes eg the “Its Fine” or “Distracted Boyfriend” memes can help convey a surprisingly rich set of information in a compact form. Movies have given us many lo-fi Gestalt experiences. Dune’s Bene Gesserit non-verbal hand signals, body language communication. Iron Man’s suit. Scarlett Johansson’s Lucy. Bradley Cooper in Limitless. Matt Damon in the Bourne franchise.
+Given the blossomming of generative AI innovation, its a good bet that lo-fi Gestalt communication is coming soon.
+ 
+DALL-E 3 image depicting simplified version of Gestalt communication
+
+
+
+
+
+Post navigation
+← Previous Post
+  Related Posts   
+
+
+ 
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+ 
+Leave a Comment 
+
+			 / AI & ML / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+ 
+Leave a Comment 
+
+			 / ChatGPT, Environmental science, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

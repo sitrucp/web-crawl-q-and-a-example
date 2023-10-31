@@ -1,0 +1,472 @@
+
+
+
+
+
+
+How to setup and and use a Twitter API application – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+How to setup and and use a Twitter API application 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 29, 2016 
+
+
+The Twitter API allows you to read and write tweets on your own Twitter account.
+But you can also create an ‘app’ that can be granted permission by other Twitter accounts to access their information and even tweet on their behalf.
+If you have ever granted this permission you will see the app in your Twitter account’s Settings, Apps options where you can see what apps have been granted permissions as well as revoke permissions.
+This comes in handy if you have multiple Twitter accounts and you want to use the Twitter API to tweet to all of them but do not want to create multiple Twitter apps. Instead you can create one Twitter app and grant it permission to use all of the other Twitter accounts.
+This is also very handy because a Twitter app must be associated with a mobile phone number. It is rare that you will have multiple mobile phone numbers.
+Note there is nothing special about the ‘dev’ account. It is a normal Twitter account but you just choose it in which to create the Twitter app that will tweet on all of your accounts’ behalves.
+Step 1. Make sure your ‘dev’ account has a mobile phone on the account otherwise you cannot proceed.
+Step 2. While logged into your dev account, open your web browser in another tab to https://apps.twitter.com/ which will open the Twitter API app management page.
+Step 3. If you haven’t already set up an API app there will be nothing to manage and it will simply show you a ‘create an app’ button. Click that button and follow instructions to setup the API app.
+Step 4. Save your new API app’s consumer_key, consumer_secret, access_token, access_token_secret credentials for use in following steps.
+Step 5. Log out of your dev account once the dev API app is setup and running properly.
+Step 6. Log into another Twitter account that you want to add the dev account API app as a 3rd party app. You will successively log into each additional Twitter account that you want to use with dev API app with. Note you do not have to login in advance, as the code you run in next steps will popup web page to prompt you enter user and pw for Twitter account you want your new API app to work with.
+Step 7. Go get this code which is what will do some magic to grant permission for your new Twitter API app to tweet on behalf of your other Twitter accounts. Save this code on your computer and keep it open in your code/text editor so you can make some changes.
+Step 8. Get your app’s consumer_key, consumer_secret, access_token, access_token_secret credentials that you got from Twitter API management and paste them into the appropriate place in code you just downloaded and saved.
+Step 9. Now run the code using command line interface and it will generate a URL in the command line window and show a URL that contains tokens that were generated specifically for your app and the other Twitter account. You just have to copy and paste the url into a web browser. Copy the url from command line window.
+
+ 
+Step 10. Paste it into a browser which also has your other twitter account logged in.  This is a crucial part of this process. The page that opens will ask you to click button to authorize this the dev app to use your other Twitter account. Click Authorize App button.
+
+ 
+Step 11.  After clicking Authorize App button you will see a web page that shows a special PIN code generated just for this one time use. I have hidden the PIN in screenshot but you will have a number where it says “PIN number is here”. Copy this PIN.
+
+Step 12. Now go back to the command line window. Python code command line also has a prompt to select ‘y’ once you have copied the PIN code and then prompt you to paste/enter the PIN code in the command line. Enter ‘y’ and hit enter and paste the PIN into the next command line.
+Entering PIN code automatically registers/adds your dev API app as a 3rd party app in the Twitter account you are currently logged into and generates two strings of characters in the command line window. These are tokens you need to copy and save so you can use them later. You will need to enter them as credentials for the dev API app to read and write Tweets for the currently logged in Twitter account.
+
+ 
+If you go to your Twitter account and select Settings – Apps you will see that your dev App is now registered as an authorized app that can Tweet and read Tweets on behalf of your Twittter account.
+
+ 
+Now its up to you to create Twitter API code to use these new authorizations. Try using Tweepy or any of the other many Twitter Python modules that are available. Happy Tweeting.
+Your dev app can be added as authorized app to multiple other Twitter accounts. You just have to repeat process for each of the other Twitter accounts one by one. Simply log into each in succession (log out of previous account and then log into the next).
+You will end up with a bunch of tokens that you can use to read and tweet for all of your Twitter accounts.
+So just to summarize what you have done is authorized one of your Twitter accounts, which has a verified mobile phone number, to read and write Tweets for any number of other Twitter accounts you have, using the Twitter API.
+For more information on Twitter API check out their developer site at https://dev.twitter.com/
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+BC Hydro’s amazing #BCStorm social media turnaround
+
+ 
+Leave a Comment 
+
+			 / Power BI, Power Query, Python, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tracking Cuba Gooding Jr’s Twitter follower count
+
+ 
+Leave a Comment 
+
+			 / Google Charts, MySQL, Python, Twitter API, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Canadian TCS FDI Officers Twitter list member analysis
+
+ 
+Leave a Comment 
+
+			 / Python, Tableau, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Twitter Followers and List Membership Tracking
+
+ 
+3 Comments 
+
+			 / Amazon Web Services (AWS), API, Chart.js, Python, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

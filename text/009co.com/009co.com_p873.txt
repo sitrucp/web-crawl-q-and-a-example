@@ -1,0 +1,494 @@
+
+
+
+
+
+
+OneDrive SharePoint Migration Tool (SPMT) – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+OneDrive SharePoint Migration Tool (SPMT) 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  August 24, 2019 
+
+
+I have a Office 365 Business Premium account. I wanted to sync many large folders with OneDrive for Business. However, it was taking very long to upload. While I was searching for improvements, I saw many other people have observed that OneDrive is much slower than Dropbox, Box, AWS, Google Files etc. Apparently this is a ‘known issue’ and Microsoft is addressing it.
+One of the things they have done is provide a standalone desktop application called ‘SharePoint Migration Tool (SPMT)’. While the name doesn’t specifically include OneDrive, the tool is intended for use with Sharepoint and OneDrive. However, there are a few pieces of information I learned to use it for OneDrive. That is the purpose of this post.
+First, the user who will be using SPMT must have permissions for the OneDrive for Business account you want to upload files to.
+Then you need to download SPMT from here https://www.microsoft.com/en-us/download/details.aspx?id=53598
+The SPMT tool can be used in any of several migration ‘scenarios’, but the one I am focusing on here is the ‘File share to OneDrive and SharePoint’ scenario. I wanted to use SPMT as a potentially faster way to upload files from my desktop computer to OneDrive for Business.
+The guide for this scenario is here https://docs.microsoft.com/en-us/sharepointmigration/fileshare-to-odsp-migration-guide.
+After you download, install and start SPMT the start screen will ask you to sign into to your Office 365 account. This will be user that has permission on OneDrive.
+
+After successfully signing in you will see 3 scenarios to choose from:
+
+The two that I was interested in testing were:
+
+File Share
+CSV file for bulk migration
+
+Note / spoiler alert
+While SPMT provides much more flexibility in terms of identifying source and target, and capability to batch migration jobs, it was not dramatically faster than just using OneDrive desktop sync tool. It took me a couple of hours to upload only 1000 files total 3 GB in size.
+The Microsoft documentation refers to migrations with multiple TB’s of files but my experience suggests that would be impossible if the files were coming from outside of Microsoft cloud. Therefore, it is clear that for large migrations, the SPMT is intended primarily for use within Microsoft cloud.
+File Share
+The File share option is pretty straightforward. Use SPMT to select the local folder to upload, then manually enter the OneDrive location url to upload them to. However, there are some things to pay attention to here:
+
+When you select a local (aka source) folder only it’s contents will be uploaded, not the entire folder with selected local folder name.
+The string you enter for the OneDrive (aka target) location url is not 100% intuitive or completely described in the instructions. See below.
+
+OneDrive (aka target) location url
+The exact specifications for this are not given in a way that is intuitively helpful. There are subtle differences in the url between SharePoint and OneDrive. The linked documentation does indicate these but I had to search for additional clarification which I pass on below.
+If my Office 365 account domain is ‘mycompany’ (eg mycompany.onmicrosoft.com) and the user is ‘myuser’ (eg [email protected]) then myuser’s OneDrive target location url:
+https://mycompany-my.sharepoint.com/personal/myuser_mycompany_onmicrosoft_com/
+You can also simply copy this from your browser address bar when you are viewing myuser’s OneDrive folder online.
+CSV file for bulk migration
+This option uses similar information as above but you put the information for source and target into a CSV (or JSON) file format.
+CSV file format:
+
+Has 6 columns
+
+Column A: Mandatory. Source folder path regular Windows path. Use double quotes if path has spaces.
+Column B: Optional. For Sharepoint migration only. Not for file migration like we are talking about here.
+Column C: Optional. Subfolder of source path.
+Column D: Mandatory. OneDrive (aka target) location url. Note do not include anything other than what is above. Column D and E are used to specify folders.
+Column D: Mandatory. Standard value “Documents”
+Column F: Optional. Subfolders that will be created if they are not already present under your OneDrive root url. Enter as “Folder/subfolder/”. Note the use of fore slash and double quotes if any spaces.
+
+
+The file has one row per ‘job’. For example, in File Share method above you select a single folder to migrate. That would be one row in CSV (or JSON) file.
+Use SPMT to upload the CSV (or JSON) file and it processes all of the migration ‘jobs’.
+However, it processes them in parallel which seems counterproductive. I would rather it process them in sequence, one row at a time.
+This bulk migration method would be useful for processing many folders.
+I did not try JSON method but would expect it would requir same information just in specified JSON foramt.
+
+In both scenarios above when the migration is happening you will see screen similar to below.
+Note that SPMT ‘scans’ the files to be uploaded first in any migration scenario to see if they meet specifications. There are strict file name prohibitions but it did rename ‘bad’ files which is nice.
+Once it indicates files are being uploaded you should see corresponding folders and files in OneDrive online.
+
+At any time during migration you can click the “View Status” link on the form to open Windows folder where SPMT keeps job status including fails etc in csv files. These are updated like log files so you can monitor status. This was helpful to see what failed and why.
+I experienced a few quirky behaviour such as pausing or stopping a migration freezing SPMT app and had to close it using Task Manager. Also one very weird result of closing a job was that a local file was corrupted and I could not move or delete it with error “windows 10 cannot delete file the tag present in the reparse point buffer”. I had to run chkdsk to fix the file.
+Overall SPMT does the job advertised. As mentioned it does not dramatically speed uploading files from local computer into OneDrive but it does offer more control and flexibility over OneDrive desktop sync for large uploads with many folders and files.
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+How to create OData data source Gateway for Power BI Report
+
+ 
+Leave a Comment 
+
+			 / Office 365, Power BI / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+OneDrive API features
+
+ 
+Leave a Comment 
+
+			 / API, Azure, Office 365, OneDrive, Power BI, Python, Sharepoint / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Power BI Online – get data from Office 365 Sharepoint file
+
+ 
+Leave a Comment 
+
+			 / API, Azure, Office 365, OneDrive, Power BI, Sharepoint / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+  
+
+How to schedule Power BI dataset refresh
+
+ 
+Leave a Comment 
+
+			 / Office 365, Power BI, Power Query, Sharepoint / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

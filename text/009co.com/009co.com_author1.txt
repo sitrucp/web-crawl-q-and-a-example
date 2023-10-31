@@ -1,0 +1,432 @@
+
+
+
+
+
+
+Curtis Pokrant – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+Author name: Curtis Pokrant
+
+
+
+ 
+
+
+
+
+
+ 
+Gestalt communication facilitated by multi-modal generative AI?  
+Leave a Comment 
+
+			 / AI & ML, ChatGPT, LLM / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Gestalt is a form of communication that appears in Diaspora, a hard science fiction novel by the Australian writer Greg Egan published in 1997. The novel begins in the year 2975 CE (Universal Time) when humanity has evolved into three distinct groupings: Fleshers – biological societies consisting original, naturally-evolving race of Homo sapiens, and a wide …
+  Gestalt communication facilitated by multi-modal generative AI? Read More »
+
+
+ 
+
+
+
+
+ 
+Microsoft Windows Copilot General Availability September 26, 2023  
+Leave a Comment 
+
+			 / Microsoft Copilot / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Microsoft Copilot is coming across Microsoft products that will bring Copilot LLM user experience across Bing, Edge, Microsoft 365, and Windows. Read Microsoft blog post for details. Watch this YouTube video for details. Edited 2023-09-28 to add: Read this Microsoft blog post to see detailed roll-out information. These new AI features are in four major …
+  Microsoft Windows Copilot General Availability September 26, 2023 Read More »
+
+
+ 
+
+
+
+
+ 
+Voip.ms get all call detail records using getCDR API  
+Leave a Comment 
+
+			 / API, PHP / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Voip.ms is a reliable, affordable and customizable VoIP service. Recently I wanted to get all of my Voip.ms telephone number call detail records (CDR). Voip.ms provides a nice UI to manually view these but I had 100’s of records that I wanted to analyse. So I turned to the Voip.ms REST/JSON API which turned out …
+  Voip.ms get all call detail records using getCDR API Read More »
+
+
+ 
+
+
+
+
+ 
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis  
+Leave a Comment 
+
+			 / ChatGPT, Environmental science, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+OpenAI ChatGPT 4 Advanced Data Analysis is pretty amazing! I put it to the test on some data I analysed recently. The data was a multi-year daily set of a river’s level and discharge measurements at a specific location on the river. The river level is measured in meters and the discharge in cubic meters …
+  OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis Read More »
+
+
+ 
+
+
+
+
+ 
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023  
+Leave a Comment 
+
+			 / Fabric / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+It was a very happy coincidence that I was in London, UK to be able to attend this May 23, 2023 London Power BI User Group meeting. Not only was it the group’s 7th anniversary but it also was the evening before the 2023 Microsoft Build conference which included the major announcement of Microsoft Fabric. …
+  Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023 Read More »
+
+
+ 
+
+ 
+
+
+Posts navigation
+1
+2
+…
+17
+Next Page →
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+

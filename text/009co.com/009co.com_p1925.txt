@@ -1,0 +1,403 @@
+
+
+
+
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023 – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  June 28, 2023 
+
+
+It was a very happy coincidence that I was in London, UK to be able to attend this May 23, 2023 London Power BI User Group meeting.
+
+Not only was it the group’s 7th anniversary but it also was the evening before the 2023 Microsoft Build conference which included the major announcement of Microsoft Fabric. In fact, the group changed its name from London Power BI User Group to London Microsoft Fabric & Power BI User Group on that very day.
+Microsoft Fabric – the new Fabric icon!
+What made this event even more special was that it was co-hosted by members of the Microsoft product group who were Fabric insiders including Chris Webb, Mark Pryce-Maher, James Hutton and others. They gave us first hand inside knowledge about Fabric before they were made officially the next day at the Microsoft Build conference.
+As soon as it was available, I upgraded my Office 365 Enterprise Power BI subscription to the Fabric free public preview trial so I could work through all of the new Fabric features myself using my own data. At the time of writing this blog post Fabric was in public preview though should be generally available in 3rd quarter 2023. In the meantime the free public preview trial will continue until 60 days after it is generally available.
+I highly recommend upgrading to the free Fabric Power BI trial and working through the Microsoft Learn: Get Started with Microsoft Fabric 11 module series outlined below as a structured way to learn and explore the capabilities of Microsoft Fabric. Upgrading to the free fabric trial lets you use all of the Fabric functionality to do the Microsoft Learn modules.
+In addition, Microsoft has revamped their community and forums to reflect the new Fabric paradigm (https://community.fabric.microsoft.com). These are getting lots of attention from Microsoft customers and staff to answer questions.
+The Microsoft Learn: Get Started with Microsoft Fabric 11 module series is summarized below:
+
+
+
+Introduction to end-to-end analytics using Microsoft Fabric – Discover how Microsoft Fabric can meet your enterprise’s analytics needs in one platform. Learn about Microsoft Fabric, how it works, and identify how you can use it for your analytics needs.
+Get started with lakehouses in Microsoft Fabric – Lakehouses merge data lake storage flexibility with data warehouse analytics. Microsoft Fabric offers a lakehouse solution for comprehensive analytics on a single SaaS platform.
+Use Apache Spark in Microsoft Fabric – Apache Spark is a core technology for large-scale data analytics. Microsoft Fabric provides support for Spark clusters, enabling you to analyze and process data in a Lakehouse at scale.
+Work with Delta Lake tables in Microsoft Fabric – Tables in a Microsoft Fabric lakehouse are based on the Delta Lake storage format commonly used in Apache Spark. By using the enhanced capabilities of delta tables, you can create advanced analytics solutions.
+Use Data Factory pipelines in Microsoft Fabric – Microsoft Fabric includes Data Factory capabilities, including the ability to create pipelines that orchestrate data ingestion and transformation tasks.
+Ingest Data with Dataflows Gen2 in Microsoft Fabric – Data ingestion is crucial in analytics. Microsoft Fabric’s Data Factory offers Dataflows (Gen2) for visually creating multi-step data ingestion and transformation using Power Query Online.
+Get started with data warehouses in Microsoft Fabric – Data warehouses are analytical stores built on a relational schema to support SQL queries. Microsoft Fabric enables you to create a relational data warehouse in your workspace and integrate it easily with other elements of your end-to-end analytics solution.
+Get started with Real-Time Analytics in Microsoft Fabric – Analysis of real-time data streams is a critical capability for any modern data analytics solution. You can use the Real-Time Analytics capabilities of Microsoft Fabric to ingest, query, and process streams of data.
+Get started with data science in Microsoft Fabric – In Microsoft Fabric, data scientists can manage data, notebooks, experiments, and models while easily accessing data from across the organization and collaborating with their fellow data professionals.
+Administer Microsoft Fabric – Microsoft Fabric is a SaaS solution for end-to-end data analytics. As an administrator, you can configure features and manage access to suit your organization’s needs.
+
+
+
+In summary, Fabric looks amazing in concept and practice!
+ 
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+ 
+Leave a Comment 
+
+			 / Fabric, Power BI, Power Query / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

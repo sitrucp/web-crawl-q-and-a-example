@@ -1,0 +1,472 @@
+
+
+
+
+
+
+COVID-19 Data Analysis and Visualization Summary – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and Visualization Summary 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  July 14, 2021 
+
+
+This is a list of Canadian COVID-19 related data analysis and visualization that I created during 2020/21 pandemic.
+Canada COVID-19 Case Map – COVID-19 new and total cases and mortalities by Canadian provincial health regions.
+https://sitrucp.github.io/canada_covid_health_regions
+
+Canada COVID-19 Vaccination Schedule – Canada’s current and historical vaccine doses administered and doses distributed. Also includes two distribution forecasts: 1) based on Canadian government vaccine planning and 2) based on Sep 30 2021 goal to vaccinate all 16+ Canadians. Uses COVID-19 Canada Open Data Working Group data.
+https://sitrucp.github.io/covid_canada_vaccinations
+
+Canada COVID-19 Vaccination vs World – Canada’s current and historical ranking vs all countries in the Our World in Data coronavirus data  by total doses, daily doses and total people vaccines adminstered.
+https://sitrucp.github.io/covid_global_vaccinations
+
+Global COVID-19 Vaccination Ranking – Ranking of all countries in the Our World in Data coronavirus data by daily vaccine dose administration. Includes small visualization of all time, population, vaccines used and trend. Can sort by these measures.
+https://sitrucp.github.io/covid_world_vaccinations
+
+COVID-19 New Case Rate by Canadian Health Regions Animation – SVG animation of new cases visualized as daily rate for each Canadian provincial health regions. Like a horse race, faster moving dot means higher daily rate.
+https://sitrucp.github.io/covid_rate_canada
+
+COVID-19 New Case Rate by Country Animation – SVG animation of new cases visualized as daily rate for each country in the Our World in Data dataset. Like a horse race, faster moving dot means higher daily rate.
+https://sitrucp.github.io/covid_rate_world
+
+COVID-19 New Case Rate by US State Animation – SVG animation of new cases visualized as daily rate for each US state. Like a horse race, faster moving dot means higher daily rate.
+https://sitrucp.github.io/covid_rate_us
+
+Apple Mobility Trends Reports – Canadian Regions Data – Apple cell phone mobility data tracking data used to create heat map visualizations of activity over time.
+https://sitrucp.github.io/covid_canada_mobility_apple
+
+WHO Draft landscape of COVID-19 Candidate Vaccines – AWS Textract used to extract tabular data from WHO pdf file. Python and Javascript code then used to create webpages from extracted data.
+https://sitrucp.github.io/covid_who_vaccine_landscape
+
+Montreal Confirmed COVID-19 Cases By City Neighbourhoods – Code and process used to scrape Quebec Health Montreal website to get COVID-19 case data for Montreal city boroughs.
+https://github.com/sitrucp/covid_montreal_scrape_data
+
+Use Excel Power Query to get data from Our World In Data – How to use Excel’s Power Query to get Our World in Data Github csv files automatically and update with simple refresh.
+https://009co.com/?p=1491
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+Visualizing human arterial blood flow with a D3.js Sankey chart
+
+ 
+2 Comments 
+
+			 / D3.js / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

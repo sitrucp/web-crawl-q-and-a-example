@@ -1,0 +1,452 @@
+
+
+
+
+
+
+Always remember to start Python Virtualenv – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Always remember to start Python Virtualenv 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 29, 2016 
+
+
+When learning to develop Django and Flask Python applications using virtual environment I did not know that I should activate the virtual environment before running the application. Well, more precisely, I did know the virtual env should be activated but rather I assumed it would be activated somehow auto-magically.
+I was using MS Visual Studio 2015 RC and its new Python Tools which work fine by the way. One can install new Python/Flask/Django/etc modules via the IDE.
+This was also the first time I was using Python virtual environment. I hadn’t previously done any Python web development. I had used Python for analytical purposes in files, command line and iPython but all of these used the ‘native’ operating system Python installation.
+In MS VS 2015 RC, after Python Tools are installed, there are templates to create new Django or Flask projects, and one of the steps asks if I want to install virtual env or not.
+So after a bit of search and read I realized virtual env is the way to go.  Its better for many reasons to have a standalone Python environment for each new Python/Flask/Django project.
+I just assumed that since I had created my new Python application with a virtual env that when I opened Visual Studio and started working on it, it would be in virtual environment by default somehow auto-magically.
+But no, the virtual environment has to be activated manually each time the project is opened or before being able to interact with the project via web browser. So remember to activate your virtual env before running your Python/Flash/Django application.
+What mislead me was that running the application without first activating the virtual environment can often be ok because the native operating system Python installation has the required modules, so application runs just fine.
+But I ran into problems when after installing new Python modules only to see the application complaining that they weren’t available eg got error message in browser and command line from the server saying ‘no module named xxx’. This was confusing because I was thinking hey I just installed that.
+So remember activating the virtual env before running the Python application is required. Now it is second nature to do this.
+To activate the virtual env in Windows simply navigate to the ‘Scripts’ folder in your virtual env folder and run the ‘activate.bat’ file.
+In command line enter ‘activate’ in that folder. Or you can enter the full path to the activate.bat from anywhere in command line.
+You can easily see if virtual env has been started because when it is you will see ‘(env)’ at the start of the command line.
+Then you can go back to your application folder with the ‘runserver.py’ (or whatever you call it) and then start the application!
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+BC Hydro’s amazing #BCStorm social media turnaround
+
+ 
+Leave a Comment 
+
+			 / Power BI, Power Query, Python, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

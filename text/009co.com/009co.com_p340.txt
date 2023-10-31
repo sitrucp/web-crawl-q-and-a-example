@@ -1,0 +1,564 @@
+
+
+
+
+
+
+Use OneDrive API to upload files to Office 365 Sharepoint Site – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Use OneDrive API to upload files to Office 365 Sharepoint Site 
+2 Comments 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  May 26, 2016 
+
+
+I have automated uploading files from my web site host’s server to my Office 365 Sharepoint site using scheduled cron jobs running Python scripts on my web host.
+The Python scripts use Microsoft’s Azure Active Directory Library (ADAL) to authenticate off Azure Active Directory (Azure AD or ADD), and  OneDrive API and Python Requests to use the authentication to upload the files to Sharepoint from my web host.
+Here is the code
+
+import adal
+import urllib
+import requests
+
+## set variables
+username = '[email protected]'
+password = 'password'
+authorization_url = 'https://login.windows.net/contoso.onmicrosoft.com' # aka Authority
+redirect_uri = 'https://login.microsoftonline.com/login.srf' # from Azure AD application
+client_id = 'd84cbf4f-dc23-24d1-8a7d-08ff8359879a' # from Azure AD application
+file_url = 'https://contoso.sharepoint.com/_api/v2.0/drive/root:/myfoldername/myfilename.csv:/content'
+
+## use ADAL to create token response
+token_response = adal.acquire_token_with_username_password(
+        authorization_url,
+        username,
+        password
+    )
+
+## Use ADAL to create refresh token and save as text file to reuse
+refresh_token = token_response['refreshToken']
+refresh_token_file = open('refresh_token.txt', 'w')
+refresh_token_file.write(refresh_token)
+refresh_token_file.close()
+
+## Get saved refresh token and use it to get new token response
+refresh_token = open('refresh_token.txt', 'r').read()
+token_response = adal.acquire_token_with_refresh_token(authorization_url, str(refresh_token))
+
+## get access_token from token response JSON string
+access_token = token_response.get('accessToken')
+
+## create http header to send access token to authenticate
+headers = {'Authorization':'BEARER ' + str(access_token)}
+
+## example to upload file
+upload_file = requests.put(file_url, data = open('myfilename.csv', 'rb'), headers=headers)
+
+ 
+There are many things to consider when working with Microsoft’s APIs to work with its online services such as Office 365.
+The first is how to authenticate. Microsoft is trying to move everyone to use Azure AD to do oAuth authentication. Microsoft services still have their own authentication methods but this exercise I used Azure AD.
+The second is what API to use. Microsoft has recently released their Graph API that is ‘one endpoint to rule them all’. However Microsoft services still have their own API’s so while Graph API looks tempting for this exercise I used the OneDrive API.
+Azure AD Authentication
+The authentication will be done in two parts.
+
+Create Azure AD application to do the authentication for the Microsoft service(s) you want to interact with.
+Use ADAL to interact with Azure AD to do the oAuth flow.
+
+Setup Azure AD – create application
+Microsoft provides free use of Azure AD for light authentication needs. You can register and create account. Once you have your account you need to create a new application.
+For my purposes I created an Azure AD native client application. Azure AD also has web application and web APIs but both require user to enter username and password in web browser. The native client application does technically also require user to enter these too but I hacked past this by using ADAL user authentication and hard coding username and password into the Python code. Since these are going onto my web host in protected directory to run as cron jobs they will be safe.
+I am not going to go through the detail of creating an Azure AD application there are some good blog posts and Microsoft does good job of describing it. For example take a look at this site which has decent information about creating a new Azure AD application.
+The Azure AD applications allow you to choose which Microsoft services it will be used to authenticate. Confusingly these are also called ‘applications’ too. They are represent Microsoft Services such as Office 365 Sharepoint Online, OneNote, Power BI, etc and is the place where you assign the permissions (also called ‘scopes’) that authentication will allows with that Microsoft service.
+An Azure AD application might provide authentication for more than one Microsoft Service. But my native client application has only Windows Azure Active Directory permissions (which are there by default) and Office 365 Sharepoint Online permissions set to Read and write user files and Read and write items in all site collections.
+After you have created your client application make sure to copy the client_id and resource_uri to use in code below. The client_id is automatically assigned and the resource_uri for a native client app can be any url and is just a unique identifier. I chose the Office 365 login url. The web applications need a real url because that is where the user will be prompted to enter credentials.
+Azure Active Directory Library (ADAL)
+Microsoft’s Azure Active Directory Library (ADAL) authentication libraries are created for developer’s to use with Azure AD. I used the ADAL Python SDK which was easily installed with pip install adal. 
+The oAuth authentication flow can seem very complex but you don’t have to worry about that if you use ADAL. ADAL uses your Azure AD application credentials (client_id, resource_uri in case of native client application) to retrieve a token response which is a text string in JSON format.
+This JSON string includes the actual access token that is used to authenticate accessing Sharepoint and upload the files. You can use Python to retrieve the access token (it is a Dictionary). Then you simply put the access token into a header that will be used in the Put Request as the method of passing the access token to the OneDrive API.
+ADAL also takes care of refreshing tokens which expire. In my case where the scripts are running on the server as cron jobs I want the token to refresh automatically. ADAL gets a refresh token that you can save to get a new access token when previous one expires. I actually write the refresh token to a text file on the server and refresh the access token each time code is run. I could only refresh it if the previous one expires.
+OneDrive API
+The OneDrive API has different configurations depending on whether you are using it to access a OneDrive Personal, OneDrive Business or Sharepoint Online account.
+Be warned that the documentation for OneDrive API can be very dense and there are different ways of presenting required syntax to identify interactions. Of course the representations vary with different SDKs too.  Also there are different versions of Microsofts file storage services over the years. So I recommend to focus on the newest OneDrive API and make sure you are looking at documentation relevant to newest version.
+The Gotchas
+ADAL Default Values
+ADAL has default client_id and resource values that it uses for the username authentication. I changed these default values to match my Azure AD application.
+Before changing these I was getting an Invalid audience Uri error
+{“error”:”invalid_client”,”error_description”:”Invalid audience Uri ‘https:\/\/m
+anagement.core.windows.net\/’.”}
+This error means the url being used to create the token response was not same as the one that the file was being uploaded to.
+EDIT August 21, 2016 Microsoft has updated the ADAL library so that you can specify the client id and the resource value because authentication against different services needs different client id and resource endpoint urls. That means the hack I used below is no longer required. For more details seehttps://github.com/AzureAD/azure-activedirectory-library-for-python
+In ADAL’s __init__.py file look for the  class _DefaultValues class at bottom of code and replace the default values:
+
+I changed client_id to my application’s client_id
+I changed resource from https://management.core.windows.net/ to https://tenant.sharepoint.com/
+
+The acquire_token_with_username_password function sets these to None so they get set to default values. So this could be changed so they accept values from the code.
+Sharepoint Site and Folder Paths
+The OneDrive API dev documentation https://dev.onedrive.com/getting-started.htm demonstrates the different service urls:
+
+OneDrive – https://api.onedrive.com/v1.0
+OneDrive for Business – https://{tenant}-my.sharepoint.com/_api/v2.0
+SharePoint Online – https://{tenant}.sharepoint.com/{site-relative-path}/_api/v2.0
+
+The {site-relative-path} notation indicates the Sharepoint site name. My site didn’t have this because it was default site. However you might have to add your site relative path.
+Also the Sharepoint url for the file I was uploading looked like this:
+https://contoso.sharepoint.com/Shared%20Documents/myfoldername/myfilename.csv
+However you will note that the file_url in the code doesn’t make any reference to the Shared%20Documents:
+https://contoso.sharepoint.com/_api/v2.0/drive/root:/myfoldername/myfilename.csv:/content
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to create OData data source Gateway for Power BI Report
+
+ 
+Leave a Comment 
+
+			 / Office 365, Power BI / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+				2 thoughts on “Use OneDrive API to upload files to Office 365 Sharepoint Site”			
+
+
+
+
+
+Paul September 25, 2016 at 1:05 am  
+
+
+This is a really good example which got me going on the project that I am trying to implement.
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis September 25, 2016 at 1:25 am  
+
+
+Great glad it helped.
+
+Reply 
+ 
+
+
+
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,509 @@
+
+
+
+
+
+
+BC Executive Compensation Tableau Visualization – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+BC Executive Compensation Tableau Visualization 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  October 22, 2016 
+
+
+The Province of British Columbia publishes public agency executive compensation each year. The data is grouped by:
+
+Sector – Employers are categorized in one of six sectors – Colleges, Crown Corporations, Education, Health, Public Service, Universities
+Employer – Employers belong to one Sector. There are about 190 employers such as BC Assessment Authority, BC Housing Management Commission, BC Hydro, etc
+Employee – An employee belongs to one Employer and they publish the full name of employee.
+
+The employee’s salary is given as:
+
+Base Salary
+Total Compensation
+
+The data is provided each year as pdf and csv data files. I downloaded csv data files for each year from 2012 to 2016 and combined them into one dataset.
+Here is link to Tableau Public Dashboard visualizing the data and the chart is embedded below.
+&lt;a href=’#’&gt;&lt;img alt=’Dashboard ‘ src=’https:&amp;#47;&amp;#47;public.tableau.com&amp;#47;static&amp;#47;images&amp;#47;BC&amp;#47;BCPublicAgencySalaries&amp;#47;Dashboard&amp;#47;1_rss.png’ style=’border: none’ /&gt;&lt;/a&gt;
+
+ 
+I used Python to combine the data. Some of the Sector values where missing spaces, one of the years had a “$” symbol in salary column values which had to be removed, and I added a new year column based on the data file’s name.
+Here is the Python code used to combine and clean up the data:
+import csv
+    import pandas as pd
+    from datetime import date, datetime
+    import glob
+    import os
+
+    def main():
+
+        ## path for data files
+        data_path = 'C:/bc_salary_data/'
+
+        allFiles = glob.glob(data_path + "*.csv")
+        frame = pd.DataFrame()
+        list_ = []
+        
+        for file_ in allFiles:
+            df = pd.read_csv(file_,index_col=None, header=0)
+            df['filename'] = os.path.basename(file_).split('.')[0]
+            df['Sector'] = df['Sector'].str.replace(' ','').str.replace('CrownCorporations', 'Crown Corporations').str.replace('CrownCorporation', 'Crown Corporations').str.replace('PublicService', 'Public Service')
+            df['year'] =  df['filename'].str[-4:]
+            df['Base Salary'] = df['Base Salary'].apply(str).str.replace('
+
+Tableau Visualization
+
+http://www.fin.gov.bc.ca/psec/disclosure/disclosure15-16.htm
+
+ 
+,'')
+            df['Total Compensation'] = df['Total Compensation'].apply(str).str.replace('
+
+Tableau Visualization
+
+http://www.fin.gov.bc.ca/psec/disclosure/disclosure15-16.htm
+
+ 
+,'')
+            list_.append(df)
+            
+        frame = pd.concat(list_)
+
+        ## Create csv file to write results to
+        frame.to_csv('merged.csv')
+
+        print str(datetime.now()) + ' data files merged'
+        
+        return
+
+    if __name__ == '__main__':
+        main()
+
+Tableau Visualization
+http://www.fin.gov.bc.ca/psec/disclosure/disclosure15-16.htm
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How a UK tent rental company used Google analytics and Tableau to improve sales
+
+ 
+Leave a Comment 
+
+			 / Google Analytics, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Vancouver Car2Go vehicle locations
+
+ 
+Leave a Comment 
+
+			 / Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

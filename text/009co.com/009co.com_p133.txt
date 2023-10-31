@@ -1,0 +1,572 @@
+
+
+
+
+
+
+How to filter referral spam from Google Analytics using API and Python – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+How to filter referral spam from Google Analytics using API and Python 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 23, 2016 
+
+
+Google Analytics data has become incredibly polluted by “spam referrals” which inflate site visits with what are essentially spam advertisements delivered to you via Google Analytics.
+The spammers are entirely bypassing your site and directly hitting Google’s servers pretending to be a visitor to your site. Its a bit odd that a technological superpower like Google has fallen prey to spammers. Apparently a fix is in the works but it feels like its taking way too long.
+In the meantime the fix is to filter out any “visit” that doesn’t have a legitimate referrer hostname. You determine what hostnames you find legitimate. At a minimum you want to include your domain. You can also filter out spam visits based on where their source. The source name is the where the spammers advertise to you by giving their spam domains hoping you will visit their sites. Setting up these filters can be done in Google Analytics built-in filters and it takes some manual effort and some ongoing updating as spammers keep changing source names.
+The screenshot below shows the Google Analytics filter screen where you build filters for hostname and source using rules based filtering.
+
+However this same rules based filtering can be done using the Google Analytics API. There is a lot of code around for you to work with and Google documentation is pretty good. I have implemented a hostname and source filter using Python and the code below. This enables me to download run the code in scheduled job and always have analytics data for analysis.
+The “hostMatch” and “sourceExp” are the two things that filter out fake hostnames and fake visit source respectively.
+You will need to get yourself Google API access and setup the OAuth (which I am not describing here). You will need the OAuth key and a secret file to authorize access to the API then you can use the code below.
+'''access the Google Analytics API.'''
+# https://developers.google.com/analytics/devguides/reporting/core/v3/reference#maxResults
+
+import argparse
+import csv
+import re
+from apiclient.discovery import build
+from oauth2client.client import SignedJwtAssertionCredentials
+import httplib2
+from oauth2client import client
+from oauth2client import file
+from oauth2client import tools
+from datetime import datetime, timedelta
+
+todaydate = datetime.today().strftime('%Y-%m-%d')
+
+def get_service(api_name, api_version, scope, key_file_location,
+				service_account_email):
+	'''Get a service that communicates to a Google API.
+	Args:
+	api_name: The name of the api to connect to.
+	api_version: The api version to connect to.
+	scope: A list auth scopes to authorize for the application.
+	key_file_location: The path to a valid service account p12 key file.
+	service_account_email: The service account email address.
+	Returns:
+	A service that is connected to the specified API.
+	'''
+	# client_secrets.p12 is secrets file for analytics
+	f = open(key_file_location, 'rb')
+	key = f.read()
+	f.close()
+	credentials = SignedJwtAssertionCredentials(service_account_email, key,
+	scope=scope)
+	http = credentials.authorize(httplib2.Http())
+	# Build the service object.
+	service = build(api_name, api_version, http=http)
+
+	return service
+
+
+def get_accounts(service):
+	# Get a list of all Google Analytics accounts for this user
+	accounts = service.management().accounts().list().execute()
+
+	return accounts
+
+
+def hostMatch(host):
+        #this is used to filter analytics results to only those that came from your hostnames eg not from a spam referral host
+	hostnames="domainname1","domainname2","domainname3"
+
+	hostExp = "(" + ")|(".join(hostnames) + ")"
+	hostMatch = re.search(hostExp, host[3].lower())
+
+	if hostMatch:
+		return True
+	else:
+		return False
+
+
+def main():
+
+    #this is where you build your filter expression, note it similar to what you would build in Google Analytics filter feature, you can be as specific of generalized using regex as you want/need
+    #ga:source filter
+    sourceExp=('ga:[email protected];ga:source!@justprofit;ga:source!@rankings-analytics;ga:source!@semalt;ga:[email protected];ga:source!@anticrawler;ga:source!@best-seo-offer;ga:source!@best-seo-solution;ga:source!@buttons-for-website;ga:source!@buttons-for-your-website;ga:source!@7makemoneyonline;ga:source!@-musicas*-gratis;ga:source!@kambasoft;ga:source!@savetubevideo;ga:source!@ranksonic;ga:source!@medispainstitute;ga:[email protected];ga:source!@100dollars-seo;ga:source!@sitevaluation;ga:source!@dailyrank;ga:source!@videos-for-your-business;ga:source!@videos-for-your-business;ga:source!@success-seo;ga:source!@4webmasters;ga:source!@get-free-traffic-now;ga:source!@free-social-buttons;ga:source!@trafficmonetizer;ga:source!@traffic2money;ga:source!@floating-share-buttons;ga:source!@video--production')
+
+    # Define the auth scopes to request.
+    scope = ['https://www.googleapis.com/auth/analytics.readonly']
+
+    #Provide service account email and relative location of your key file.
+    service_account_email = 'xxxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@developer.gserviceaccount.com'
+    key_file_location = 'client_secrets.p12'
+    #scope = 'http://www.googleapis.com/auth/analytics'
+
+    # Authenticate and construct service.
+    service = get_service('analytics', 'v3', scope, key_file_location, service_account_email)
+
+    #get accounts
+    accounts = service.management().accounts().list().execute()
+    #create list for results
+    output = list()
+
+    # loop through accounts
+    for account in accounts.get('items', []):
+    	account_id = account.get('id')
+    	account_name = account.get('name')
+
+    #get properties
+    	properties = service.management().webproperties().list(accountId=account_id).execute()
+
+    #loop through each account property default profileid (set in GA admin)
+    #get metrics from profile/view level
+    #instead of looping through all profiles/views
+    	for property in properties.get('items', []):
+    		data = service.data().ga().get(
+    			ids='ga:' + property.get('defaultProfileId'),
+    			start_date='2012-01-01',
+    			end_date= todaydate, #'2015-08-05',
+    			metrics = 'ga:sessions, ga:users, ga:newUsers, ga:sessionsPerUser, ga:bounceRate, ga:sessionDuration, ga:adsenseRevenue',
+    			dimensions = 'ga:date, ga:source, ga:hostname',
+                max_results = '10000',
+    			filters = sourceExp # the filters from above 
+    		).execute()
+
+
+    		for row in data.get('rows', '1'):
+    			results = account_name, row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]
+    			output.append(results)
+	#print output
+		#count of response rows
+        #print account_name, data['itemsPerPage'], len(data['rows'])
+
+    #here is the hostname filter call to function above
+    hostFilter = [host for host in output if hostMatch(host)==True]
+
+    with open('output_analytics.csv', 'wb') as file:
+        writer = csv.DictWriter(file, fieldnames = ['account', 'date', 'source', 'hostname', 'sessions', 'users', 'newUsers', 'sessionsPerUser', 'bounceRate', 'sessionDuration',  'adsenseRevenue'], delimiter = ',')
+        writer.writeheader()
+        for line in hostFilter:
+			file.write(','.join(line) + '\n')
+            #print>>file, ','.join(line)
+
+if __name__ == '__main__':
+	main()
+
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How a UK tent rental company used Google analytics and Tableau to improve sales
+
+ 
+Leave a Comment 
+
+			 / Google Analytics, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,458 @@
+
+
+
+
+
+
+Power BI Online – get data from Office 365 Sharepoint file – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Power BI Online – get data from Office 365 Sharepoint file 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  May 18, 2016 
+
+
+I want to create a Power BI Online report with a data source from a file on a remote web server that updates automatically so my Power BI report is always up to date.
+Power BI Desktop and Online have lots of data connectors to third party ‘Online Services’ eg Salesforce, Mailchimp, Github, etc, as well as file and database connectors. But none of these help to get the file from my remote server directly.
+There is no feature to connect to a file on a remote server. I could put my remote file data into MySQL or Postgres database and Power BI could connect to those but my remote server doesn’t allow external connections to hosted databases. So that is not an option for me.
+A Power BI Online report can get data from a Sharepoint site file that will update automatically on schedule.
+Since I have an Office 365 E3 account which has Sharepoint site I upload my remote file to the Sharepoint site and create a Power BI Online report linked to that Sharepoint file.
+I would still have to figure out how to automate uploading my remote server file to my Office 365 E3 account Sharepoint site. But I am pretty sure I can do that with the OneDrive API but more on that in Part 2.
+Here is a diagram outlining what I think my solution could be.
+
+In the meantime to test using Office 365 Sharepoint file as data source for a Power BI Online report, I created a Power BI report in Desktop with file data source from my Office 365 Sharepoint site and Published it to my Power BI Online account.
+After publishing the report to my Power BI Online account, I logged into Power BI Online, opened the newly published report and went to data source options and selected ‘Schedule Refresh’ which produced screen below.
+
+I set ‘Keep your data up to date’ to ‘Yes’ and selected ‘Connect Directly’ which gave me error message telling me I had to update credentials.
+Not surprisingly the report I published to Power BI Online didn’t ‘remember’ that I had already authorized the Power BI Desktop report to get file from my Office 365 Sharepoint site so I have to do it again in Power BI Online.
+So I selected ‘Edit Credentials’ and then selected ‘oAuth’ as type of credentials which popped up Office 365 login screen where I entered my user and password clicked login and was returned back to Power BI online page.
+The error message was gone so this must have created oAuth authentication to link the file data source from my Office 365 Sharepoint site into the data source in Power BI Online.
+Then I set the automatic refresh to one of the daily 6-hour windows (below i have selected 12 pm to 6 pm) for refresh to run (hourly refresh is a Power BI Pro feature).
+The report data source now refreshes from my Sharepoint file on daily automatic schedule so it looks like I am half way to my solution.
+I will write another blog post detailing how I will automate moving my data file from my remote server to my Office 365 Sharepoint site. Pretty sure I will be using the OneDrive API https://dev.onedrive.com but there are other options too.
+In the meantime talk a look at the previous blog post summarizing the OneDrive and Sharepoint API options.
+One challenge I have encountered so far is that the OneDrive Python SDK is made for web apps and I want to setup server app (native client app).  More to come.
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to create OData data source Gateway for Power BI Report
+
+ 
+Leave a Comment 
+
+			 / Office 365, Power BI / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

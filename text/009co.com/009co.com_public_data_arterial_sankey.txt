@@ -1,0 +1,22 @@
+
+
+
+Human Arterial Blood Flow
+
+
+
+Human Arterial Blood Flow Sankey Chart
+Blog post / Chart Data
+Chart features:
+
+Hover over any link to highlight the link and see the artery-source names, and relative flow value.
+Click on any node eg artery name to highlight the upstream and downstream links. Click again to remove the highlighting (or refresh page). Can click multiple nodes.
+Drag and drop nodes eg artery names along vertical axis to position them to read them etc.
+
+
+
+
+
+
+
+

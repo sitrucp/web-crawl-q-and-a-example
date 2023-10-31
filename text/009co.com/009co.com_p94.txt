@@ -1,0 +1,541 @@
+
+
+
+
+
+
+Time based SLA KPI created using MS Access VBA – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Time based SLA KPI created using MS Access VBA 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 21, 2016 
+
+
+A client had a time based activity that had a start and end datetime . The client wanted to be able to calculate a service level agreement (SLA) metric based on the duration of time to complete the activity.
+This SLA included requirement that time only be included in the metric if it was during work hours defined as 8am to 4pm excluding weekends and holidays. Holidays were identified by listing them manually in a database table (below).
+The SLA metric was calculated for each activity as follows:
+SLA Actual = End Datetime – Start Datetime in hours decimal value, excluding weekends, holidays and non-work hours.
+
+This SLA metric really changed people’s view of the policy. Without specific data people’s perceptions of the time elapsed from start to end were wildly variant.
+For example if an activity started at 3.55 PM on a Friday with a long weekend and was finished the following Tuesday at 10 AM it would only have 5 minutes time on Friday and 2 hours on Tuesday for total of 2 hours and 5 minutes or 2.083 hours. However before the SLA metric some perceived it elapsed SLA time as much as 5 days processing time. Using the SLA to analyse activity by people and department involved, activity category, etc was invaluable in identifying business process, training and communication issues and improvements.
+The system used was an MS Access database.
+The metric was to be calculated in and presented to user in an Access form so agents could see their real-time performance based on the SLA metric. The form had an auto refresh so the metric (and others) would be current.
+The SLA metric also had to be calculated in MS Access queries to generate SLA metrics values for real-time and historical reporting and analysis purposes.
+The function was included in required queries and an current SLA metric was created when the query was run, normally when a report was refreshed.
+To enable both of these requirements a VBA function was created that could be called by both an Access form and Access query. The function VBA code is shown below.
+The function output is a decimal value representing the number of hours. You can get an hour and minute value from the hour decimal by using modulo formula.
+A challenge for using function in queries was that reports often included long time spans so potentially 100,000+ records could be included in query and as this function would run on each record it would be very slow. To address this the query function would only be applied to records that were more recent, with business rule assuming that older records would not have changing SLA eg they would be complete.
+This VBA code and process can be reused for other similar purposes as long as you provide the function the required start and end datetime values (as parameters) and you use a holiday table which is a simple two column table (see below). You could modify the hard coded work day start and end hours to suit your business needs.
+Option Compare Database
+Option Explicit
+'*** This is the code that is used to help calculate SLA actual hours.  The code calculates
+'*** the net hours (total hours excluding weekends, holidays &amp; hours outside of workday (8am-4pm)
+'*** for the following:
+'*** - net decision time (hours from IC Date/Time aka Application Received Date to Decision Date/Time)
+'*** - net event time (for each event, hours from Start Date/Time to End Date/Time)
+'*** The SLA actual hours = Net decision time - Sum(net event time) is calculated later
+'*** in a set of queries.
+
+Function NetHours(dteStart As Date, dteEnd As Date) As Single
+
+    Dim GrossDays As Integer
+    Dim WorkingDays As Integer
+    Dim OneDayHours As Single
+
+    Dim fixedEnd As Date
+    Dim fixedStart As Date
+    Dim dteStartEnd As Date
+    Dim dteEndStart As Date
+
+    Dim StartDayHours As Single
+    Dim EndDayHours As Single
+
+    Dim intCount As Integer
+    Dim dteCurrDate As Date
+
+    dteStartEnd = DateValue(dteStart) + TimeValue("4:00pm")
+    dteEndStart = DateValue(dteEnd) + TimeValue("8:00am")
+
+    'If dteStart or dteEnd before 8am, use 8 am, if after 4 pm use 4 pm otherwise use dteStart or dteEnd
+        If dteStart &gt; DateValue(dteStart) + TimeValue("8:00am") And dteStart &lt;        DateValue(dteStart) + TimeValue("4:00pm") Then
+            fixedStart = dteStart
+        Else
+            Select Case dteStart
+            Case Is &lt;= DateValue(dteStart) + TimeValue("8:00am")
+                fixedStart = DateValue(dteStart) + TimeValue("8:00am")
+            Case Is &gt;= DateValue(dteStart) + TimeValue("4:00pm")
+                fixedStart = DateValue(dteStart) + TimeValue("4:00pm")
+            End Select
+    End If
+
+    If dteEnd &gt; DateValue(dteEnd) + TimeValue("8:00am") And dteEnd &lt; DateValue(dteEnd) + TimeValue("4:00pm") Then
+        fixedEnd = dteEnd
+    Else
+        Select Case dteEnd
+        Case Is &lt;= DateValue(dteEnd) + TimeValue("8:00am")
+            fixedEnd = DateValue(dteEnd) + TimeValue("8:00am")
+        Case Is &gt;= DateValue(dteEnd) + TimeValue("4:00pm")
+            fixedEnd = DateValue(dteEnd) + TimeValue("4:00pm")
+        End Select
+    End If
+
+    'Calculate hours on 1st day but check if they are weekends or holidays first
+    'and if hours aren't within workday then assign hours
+    StartDayHours = 0
+    If Weekday(dteStart, vbMonday) &lt;= 5 And IsNull(DLookup("[Holiday_Date]", "A_Holidays", _
+    "[Holiday_Date] = " &amp; Format(dteStart, "\#mm\/dd\/yyyy\#;;;\N\u\l\l"))) Then
+        StartDayHours = (DateDiff("n", fixedStart, dteStartEnd)) / 60
+    Else
+        StartDayHours = 0
+    End If
+
+    'Calculate hours on last day but check if they are weekends or holidays first
+    'and if hours aren't within workday then assign hours
+    EndDayHours = 0
+    If Weekday(dteEnd, vbMonday) &lt;= 5 And IsNull(DLookup("[Holiday_Date]", "A_Holidays", _
+    "[Holiday_Date] = " &amp; Format(dteEnd, "\#mm\/dd\/yyyy\#;;;\N\u\l\l"))) Then
+        EndDayHours = (DateDiff("n", dteEndStart, fixedEnd)) / 60
+    Else
+        EndDayHours = 0
+    End If
+
+    'Count workdays excluding weekends, holidays and first and last date
+    WorkingDays = 0
+    If DateDiff("d", dteStart, dteEnd) &gt; 1 Then
+        intCount = 0
+        dteCurrDate = DateValue(dteStart)
+        Do While dteCurrDate &lt; DateValue(dteEnd)
+            If Weekday(dteCurrDate, vbMonday) &lt;= 5 And dteCurrDate &lt;&gt; DateValue(dteStart) And dteCurrDate &lt;&gt; DateValue(dteEnd) _
+            And IsNull(DLookup("[Holiday_Date]", "A_Holidays", _
+            "[Holiday_Date] = " &amp; Format(dteCurrDate, "\#mm\/dd\/yyyy\#;;;\N\u\l\l"))) Then
+                intCount = intCount + 1
+            Else
+                intCount = intCount
+            End If
+            dteCurrDate = dteCurrDate + 1
+        Loop
+        WorkingDays = intCount
+    Else
+        WorkingDays = 0
+    End If
+
+    'Calculate gross # days between start and end
+    GrossDays = 0
+    GrossDays = DateDiff("d", dteStart, dteEnd)
+
+    'Calculate hours between start and end times on same day
+    OneDayHours = 0
+    'If fixedStart &lt; fixedEnd Then
+    If Weekday(dteStart, vbMonday) &lt;= 5 And IsNull(DLookup("[Holiday_Date]", "A_Holidays", _
+    "[Holiday_Date] = " &amp; Format(dteStart, "\#mm\/dd\/yyyy\#;;;\N\u\l\l"))) Then
+        OneDayHours = (DateDiff("n", fixedStart, fixedEnd)) / 60
+    Else
+        OneDayHours = 0
+    End If
+    'Else
+    '    OneDayHours = 0
+    'End If
+
+    'Depending on # GrossDays then give final NetHours result
+    NetHours = 0
+    Select Case GrossDays
+        Case 0
+        'Start and end time on same day
+            NetHours = OneDayHours
+        Case 1
+        'Start and end time on consecutive days
+            NetHours = NetHours + StartDayHours
+            NetHours = NetHours + EndDayHours
+        Case Is &gt; 1
+        'Start and end time on non consecutive days
+            NetHours = WorkingDays * 8
+            NetHours = NetHours + EndDayHours
+            NetHours = NetHours + StartDayHours
+    End Select
+
+End Function
+ 
+The holidays table had these two columns, one for holiday date and another for the holiday name (which was not used by function just to identify the date).
+Holiday_Date Holiday
+01/01/2008 New Year’s Day
+01/02/2008 Family Day (Markham)
+21/03/2008 Good Friday
+19/05/2008 Victoria Day
+01/07/2008 Canada Day
+04/08/2008 Civic Day
+01/09/2008 Labour Day
+13/10/2008 Thanksgiving Day
+11/11/2008 Remembrance Day
+25/12/2008 Christmas
+26/12/2008 Boxing Day
+01/01/2009 New Year’s Day
+10/04/2009 Good Friday
+18/05/2009 Victoria Day
+01/07/2009 Canada Day
+03/08/2009 Civic Holiday
+07/09/2009 Labour Day
+12/10/2009 Thanksgiving Day
+11/11/2009 Remembrance Day
+25/12/2009 Christmas
+28/12/2009 Boxing Day lieu
+01/01/2010 New Year’s Day
+02/04/2010 Good Friday
+24/05/2010 Victoria Day
+01/07/2010 Canada Day
+02/08/2010 Civic Holiday
+06/09/2010 Labour Day
+11/10/2010 Thanksgiving Day
+11/11/2010 Remembrance Day
+27/12/2010 Christmas Day lieu
+28/12/2010 Boxing Day lieu
+03/01/2011 New Year’s Day lieu
+22/04/2011 Good Friday
+23/05/2011 Victoria Day
+01/07/2011 Canada Day
+01/08/2011 Civic Holiday
+05/09/2011 Labour Day
+10/10/2011 Thanksgiving Day
+11/11/2011 Remembrance Day
+26/12/2011 Christmas Day lieu
+27/12/2011 Boxing Day lieu
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

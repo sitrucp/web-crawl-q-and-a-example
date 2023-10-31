@@ -1,0 +1,523 @@
+
+
+
+
+
+
+Scraping public health web page using Python, BeautifulSoup4, Requests and Pandas – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Scraping public health web page using Python, BeautifulSoup4, Requests and Pandas 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  May 9, 2020 
+
+
+During the 2020 COVID-19 pandemic in Canada I wanted to get COVID-19 confirmed cases counts data for the city of Montreal.
+The data I wanted was made freely available by the Quebec Government’s Health Montreal website in a tabular format that was updated regularly.  EDIT: Health Montreal stopped publishing data so the link no longer works!
+I wanted to be able to use this data for this Leaflet choropleth map visualization. If interested, read more details on this visualization in another blog post.
+There are many ways to get data from web pages. First I did it manually by copy and paste into Excel. This is ok for a one time analysis. You can even use Excel Power Query web feature to automate this a bit more. However, if you want to fully automate getting data from a web page you should use web scraping techniques.
+Note that the code described below is available in this Github repository https://github.com/sitrucp/covid_montreal_scrape_data.
+Initial data retrieval and transformation done using Excel
+To get the web page data, at first, I simply manually copied and pasted into an Excel workbook. This was quite easy to do as the tabular format copies and pastes nicely into an Excel grid.
+To automate this a bit more and do some more complex data transformations I switched to using Excel Power Query’s web query feature and Power Query to transform the data for the choropleth map visualization.
+Full automation and scheduling using Python, cron job and AWS S3
+However, this was intended to be an ongoing analysis so it needed to fully automated and the data retrieval and transformation process to be run on a scheduled basis.
+In addition to scraping the data from the web page, the data had to be made available somewhere on the internet where the choropleth map visualization could freely access it by a url.
+As the choropleth map visualization is hosted on Github.io I could have used Git on the web server to do an automated, scheduled push of new data from web server to the Github repository. I decided to give this a pass and try it some other time.
+Instead, I choose to upload the data to public AWS S3 bucket that the choropleth map visualization could access with a simple url for each data file.
+Everything from scraping the website to uploading data to AWS S3 was done in Python. The Python code is run on scheduled basis using a cron job on a web server. The cron job runs a few times each evening when the data is usually updated on the website.
+Python, BeautifulSoup4, Requests and Pandas to retrieve and transform the web page data and create a JSON file that could be uploaded to AWS S3 bucket and made available to the choropleth map visualization.
+Python module Boto was used to upload the data from web server to an AWS S3 bucket.
+Let go through the code.
+BeautifulSoup4 was used to get web page and find the specific table that holds the tabular data as below. The table with the counts by neighbourhood was the 4th table in the web page:
+# get health montreal webpage html
+ url = 'https://santemontreal.qc.ca/en/public/coronavirus-covid-19/'
+ page = requests.get(url)
+ soup = BeautifulSoup(page.content, 'html.parser')
+ # get all tables on webpage
+ tables = soup.find_all('table')
+ # select 4th table in list of tables on webpage
+ table = tables[3]
+Then Pandas is used to read that table into a dataframe and then add more readable consistent column headers as below:
+  # read table into pandas dataframe
+    df_table_data_all_cols = pd.read_html(str(table))[0]
+    # rename columns 
+    df_table_data_all_cols.columns = ['region_name', 'case_count','case_percent','case_per_100k','mort_count', 'mort_per_100k']
+    df_table_data = df_table_data_all_cols[['region_name','case_count','case_percent','case_per_100k','mort_count', 'mort_per_100k']]
+
+The web page table dataframe was merged with the “lookup” dataframe. This merging is basically equivalent to a SQL JOIN::
+   # join lookup table to scrape data to get geojson_name field to use on map
+    df_table_data_w_lookup = pd.merge(df_montreal_regions_lookup, df_table_data, left_on='website_name', right_on='region_name', how='left')
+    df_table_data_final = df_table_data_w_lookup[['website_name', 'region_name', 'geojson_name', 'case_count','case_percent','case_per_100k','mort_count', 'mort_per_100k']]
+
+The lookup table has one row per Montreal neighbourhood with 2 columns: one for the Health Montreal website neighbourhood name and a second for the Leaflet map’s geoJSON geographical region boundary names. This is required because the Health Montreal website neighbourhood names were not identical to the map’s geographical region boundary names.
+Of course, I could have modified the map’s geographical region boundary names to reflect Health Canada naming convention but creating a “lookup” table was easier and provided flexibility in case Health Montreal table’s names changed (which they did, in fact several times!).
+The Python code does a check to see if current data on the web page is same as previously retrieved. I only wanted to upload new data to AWS S3 if it was necessary. This check is done by comparing the total case count on web page to previous case count:
+   # if new is diff from prev, update files and upload to aws
+    if str_total_case_prev == str_total_case_new:
+        scrape_result = 'no change, case total is still same as prev case total: ' + str_total_case_prev
+    else:
+        # create scrape result string to print to cron log
+        scrape_result = 'new cases found: ' + str_total_case_new + ' prev case total: ' + str_total_case_prev
+        # transform pandas dataframe into dictionary to write as json
+        json_table = df_table_data_final.to_dict('records')
+        # write new montreal covid_data to json file for map to use
+        with open('uploads/montreal_covid_data.json', 'w') as f:
+            f.write('var covid_data = \n')
+            json.dump(json_table, f, ensure_ascii=True)
+            # write today's date to use in index page as last updated date
+        with open('uploads/last_update_date.json', 'w') as f:
+            f.write('var last_update_date = \n')
+            json.dump(todays_date, f)
+        upload_to_aws()
+
+If the counts are the same then code stops. If the new count is different than the previous count the code create new data that is uploaded to the AWS S3 bucket.
+A scrape_results string is also created that is written to the cron log.
+Uploading to an AWS S3 bucket is conceptually quite straightforward. The Python module Boto makes it easy to create the connection and bucket definitions:
+  ## create aws S3 connection
+    conn = S3Connection(canada_covid_aws_keys['AWS_KEY'], canada_covid_aws_keys['AWS_SECRET'])
+    bucket = conn.get_bucket('canada-covid-data')
+
+The bucket itself has a Public Policy so anyone can read the data files. Each bucket file has a public url so the map visualization can simply reference these to get the data.
+However, authentication is required in order transfer the data from the web server to the S3 bucket. So there is some behind the scenes setup work to do on the AWS side. First, to create and configure the bucket and second to create and configure the IAM objects to do authentication.
+An IAM User Policy was created to allow that User to write, read and delete on that bucket. The User has an AWS key and secret that are provided as part of the Boto connection to do the S3 authentication. Of course the key and secret should not be exposed and are imported into the Python code from another non-public location on the web server.
+Once connection is made, then the Python code deletes the existing files on S3 before uploading new files:
+  
+    # identify files to be uploaded to aws
+    upload_files = [f for f in listdir(upload_path) if isfile(join(upload_path, f))]
+
+    # delete existing files from bucket
+    for key in bucket.list():
+        bucket.delete_key(key)
+
+    # write new files to bucket 
+    for file in upload_files:
+        k = Key(bucket)
+        k.key = file
+        k.set_contents_from_filename(upload_path + file)
+
+The Leaflet map visualization will then show the new updated data next time it is viewed or browser page refreshed.
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+BC Hydro’s amazing #BCStorm social media turnaround
+
+ 
+Leave a Comment 
+
+			 / Power BI, Power Query, Python, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

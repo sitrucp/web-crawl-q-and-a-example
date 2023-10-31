@@ -1,0 +1,521 @@
+
+
+
+
+
+
+Visualizing human arterial blood flow with a D3.js Sankey chart – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Visualizing human arterial blood flow with a D3.js Sankey chart 
+2 Comments 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 13, 2016 
+
+
+This Sankey chart represents human arterial blood flow from the heart down into the smallest named arteries.
+A Sankey chart visualizes directional connections between nodes. In this case the nodes are artery names and the connections are flow of blood through the arteries.
+The full sized chart is huge, so first take a look at the small size view below to get oriented.
+
+The data used to create the visualization can also be viewed in tabular format here.
+Two screenshots below, from the visualization’s top level branches, highlight where blood flows from heart to body and lungs. The grey connections represent blood flow. The colored ‘nodes’ represent the arteries.
+You are able to click on the nodes which will highlight the connections and blood flow. This is a great way to see how blood flows from artery to artery.
+
+
+The data was sourced from this UAMS web page 
+http://anatomy.uams.edu/anatomyhtml/arteries_alpha.html.
+Quite a bit of cleaning was required to get the data ready to be used by D3 to create the Sankey charts. Some of the data transformations required are described below:
+
+
+
+Edited artery names to remove commas eg, alveolar, anterior superior to anterior superior alveolar. This was done using Excel and VBA.
+Creating new table rows to link arteries with their sources eg, Left Ventricle is source for Aorta.
+Creating new table rows for both right and left arterial pairs. This was done by duplicating entire table, to create two sets (one for left, one for right) then manually editing to remove where there are no pairs eg Aorta.
+Occasionally modified artery name by adding its source artery name to differentiate name from others. Eg Sigmoid Ascending Br. instead of Ascending Br. This was done because sankey.js requires unique node names and some arteries had same name in data source eg Ascending Br.
+Created new table rows to include arterial branches. Used Excel and VBA to separate branches separated by comma into new rows.
+
+
+
+Some interesting observations about the artery data used to create chart and possibilities to extend the data and chart:
+
+
+
+There are missing arteries or errors in naming and linkages so please don’t study for your anatomy exam using this : )
+The Sankey chart termination nodes are major arteries. However,  the UAMS arterial tables indicates that ‘unnamed branches’ are actually the terminating nodes. If I included these, I would have had to create unique names for each ‘unnamed’ arterial reference but I was too lazy to do that 🙂
+The termination nodes are assumed to be capillaries eg other than the ‘unnamed’ arteries, the blood flows into capillaries, then goes back to heart via the Venous system.
+I was surprised to learn that in reality there can be a large number of ‘arterial anastomoses’ where hierarchically unrelated arteries join together. I didn’t include any of these.
+The ‘other half’ of the body’s blood flow eg the Venous is not included in this chart. One day I might revisit and include the Venous system.
+It would be cool to add accurate blood flow ‘value’ to each artery-source connection which would be an additional column in the data table for blood flow volume for each artery.
+
+The Sankey chart would represent these volumes by varying artery-source connection thickness.
+These would be proportionate values. For example the blood flow from Left Ventricle to Aorta (Ascending Aorta) would be 100% or whatever relative numerical value we could assign (I used 10). From that point, say 30% goes to brachiocephalic trunk and 70% continues into Aortic Arch and down into the body, and so on with each further branching into other arteries.
+
+
+It would be even more interesting to setup a dynamic system that changes these blood flow volumes based on heart rate.
+
+Could also represent blood flow changes, for example, if a femoral artery were cut, what would be the effect of flow on rest of system?
+The Sankey chart values could change to reflect changes. We could change artery-source link color eg red (increase), green (normal) or yellow(decrease) to indicate increase/decrease in blood flow resulting from these system perturbations.
+
+
+
+
+
+The Sankey chart was created using a D3 JavaScript library Sankey plugin.
+This arterial Sankey chart includes some additional D3 JavaScript that modified the chart formatting and includes feature to highlight node links and to allow node drag and drop re-positioning. You can view the JavaScript for my Sankey chart simply by viewing the Sankey chart’s page source.
+The code used to create this is available in this Github repository.
+
+
+
+
+Post navigation
+Next Post →
+  Related Posts   
+
+
+ 
+
+AWS S3 csv file as D3 report data source
+
+ 
+Leave a Comment 
+
+			 / Amazon Web Services (AWS), D3.js, Javascript, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Choropleth map of Canada COVID-19 cases by health region using Leaflet and D3.js
+
+ 
+Leave a Comment 
+
+			 / D3.js, Geocoding, Javascript, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Heat maps of Canadian activity changes due to COVID-19 using Google Community Mobility Reports
+
+ 
+Leave a Comment 
+
+			 / D3.js, Excel Pivot Chart, Excel Pivot Table, Javascript, Power Query, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+D3.js SVG animation – COVID-19 rate “race” visualization
+
+ 
+Leave a Comment 
+
+			 / D3.js, Javascript, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+				2 thoughts on “Visualizing human arterial blood flow with a D3.js Sankey chart”			
+
+
+
+
+
+Federico May 7, 2016 at 11:20 am  
+
+
+Hi , this is a really well done job.
+Im interested in reproducing the same in a smaller scale.
+Is there anyway to see the source code ?
+Thanks in advance
+
+Reply 
+ 
+
+
+
+
+
+
+sitrucp May 7, 2016 at 9:53 pm  
+
+
+Thanks. The source code can be seen by viewing the Sankey chart page source. I updated the post to include a link to the D3 site’s Sankey web page. This has a link to a Github page with very simple implementation of the Sankey chart. You can also view the D3 site’s Sankey web page source to see its code. I actually copied that and modified to make my chart.
+
+Reply 
+ 
+
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

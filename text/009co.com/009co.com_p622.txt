@@ -1,0 +1,674 @@
+
+
+
+
+
+
+Django form geocode submitted address to get lat, lon and postal code – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Django form geocode submitted address to get lat, lon and postal code 
+10 Comments 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  August 6, 2016 
+
+
+One of my Django applications includes a form where user can enter and submit a property address.
+
+The user submitting the form might not know the postal code so I left it optional. However the postal code is a key piece of information for this particular application so I wanted to ensure that I was getting it.
+I also wanted to geocode the address immediately to get the address latitude and longitude so it could be shown to user on a Leaflet.js map.
+There are lots of free geocoding services for low intensity usage but I ended up using Google Geocoding which is free under certain usage level. You just need to create a Geocoding API project and use the credentials to set up the geocoding.
+To interact with the geocoding API I tried Python gecoding modules geopy and geocoder but in the end just used Python Requests module instead as it was less complicated.
+When the user clicked the Submit button, behind the scenes, Requests submitted the address to Google’s Geocoding API, gets the JSON response containing the latitude, longitude and postal code which are then written to the application database.
+I will update the code in future to check if the user’s postal code is correct and replace it if it is incorrect. Will wait to see how the postal code accuracy looks. Making geocoding API requests too often could bump me over the free usage limit.
+The Django View that contains the code described above is shown below.
+def property_add(request):
+   
+    property_list = Property.objects.filter(user_id=request.user.id).order_by('created')
+    
+    if request.method == 'POST':
+        form = PropertyForm(request.POST)
+        if form.is_valid():
+            new_property = form.save(commit=False)
+            address = "%s, %s, %s, %s" % (new_property.address1, new_property.city, new_property.state, new_property.postcode)
+            google_geocode_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+            url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + "'" + address + "'" + '&amp;key=' + google_geocode_key
+            
+            try:
+                response = requests.get(url)
+                geoArray = response.json()
+                new_property.lat = geoArray['results'][0]['geometry']['location']['lat']
+                new_property.lon = geoArray['results'][0]['geometry']['location']['lng']
+                new_postcode = geoArray['results'][0]['address_components'][7]['long_name']
+                new_fsa = geoArray['results'][0]['address_components'][7]['short_name'][:3]
+            except:
+                new_property.lat = None
+                new_property.lon = None
+                new_postcode = None
+                new_fsa = None
+           
+            if new_property.postcode:
+                new_property.fsa = new_property.postcode[:3]
+            else:
+                new_property.postcode = new_postcode
+                new_property.fsa = new_fsa
+           
+            new_property.user_id = request.user.id
+            new_property = form.save()
+            return HttpResponseRedirect(reverse(property, args=(new_property.pk,)))
+    else:
+        form = PropertyForm()
+
+    context_dict = {
+        'form': form, 
+        'property_list': property_list,
+    }
+        
+    return render(
+        request,
+        'property_form.html',
+        context_dict,
+        context_instance = RequestContext(
+            request,
+            {
+                'title':'Add Property',
+             }
+            )
+    )    
+
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+				10 thoughts on “Django form geocode submitted address to get lat, lon and postal code”			
+
+
+
+
+
+Daniel James August 21, 2019 at 3:19 pm  
+
+
+Hi Curtis,
+  I’m currently developing an application in Django, and I want to give users the ability to enter a location and get matched with any listings (objects in the database) that match the location the user has entered. Very similar to what you might see on many sites across the web such as Airbnb or Zillow.  I have looked into GeoDjango, but just could help but think, there must be a simpler way to do this.  Could I successfully achieve this with a Google API, or would I need to go the GeoDjango route? Any advice, help or solutions whatsoever would be deeply appreciated. Thank you!
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis August 21, 2019 at 10:12 pm  
+
+
+Hey Daniel, depends on what you mean by “enter a location”. In this post the user enters an address, which is geocoded. Once you have lat and lon you can use that to identify other things that are at or near to that lat and lon. 
+Below is example Django query using SQL that returns a list of locations including location name, lat and lon, and their calculated distance from the location of interest. 
+In my case, I have a location page that uses query below to show list of nearby locations.
+In your case, you would be allowing user to select/provide a location that you geocode and then identify locations nearby. You have to decide definition of “at that location” eg is user selected location exactly at that location or within 50 meters etc. In query below if the distance = 0 then both sets of lat and lon are exactly same. 
+nearby_locations = Location.objects.raw(‘SELECT id, name, lat, lon, 1000 * SQRT(POW(111.2 * (lat – %s), 2) + POW(111.2 * (%s – lon) * COS(lat / 57.3), 2)) AS distance, case (SELECT distance) when 0 then “target” else “nearby” end as icontype FROM locations HAVING distance < 500 ORDER BY distance', (location_lat, location_lon))
+
+
+Reply 
+ 
+
+
+
+
+
+
+Daniel James August 27, 2019 at 11:47 am  
+
+
+Hi Curtis, Thank you very much for the reply. I went ahead and used Geopy to geocode all of the 
+instances of the model in the database, and was able to plot the location of each instance on a map 
+using a mapbox API. I have also attached a mapbox search API which allows the user to enter 
+a location and the API automatically geocodes the inputted address and zooms in to the location on 
+the map. I just have one more challenge. How would I attach a list of all of the instances of the model 
+to the map, so that when the user scrolls the map, the list updated accordingly only showing results 
+within that specific area? For example, let’s say the user zooms into the city of 
+Columbus, Ohio. The list of instances would automatically update and would no longer contain any 
+instances outside of that city. Would achieving something like this have more to do with GeoJson or 
+Javascript or would this still be done on the Django side of things. Any bit of guidance whatsoever
+would be greatly appreciated. Once again, thanks for all of your help!
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis August 27, 2019 at 10:50 pm  
+
+
+Geopy sounds like great package to use. Will use it next time I need geocoding.
+Dynamically updating map instance list would be both Javascript and Django. Would need Django view(s) to take inputs from Javascript and return results back to Javascript. It should be “asynchronous” updating so page doesn’t have to entirely refresh just the map and list.
+I imagine Javascript event firing on some user input eg moving map or dropping pin. 
+Not sure if it would take one or more Django views. But seems like there are two tasks to do:
+1) After event would need to identify new coordinates of map eg new centroid of visible map plus perhaps some zoom factor.
+2) Send new coordinates to Django view to create and send new list of instances back to front end.
+
+Reply 
+ 
+
+
+
+
+
+
+
+
+JW December 27, 2019 at 3:47 pm  
+
+
+Hi, new to Django. What would your models.py file look like with the views.py file you shared? I think that would help me better understand this.
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis December 28, 2019 at 6:32 am  
+
+
+Google’s geocoding API needs street name and address number, city and province/state. It returns that address’s latitude, longitude and postal code/zip code. So as far as this specific view code is concerned, I have a model “Properties” which includes all of these things eg anything prefixed by new_property in the view code.
+
+Reply 
+ 
+
+
+
+
+
+
+
+
+NS May 25, 2021 at 10:06 am  
+
+
+Hi Curtis, 
+I’m relatively new to django and I’m trying to create a Django application where i can get a user to submit a location and then use google’s geocoding api to get the latitude and longitude of that location and be able to display nearby food places based on the user location. I came across your article and i found that its very helpful. However, I don’t quite understand how your views.py is able to take in the data, geocode it and then save the results to the database and I’m wondering if you’re willing to explain a bit more on how your view works? (Specifically the parts from the try onwards)
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis May 25, 2021 at 12:58 pm  
+
+
+Hey NS, 
+The data is saved to database by the form post action eg starting with: if request.method == 'POST':. That is basic Django form processing.
+The geocoding is inside the form processing. It is wrapped in the try: because on rare occassion response = requests.get(url) didn’t return a response (maybe connection was lost, Google server took too long, etc). 
+If it does receive a response then the results are returned as geoArray = response.json(). The lat, lon, postcode, etc are extracted from this response eg new_property.lat = geoArray['results'][0]['geometry']['location']['lat'].
+If it doesn’t receive a response then the except: values are set to none eg new_property.lat = None.
+Does that help?
+
+Reply 
+ 
+
+
+
+
+
+
+NS May 30, 2021 at 9:55 am  
+
+
+Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is submitted it doesnt go to the api call. Instead, on my terminal it just shows that it redirects me to “GET /my_template/?INPUTEDVALUE”. I’m wondering if there’s something that needs to be added in urls.py or my forms.py to ensure that its redirected to the api call when a form is submitted?
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis May 30, 2021 at 3:34 pm  
+
+
+Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific situation. I just did quick search and found this one which is quite nice: Example #1 – Setting up a basic contact form
+Sounds like you are pretty close to making it work but just need to methodically implement it!
+
+Reply 
+ 
+
+
+
+
+
+
+
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

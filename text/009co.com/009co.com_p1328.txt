@@ -1,0 +1,483 @@
+
+
+
+
+
+
+Amazon AWS Transcribe used to get 2020 presidential debate #1 speaker segments – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Amazon AWS Transcribe used to get 2020 presidential debate #1 speaker segments 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  October 5, 2020 
+
+
+TLDR: I used Amazon Transcribe to transcribe the first presidential debate audio that included timestamps for each word, to create the following speaker timeline visualization (created using a Plotly timeline chart). Click image to view full size visualization.
+
+After watching the US 2020 Presidential Debate #1  I was curious to see if there was an automated way to identify when a debater was interrupted while speaking during their 2 minutes allotted time.
+I envisioned a timestamped transcription that could be used to create a timeline of each speaker talking and identifying overlaps where one speaker was talking first and second speaker starts during that talk ‘segment’.
+Unfortunately Amazon Transcribe purposefully shifts all of the transcribed words’ start times to eliminate overlapping word time periods. Therefore, it wasn’t possible to get the data I wanted to satisfy my curiousity using Amazon Transcribe.
+It may be possible to infer overlapping speaker talking and interruptions with multiple small interleaving speaker segments but that would be hard to distinguish from two people having a conversation with the Amazon Transcribe results. Might investigate alternative automated transcription methods and make new post. TBD.
+Here is link to Github repository containing code.
+Getting Debate Audio
+I used youtube-dl to download the debate audio from a CSPAN video recording of the debate which was on YouTube. The audio produced youtube-dl was an mp3 file. I used Libav to trim off the beginning ~30 minute portion of the audio as it was not the actual debate but pre-debate stage prep.
+Using Amazon Transcribe
+I used Amazon Transcribe to create a transcription of the debate audio.
+Amazon Transcribe can only process audio files that are stored in an AWS S3 bucket. Uploading the file and running the Amazon Transcribe job were done using Python and AWS Boto3 SDK.
+The Transcribe transcription output is a JSON file that contains “segments” for each identified speaker in the audio. These segments identify the speaker and have start and end times. Amazon Transcribe seemed to be pretty good at identifying the speakers in the audio. The transcription itself was not perfect.
+The output JSON file is saved in a new S3 bucket created by Transcribe. The JSON file contains the following content and high-level structure:
+
+
+
+jobName – job name specified for transcription.
+accountId – Amazon account or IAM account?
+results– contains elements below:
+
+transcripts – complete text of audio transcription.
+speaker_labels – contains elements below:
+
+speakers – the number of speakers specified for transcription.
+segments – one or more time based segments by speaker. Has start and end time, and speaker label.
+
+items – segments have one or more time based items. Has start and end time, and speaker label. Does not include word.
+
+
+
+
+items – separate section with more than one item, one for each word or inferred punctuation. Includes word along with alternatives with confidence value for each word. Has start and end time, but does not have speaker label.
+
+
+status – of transcription job eg in-process, failed or completed.
+
+
+
+Processing Transcription
+The Transcribe output JSON file was read into a Pandas dataframe which was used as the data source for the Plotly timeline chart shown above.
+The timeline chart data was created from the [‘results’][‘speaker_labels’][‘segment’] elements which identified the speaker and had segment start and end times. The x-axis was populated by the segment timestamps and the y-axis was populated by categorical values of speaker names.
+An important data transformation was done because a Plotly timeline chart requires datetimes for period start and end and x-axis values. However the Transcribe output JSON file only has start and end times that are elapsed seconds from beginning of audio.
+Therefore the elapsed seconds were transformed into “fake” dates by adding an arbitrary date (in this case “1970-01-01”) to a “HH:mm:ss” value created from the JSON file seconds values.
+The Plotly timeline chart formatting was set to create nice vertical bars for each speaker segment.
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+BC Hydro’s amazing #BCStorm social media turnaround
+
+ 
+Leave a Comment 
+
+			 / Power BI, Power Query, Python, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,369 @@
+
+
+
+
+
+
+The human radio-broadcast bubble – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+The human radio-broadcast bubble 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  November 12, 2020 
+
+
+“Space… is big. Really big. You just won’t believe how vastly, hugely, mindbogglingly big it is” (quote from The Hitchhiker’s Guide to the Galaxy)
+One measure of  space is the size of a “bubble” created by radio waves radiating outwards from the Earth over the past 139 years since they were first intentionally produced by humans in the 1880’s. Wikipedia: History of radio
+The image below, created by science blogger Adam Grossman, illustrates this “bubble” of radio waves as a tiny blue dot on an artist visualization of the Milky Way galaxy.
+The human radio-broadcast bubble compared to Milky Way galaxy.
+The visualization has an inset in the bottom-right with a close-up of the Earth’s region of the Milky Way galaxy to make the blue dot more readily visible. This shows that the blue dot is very small compared to the Milky Way.
+However, that tiny blue dot is actually an enormous sphere with a radius of 139 light-years Wikipedia: light-year and the Earth at its center and the sphere’s grows another light-year every year. For the non-science people, those radio waves are travelling at the speed of light!
+Tiny blue dot is actually an enormous sphere with a radius of 139 light-years and the Earth at its center!
+The blue dot is very small compared to the Milky Way and even smaller when compared to the universe.
+The distance from Earth to the edge of the observable universe is 46 billion light-years Wikipedia: Universe and the observable universe contains about 200 billion galaxies according to latest Hubble observations Nasa: Hubble.
+Feeling small yet? Even though that blue dot is arguably the biggest thing humans have created, its 139 light-year radius about 331 million times smaller than the 46 billion light-year distance to the edge of the observable universe.
+Also as a final note, it is not likely that the radio-waves are actually detectable, at least not by our current technology, after travelling 139 light-years. But, perhaps somewhere out there, aliens with some magic technology are entertaining themselves by listening to human radio and tv broadcasts, air traffic controllers, police and EMT calls, and cell phone conversations. Nice thought .. scary thought?
+Also this image has been used often without attribution to its creators. This planetary.org blog post gives more history of the creation of this image in 2011 by Adam Grossman and Nick Risinger. The original blog post by Adam Grossman can be found archived on github.io and it was featured on YCombinator’s Hacker News here.
+ 
+ 
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

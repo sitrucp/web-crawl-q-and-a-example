@@ -1,0 +1,432 @@
+
+
+
+
+
+
+Curtis Pokrant – Page 17 – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+Author name: Curtis Pokrant
+
+
+
+ 
+
+
+
+
+
+ 
+Time based SLA KPI created using MS Access VBA  
+Leave a Comment 
+
+			 / MS Access, VBA / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+A client had a time based activity that had a start and end datetime . The client wanted to be able to calculate a service level agreement (SLA) metric based on the duration of time to complete the activity. This SLA included requirement that time only be included in the metric if it was during …
+  Time based SLA KPI created using MS Access VBA Read More »
+
+
+ 
+
+
+
+
+ 
+Visualization of Toronto’s 311 contact centre open data  
+Leave a Comment 
+
+			 / Excel Pivot Chart, Excel Pivot Table, Open Data / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+This is based on City of Toronto’s Open Data website 311 call performance data for the 4 years 2010, 2011, 2012 and 2013. The data is provided by the City in a Google Spread Sheet and has been downloaded and saved here in Excel 2013 format 311_daily_contact_centre_data. I used Excel pivot tables and charts for analysis and …
+  Visualization of Toronto’s 311 contact centre open data Read More »
+
+
+ 
+
+
+
+
+ 
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas  
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Car2Go provides developer access to their real-time vehicle location and parking availability, and service area boundaries for all of their city locations around the world. I was using the Car2Go API to power a website created for my own use after struggling with the official Car2Go map on their site when using my mobile phone. I …
+  Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas Read More »
+
+
+ 
+
+
+
+
+ 
+LinkedIn ‘People You May Know’ web scraping and analysis  
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+A while back LinkedIn sneakily vacuumed up all of my contacts from my phone via the Android Cardmunch app. Turns out Cardmunch is owned by LinkedIn. There must be fine print somewhere that indicates they do this but I sure didn’t see it. Many of my contacts that were imported were out of date and in …
+  LinkedIn ‘People You May Know’ web scraping and analysis Read More »
+
+
+ 
+
+
+
+
+ 
+Visualizing human arterial blood flow with a D3.js Sankey chart  
+2 Comments 
+
+			 / D3.js / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+This Sankey chart represents human arterial blood flow from the heart down into the smallest named arteries. A Sankey chart visualizes directional connections between nodes. In this case the nodes are artery names and the connections are flow of blood through the arteries. The full sized chart is huge, so first take a look at …
+  Visualizing human arterial blood flow with a D3.js Sankey chart Read More »
+
+
+ 
+
+ 
+
+
+Posts navigation
+← Previous Page
+1
+…
+16
+17
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+

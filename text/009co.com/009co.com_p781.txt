@@ -1,0 +1,569 @@
+
+
+
+
+
+
+Comparison of my old Palm vs my new Pocket PC (from 2004) – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Comparison of my old Palm vs my new Pocket PC (from 2004) 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  July 31, 2018 
+
+
+Here is a blog post from old Word Press site I wrote back in July 7, 2004
+Comparison of my old Palm vs my new Pocket PC
+I thought I would write this to share some of my experiences making the transition from the Palm platform to Windows CE/Pocket PC, as well as some of the things I did to my Pocket PC 2003/Dell Axim X30 to make it function better for me. At the end I get into a more polemic editorial on the looming Microsoft hegemony on the PDA OS world – a good thing, and a bad thing.
+What did I use my Palm VIIx for?
+
+Calendar (Desktop To Go)
+Contacts (Desktop To Go)
+Notes (Desktop To Go)
+Tasks (Desktop To Go)
+Reading eBooks (Mobi Book, AportisDoc, Palm Reader, Word To Go)
+Documents and spreadsheets (My Documents To Go)
+3rd expense applications mostly productivity eg expenses
+Handwritten notes/graphics (Doodle)
+
+What more can I do on my Dell Axim PPC 2003?
+
+Wifi internet access
+Wifi streaming audio
+Wifi streaming LIVE NASA TV!! (and lots of others)
+Play relatively sophisticated games like Quake
+Color picture viewer
+MP3 player (eed a big SD card now)
+Wireless synchronization of Pocket PC Outlook to PC Outlook
+Wireless access to PC (using shared folders)
+Control Desktop by wireless connection
+Use Pocket PC as a remote control for TV (and anything else requiring an IR remote)
+Use Excel to manage my list of books and daily balances and projected income
+Bluetooth connection to cellphone to dialup internet access
+Bluetooth to exchange photos from other persons cellphone with camera (also with IR)
+Much more to come!
+
+Side by Side Views
+The Palm VIIx is the black colored device on the left, and the Dell Axim is the silver colored device on the right.
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+I never used the “Wireless” capability of my Palm VIIx. I actually became annoyed by the antennae popping up and down (it was so loose that it always moved) and activating the modem software, so I Crazy Glued it to the Palm.
+But in any event, look at the size of that antennae!
+Palm VIIx with wi-fi antenna extended.
+
+ 
+ 
+ 
+ 
+ 
+Ok let’s get into the details
+There are some very fundamentally important things that I really like about my Palm compared to my new Axim. Maybe I am used to the Palm but it got what I wanted done quickly and efficiently. I hoped that my Dell Axim would far surpass that. It hasn’t .. yet! I am continuing my search for applications, tricks, and new ways to do old things!
+Anyways, after many years, I was very happy with what I was getting from using Palm. Even though the Palm VIIx is relatively stone-age in terms of hardware, size, etc, I found it and a Palm 100 I had a few years before, to be incredibly useful. While the PPC is the more flexible platform, the Palm does things in a much more efficient, and often more powerful way. I could treat my Palms like the brick of plastic they were. The VIIx screen crapped out on me once, so I opened it up, took it apart cleaned connections, reseated cables, and voila it worked again. I read ton’s of ebooks on it. I also used it on a daily basis for Appointments, Expenses, Tasks, Notes, Excel and Word document editing.
+That said, I am overwhelmed by the advances that have been made in less than four years between when the Palm VII (it came out 2001) came out to the current slate of PPC’s.
+Dammit, with my Axim X30 312 mhz, I can be listening to MP3’s (the sound on my Axim MP3 really rocks-equalizer, extra bass), while reading Bill Clinton’s, My Life on Mobibook! I can play games like Quake, which was a real struggle on my old 486 50 Mhz Pentium but is smooth as butter on my new Dell Axim X30. Truly amazing.
+This brings to mind the exponentially increasing exponential increase in processing power ratio ala Ray Kurzweil .. but dammit again, this just reinforces my consternation about why I am feeling a shortcoming about I can/cannot do with my new PPC vs the Palm given the enormous boost in hardware capabilities! Maybe its not the hardware .. then again, why I am complaining when it is a bit slow? My Palm couldn’t even mult-task, let alone exhibit such brute strength. Clearly, I am conflicted. Clearly, something is conflicte. Anyways, I got my Pocket PC a couple of weeks ago. The amazing price of the Dell Axim, built-in WiFi & Bluetooth made it an easy choice.
+After shopping around for Pocket PC PDAs and lots of reading, the only contender was the Ipaq 4150, but even with its greater supposed “form factor”, and longevity of service, etc it was almost $300 (Hello US citizens, this is Canadian Dollars) more expensive. Also, the Dell 312 Mhz cpu rates as fast, or faster in many categories than the Ipaq’s 400 Mhz. So, I fired off my money order (not only do I believe in reducing my ecological footprint, I believe in reducing my electronic footprint) by overnight courier to Dell here in Toronto.
+I initially had four orders placed with Dell because the Canadian website was confusing, so I kept going back to make sure I was ordering what I wanted. A little aside here, I know a high level technology manager at Dell Canada who says the guy in charge of the Dell website is a doofus. The US site was great. Anyways, a few strategic phone calls to iron this out probably didn’t hurt in elevating my profile. Then I put “RUSH, per Customer Rep” accentuated with highlighter on the order printout attached to my money order. I was trying to push some buttons in the machine to make sure my order wouldn’t get lost in the in-basket. I think it worked. Lots of people seem to be waiting a long time for their Axims. Four days later my Axim was in a truck on its way to me. It arrived 2 days after that. Not too shabby eh?
+Before getting my Dell Axim, I didn’t really know much about what to expect from the Pocket PC or Windows Mobile CE OS. I assumed that the much more powerful hardware in my new Axim/Pocket PC would make everything “snappier”. However, I have discovered a confounding paradox. The Palm PDAs I had let me find and open things faster, but the Axim/Pocket PC is obviously the more powerful system when it comes down processing stuff.
+For example, even though the steps are the same, opening MS Excel spreadsheets on the Palm VIIx is much faster. But calculation of formulas and the like in the Palm VIIx takes so long, I can literally tap-a-tap-tap my fingers in idleness. In the Axim/Pocket PC, it seems as fast as my desktop computer. Blink, its done.
+Lets move on to another thing, the 3rd party application factor. Those Palm programmers are everywhere. There are guys in Amsterdam, Thailand, Borneo, Chicoutimi churning out tons of Palm applications for free. The PPC world is populated by programmers with $ signs in their eyes. Nothing wrong with making money but what is happening, from my perspective, is that because M$ has bankrolled PPC development, most of the players involved are bigger and better funded, and expecting a better ROI, by targeting the enterprise market and the high end consumer market.
+This leaves the plain vanilla user like me with dimished opportunities. I think it would be interesting to do a comparison of the demo trial length (in days) for applications developed for Palm versus PPC. I bet it would be much shorter for PPC. There would be no contest in terms of freeware or pay-as-you-like-ware. Palm would win hands down.
+Now this brings my consternation about what I can actually DO with my PPC versus my Palm to the fore. Because the benchmark for ROI in the PPC application world is higher than in the Palm world, the level of application sophistication is higher. Essentially, developers want to give more, to justify higher software cost and thus the competitive spiral elevates. Its only human nature, well almost always, because often people just don’t have what it takes, and they fake it, or they stuff it up, or bloat the ware just to add more “functionality”.
+There is nothing wrong with this. Everybody should try to give the user the best experience. But from my perspective, as a user, I am more likely to get the application that meets my needs when 100 so-so developers make my expense program, instead of 3 super high-end developers making my program. Take note, we are talking about variety, about competition!
+No doubt about it, M$ knows what it does. Bill Gates is not the richest man in the world for nothing. The company manages every fundamental aspect of its business from making sure that product reaches the loading dock so that revenue is accrued smoothly, to making sure that its platforms, such as Windows CE, are $ attractors. What does this mean?
+This is a recurring theme with Win CE. I have downloaded the eMbedded Visual C++ 4.0eVC4.exe, Microsoft Pocket PC 2003 SDK.msi, and TodayScreenSampleSetup.exe from Microsoft. It is clear from their application development documentation that their 80/20 rule is strategically focused on maintaining the vortex. Microsoft will develop the nexus around which dissatisfaction will bring in 3rd party developers, but only the $ seekers. The best survive, M$ consumes them, and they become part of the Hive Mind.
+There is absolutely no doubt that Bill Gates primary “directive” to Microsoft product managers is to ensure that their products leave strategic “gaps”, but limited so that can bring in only the high end 3rd party developers. But the directive will be explicit. LEAVE GAPS.
+Brght, talented, motivated they may be, but Microsoft developers are corporate booger-heads (Scott are you reading this : )) and ultimately, they CANNOT create. They can only expand on existing corporate paradigms. 3rd parties are the only ones who can do this. This has been the strength of Mac and Palm. But alas, Mac has required propping up, by M$, as will Palm in the near future, to ensure that M$ gets the competitive motivating force it needs. Gates knows monopolies are death. It is a fine balance for Microsoft as all the anti-competition action against them in North America and in Europe can attest to.
+For now, can I just ask: Where are the Linux developers for PPC hardware! Or perhaps, Palm developers of the world, learn the CE platform! You could certainly bring some sanity to the irrelevant-ware out thar.
+
+
+
+
+Palm VIIx
+Dell Axim X30 312 Mhz
+
+
+Length of Service
+3 years
+2 weeks
+
+
+Cost
+It was a gift from a friend. But was about US$399 new (back in the day)
+$464 Cdn incl tax, shipping
+
+
+WiFi
+umm, sort of .. modem, at 9600 baud special Palm.net email address & download ‘Web Clipping Applications’.
+YES! (and BlueTooth too)
+
+
+Processor
+Motorola MC68EZ328 DragonBall EZ 20 MHz
+312 Mhz Intel® XScale Processor with WMMX
+
+
+RAM
+8 MB (not expandable)
+32 MB (buy SD cards)
+
+
+ROM
+2 MB Flash memory
+32 MB
+
+
+Screen
+16 gray scales
+3.5″ QVGA TFT color 16-bit, transflective
+
+
+Battery
+two AAA batteries
+950 mAh, Li-Ion rechargeable
+
+
+OS
+Palm OS Version 3.5
+Windows CE 2003
+
+
+Input
+Graffitti
+Graffitti aka Block Recognizer, Keyboard, Transcriber, Letter Recognizer.
+
+
+
+ 
+
+
+
+
+
+Programs
+Software
+What Have I Done to Customize My Dell Axim/Pocket PC?
+
+
+
+
+Screen Protectors – My Palm VIIx was a giveaway. I treated it like a pocket book (like a paper one ie I didn’t give it any special attention) The result was that the screen became scratched and scuffed but it didn’t matter to me. It was a total utilitarian thing.
+So, I thought I could do the same thing with my brand new Dell Axim. Oh boy, was I wrong. After a few days of not using screen protectors and thinking I could continue as I did with my giveaway Palm, I had faint scratches in the Block Recognizer text area : ( just from the stylus! Ok, this is not good. As it happens, there seemed to be something wrong with the screen, a kind of rainbow effect appearing when viewing the screen at extreme angles. So, I called Dell, went through the motions, and ended up getting a replacement, and sent the first one back. So, I had a virgin Axim screen, and then decided, I would be a wuss, and bought screen protectors for my new Dell Axim. They are a bit big (they were made for the Ipaq but were on sale) and I have to trim them using scissors or an exacto blade or my pocket knife. Sometimes it overhangs the screen and catches on things for months but hey, it still protects the screen.
+After applying the screen protector, I have an unexpected sense of comfort (you can feel the protector and it has some heft) when I stuff my Axim into my pocket (even though there are never ever any keys, coins or anything else in there .. ever!) As it turns out, I fell in love with the case that comes with the Axim. It is really great. It is tough. Colour is black and it is not big so it hooks/clamps onto my belt really nicely. I can also just through it into my pocket or bag. It is easy to pull the Axim out and stuff it back in. After nearly a year of use, the clip and the elastic that holds the case together is still like new. Very impressed.
+
+
+Re-Mapped Buttons – I re-mapped buttons so that my new Axim resembled my old Palm. The Message (email) button is mapped to Tasks, and the Home button is mapped to Notes. Now it is like my Palm.
+
+
+Re-Mapped WiFi Button – using a program called WiFiPower.exe (a hacked version of the WirelessPower.exe in the \Windows folder), you can start only the WiFi and not the BlueTooth.
+Benefit? If you don’t use Bluetooth at all or not very often, not starting BT every time you need the WiFi radio might save battery power. At least only the green light flashes when you use WiFi and not the Blue! That has to save some milliamps of juice there.
+Simply use the Settings\Buttons setting to remap the Wireless button to WiFiPower.exe.
+
+
+X Marks the Spot – A fundamental, though well-intentioned, flaw in the whole PPC Windows CE paradigm is the concept of the X button. The X button in top right hand corner doesn’t Exit the window, it simply Minimizes it. This was done because it was deemed that it was too slow to re-start a program than to simply refocus on it.
+Dumb,IMHO, because given the mult-tasking propensity of average user, you soon have 5, or 10 applications open all sucking up valuable RAM. It wouldn’t have been difficult to give users a choice. There is a program called Switcher that can close programs from taskbar (not sure if it is Dell or PPC 2003).
+Many 3rd party solutions are offered to do what Switcher does: Magic Button, Gigabar. So far, WisBar is my favourite. Just click the X, and it Exits the application! Wow, that is just way too easy! It even has a task selector and you can close applications. There are many versions of WisBar and I have no idea what the differences are etc. I have Version 1.4.2 which is free and is does everything that I want.
+
+
+Today Screen – Ok, why did Microsoft create both a “Home” and a “Today Screen”? I am baffled by this. The Today screen comes from PC version of Outlook, but I never used it as it was unwieldy, and those bubbles just look too goofy. Ok, so let’s deal with it because it seems we are stuck with the Today screen in the PPC/Win CE world.
+How can you make the Today screen better? There are a lot of 3rd party solutions to bring application shortcuts onto the Today Screen.
+
+I am using c Launch to avoid using the Home as a program launcher. It allows me to group shortcuts to applications how I want. I can import one or more folder of shortcuts from Windows\Start Menu\Programs\ into one group
+Many other plugins bring program functionality into the Today screen such as PocketMusic’s player can be controlled from the Today screen.
+Generally though, I have noticed that using Today screen programs slows things down. Just pick the one or two that work for you and avoid overdoing it. From my experience, you have to be careful because they use a lot of RAM and can diminish system performance. The today screen is like a webpage with programming built in and there are several layers of application communicating which add to the CPU load and slow things down.
+
+I think, from my limited knowledge of the architecture of the Windows CE OS, that this is where it starts to fail. Some of the Windows 95 programming has been recycled to form the core parts of Win CE. Given what M$ had to work with, and given their business philosphy ie, to be the vortex, they have done something almost elegant. The core programming has been setup so that it can sit inside of almost any mobile or non-full-fledged hardware to do the basic stuff, while a surrounding layer of programming lets it “talk” to the user using the hardware available.
+Palm is slim, spartan, bare, economical. Win CE is one size fits all, most core functionality for a wide variety of hardware. Problem is that Win CE is relying on hardware to give it the processing power to punch through all of those application layers. That is why I am finding that a 20 Mhz Palm VIIx processor could keep me happy while the 312 Mhz Intel® XScale Processor with WMMX struggles to keep up. I guess it is the same as the desktop. There is a transition to “bloatware” which gives more and more features and functionality but its increase still overwhelms the faster hardware. Hmm.
+
+
+File Explorer – the one that comes with PPC 2003 isn’t so hot. Get another one. I am using Total Commander. There are others but in my short time as a PPC user, I am liking this one.
+
+
+Zoom Zoom – After years of daily use of MS Excel on my old Palm, I am taken, absolutely taken with the 78% zoom View of my spreadsheets. Those numbers are so small, so clear, so .. goddammed cute!
+
+
+File Sync – the one that comes with PPC 2003 is not good. The MS ActiveSync File synchronization forces you to copy the files you want sync’d on your PDA into a special folder on your PC. That is not cool. Why should I change my file structure so just to sych with a Microsoft product. What were they thinking!
+
+Get Mighty Synch which synchronizes files to/from PDA/PC without moving files to special folders.
+Also, try Wireless synchronization with your PC
+
+
+
+
+Clearing Out Unnecessary Files – I regularly rid myself of Internet Explorer cached files. Also, use Where Is My Ram to find out which folders/files are taking up room in your RAM and in your ROM. Eliminate email attachments from the attachment folder (after you save them elsewhere if you want them).
+
+
+Registry Hacks – RegKing lets you make some categorized registry changes. I was using Pocket Tweak but for some reason, I have no reason why, it made the font in some places super tiny (i had to do hard reset to fix this). So, for now, I am going to forego the few beneficial hacks it offers.
+
+
+Picture Graphics Viewer – The picture/graphics viewer that comes with PPC 2003 is not very useful.
+
+I have a demo of Resco File Viewer and will probably buy it soon because it is really powerful and easy to use, it is a really great product.
+XnView Pocket is also quite good and is free, for now.
+
+
+
+
+Music/MP3’s – I used PocketMusic but it installed a Today screen plugin that slowed my system down but the features other than that were good. I have yet to reinstall it but am still looking for something else. WinAmp seemed ok although after one install it was missing a file, but will try to install it.
+I decided to remove those apps and have been using Media Player which works even though it is quirky in that Microsoft way. MS seems to have a really different way of looking at the world compared to my perspective. That playlist thing is something that just seems contrary. WinAmp works the way I expect a music player should work. However, as Media Player is already installed and the other programs are large-ish, I will use Media Player. I did remap the buttons so that when Media Player is on top, I can adjust volume, go forward/ previous, or stop/play, and the remap to normal function when Media Player is minimized.
+
+
+eBooks – Mobibook does the job. I use MS Word for ebooks I have in Word or txt format too although scrolling is a bit of a chore.
+
+
+Weather – Shane Church has built Weather Info, one of the nicest, simplest, most functional, does what it says and no more programs I have seen. The weather data comes from the weather.com® web service and is cached so the data will still display if the device does not have an internet connection.
+
+
+
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

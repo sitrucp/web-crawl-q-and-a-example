@@ -1,0 +1,454 @@
+
+
+
+
+
+
+Visualization of Toronto’s 311 contact centre open data – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Visualization of Toronto’s 311 contact centre open data 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 20, 2016 
+
+
+This is based on City of Toronto’s Open Data website 311 call performance data for the 4 years 2010, 2011, 2012 and 2013.
+The data is provided by the City in a Google Spread Sheet and has been downloaded and saved here in Excel 2013 format 311_daily_contact_centre_data.
+I used Excel pivot tables and charts for analysis and visualization.
+The call volume has remained relatively consistent year over year from 2010 to 2013. The chart below shows all daily calls from 2010 to 2013. On average there are about 5,000 calls per day. There are seasonal variations evident with peaks in summer and a few big spikes notably one at end of December 2013 where it spiked to over 20,000 calls per day. Not sure what that was.
+
+Weekend calls volume is dramatically lower compared to weekday calls. That indicates that 311 calls are business related.
+
+The 311 line keeps a fairly consistent average call talk time of 230 seconds or about 4 minutes  as represented by the black line in chart below.
+The average speed of answer metric varies quite a bit (red line in chart below). We can see that answer time follows call volume.
+When a call center gets more calls it takes longer to answer the call. This indicates the call center has same number of agents available regardless of season, day of week or special event. It is probably too expensive and or challenging to hire staff to work part time or on call for these surge events.  There are also some anomalously high call answer times that might be due to under staffing or equipment failures.
+The grouping of calls, talk times and answer times by month in the chart below may obfuscate daily variations. Also daily outliers may skew the monthly totals but viewed month over month does a good job of showing trends.
+
+The call center metrics around call abandonment are important measures. We will see near end of the post how this is used to create a ‘service level’ metric.  The chart below shows a breakdown of how many calls are actually answered and connected to the a 311 Call Center agent.
+
+Only about 75% of the total calls that come into the 311 call centre are actually answered (blue part of bar).
+The remaining 25% of the calls are abandoned by the caller.
+
+On average, 15% are abandoned within 30 seconds (green part of bar). These people are busy, they won’t wait, and leave the hold queue relatively quickly.
+On average, 10% wait longer than 30 seconds before hanging up (red part of bar). These people invested their time in waiting on hold.
+
+
+
+
+As mentioned above, the call center creates a ‘service level’ metric that is a percentage value based on  abandoned calls and call answer time. When there are no abandoned calls the service level approaches 100%.  However, the Toronto 311 call center has not hit 100% very often as shown by the orange line in chart below which is average service level percent by month. In fact it has never been 100% for any month over the 4 years.
+
+Another way to look at service level is to look at how many days met service level categories.  The chart below groups daily service level counts into the following categories: 0-25%, 25-50%, 50-75% and 75-100%.  Roughly only 70% of the total days in 2012 and 2013 were in the 75-100% service level.
+
+Yet another way to look at the service level is to look at the service level daily attainment frequency over the 4 years. The chart below shows service level daily frequency. For example service level of 100% was attained only for 4 days from 2010 to 2013. This view provides more granularity on call center service levels.
+
+This analysis suggests that the call center needs to increase its service level metric. Since service level is largely dependent on call abandonment, something needs to be done decrease number of calls sent to hold which results in 25% of callers waiting but then hanging up.  What can a call center do about this?
+
+Increase number of agents to answer calls is the most obvious action. The challenge is they should be part time or shift workers to handle spikes in call volume.
+Reduce call talk time so agents can answer more calls and reduce calls sent to hold and abandoned calls. This can be done by improving training or more making information more accessible to the agents so they can answer questions faster and more efficiently.
+Instead of putting callers on hold offer them the option to alternative information channels perhaps to an interactive automated voice or interactive website.
+Do analysis of reasons people are calling 311 and endeavour to provide that information proactively in other channels eg on City websites, billboards, or other public communication channels.
+
+The 311 call center data is available at the City of Toronto Open Data website with their catalogue name “311 Contact Centre Performance Metrics”.
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+  
+
+Excel Power Query tutorial using Canadian potato production statistics
+
+ 
+Leave a Comment 
+
+			 / Excel Pivot Chart, Excel Pivot Table, Power Query / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Heat maps of Canadian activity changes due to COVID-19 using Google Community Mobility Reports
+
+ 
+Leave a Comment 
+
+			 / D3.js, Excel Pivot Chart, Excel Pivot Table, Javascript, Power Query, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Canadian Government First Nations long term water advisory data
+
+ 
+Leave a Comment 
+
+			 / Business Intelligence, Excel Pivot Chart, Excel Pivot Table, Javascript, Plotly, Power Query, Python, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,436 @@
+
+
+
+
+
+
+Curtis Pokrant – Page 10 – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+Author name: Curtis Pokrant
+
+
+
+ 
+
+
+
+
+
+ 
+Python get image color palette  
+1 Comment 
+
+			 / Postgres, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+I created a web application that included screenshots of about 190 country’s national statistics agencies website home page. I created the site to host the results of comparisons of each country’s website home page features. One of the features I wanted to include was the top 5 colors used on each home page. For example here is …
+  Python get image color palette Read More »
+
+
+ 
+
+
+
+
+ 
+Excel Power Query tutorial using Canadian potato production statistics  
+Leave a Comment 
+
+			 / Excel Pivot Chart, Excel Pivot Table, Power Query / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+This data comes from Statistics Canada. Statistics Canada download pages often provide the opportunity to modify the data structure and content before it is downloaded. For example clicking on the [Add/Remove data] link provides options select different groupings of data by provinces. I choose to group data by provinces. I also limited the content to …
+  Excel Power Query tutorial using Canadian potato production statistics Read More »
+
+
+ 
+
+
+
+
+ 
+Django recreate database table  
+Leave a Comment 
+
+			 / Django, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Django’s makemigrations and migrate commands are very useful to update existing database tables to reflect model changes. However if you have made many existing table column name changes, migrate will ask you a series of ‘y/N’ questions about which column names are changed. This can be tedious to cycle through especially if there are many …
+  Django recreate database table Read More »
+
+
+ 
+
+
+
+
+ 
+Canadian TCS FDI Officers Twitter list member analysis  
+Leave a Comment 
+
+			 / Python, Tableau, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Blog post updated to add the following: Updated Python “TCS Members Details” code to get additional information from the List members’ profiles. New Python code “TCS Members Tweets” to download all List members’ Tweets. ————————————————– The Canadian Trade Commissioner Service maintains a Twitter List named CDN TCS FDI Officers that has a bunch of Canadian Trade Commissioners as members. …
+  Canadian TCS FDI Officers Twitter list member analysis Read More »
+
+
+ 
+
+
+
+
+ 
+Use Excel Power Query to scrape & combine Wikipedia tables  
+2 Comments 
+
+			 / Power Query / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Power Query is quick and easy way to scrape HTML tables on web pages. Here is step by step on getting multiple tables from Wikipedia article and appending them into one Power Query Excel table. The Wikipedia article List of national and international statistical services has multiple tables with lists of countries’ statistics agencies and their website …
+  Use Excel Power Query to scrape & combine Wikipedia tables Read More »
+
+
+ 
+
+ 
+
+
+Posts navigation
+← Previous Page
+1
+…
+9
+10
+11
+…
+17
+Next Page →
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+

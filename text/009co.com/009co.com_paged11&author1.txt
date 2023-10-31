@@ -1,0 +1,436 @@
+
+
+
+
+
+
+Curtis Pokrant – Page 11 – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+Author name: Curtis Pokrant
+
+
+
+ 
+
+
+
+
+
+ 
+How to update Office 365 password in Power BI dataset refresh  
+Leave a Comment 
+
+			 / Office 365, Power BI, Sharepoint / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+I recently changed my Office 365 user password for an account that I was using for a Power BI Dataset Scheduled Refresh. The result was that my Power BI Refresh failed which looked like screenshot below. So all I had to do was update the authentication Power BI was using to access my Office 365 …
+  How to update Office 365 password in Power BI dataset refresh Read More »
+
+
+ 
+
+
+
+
+ 
+How to avoid wide margins on a Power BI dashboard  
+Leave a Comment 
+
+			 / Power BI / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+A Power BI Report with multiple charts or other objects can be added to a Dashboard in Power BI Online using the pin to dashboard feature. However this results in a dashboard with very wide margins. This is especially problematic on a mobile device as the screenshot from the Power BI Android application shows. There is …
+  How to avoid wide margins on a Power BI dashboard Read More »
+
+
+ 
+
+
+
+
+ 
+How to use Google Adsense API to download Adsense data  
+1 Comment 
+
+			 / API, Google Adsense, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Google’s APIs make getting Adsense (or any other Google service) data easy to download. The code below downloads Adsense data saving results to csv file. The code uses Google’s AdSense Management API, OAuth 2.0 authorization and the google-api-python-client SDK. Overview When you run this code for the first time it will open a web browser …
+  How to use Google Adsense API to download Adsense data Read More »
+
+
+ 
+
+
+
+
+ 
+Create Python 3 Virtualenv on machine with Python 2 & 3 installed  
+Leave a Comment 
+
+			 / Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+I have been using Python 2.7 for most of my Python work but have a few projects where I want to use Python 3.x. In these cases I want to create a Virtualenv virtual environment with Python 3.x. Turns out that is is no problem to have Python 2.7 and Python 3.x installed on the …
+  Create Python 3 Virtualenv on machine with Python 2 & 3 installed Read More »
+
+
+ 
+
+
+
+
+ 
+Use OneDrive API to upload files to Office 365 Sharepoint Site  
+2 Comments 
+
+			 / Azure, Office 365, OneDrive, Python, Sharepoint / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+I have automated uploading files from my web site host’s server to my Office 365 Sharepoint site using scheduled cron jobs running Python scripts on my web host. The Python scripts use Microsoft’s Azure Active Directory Library (ADAL) to authenticate off Azure Active Directory (Azure AD or ADD), and  OneDrive API and Python Requests to use the authentication …
+  Use OneDrive API to upload files to Office 365 Sharepoint Site Read More »
+
+
+ 
+
+ 
+
+
+Posts navigation
+← Previous Page
+1
+…
+10
+11
+12
+…
+17
+Next Page →
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+

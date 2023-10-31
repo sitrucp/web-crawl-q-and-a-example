@@ -1,0 +1,434 @@
+
+
+
+
+
+
+Curtis Pokrant – Page 2 – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+Author name: Curtis Pokrant
+
+
+
+ 
+
+
+
+
+
+ 
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter  
+Leave a Comment 
+
+			 / Fabric, Power BI, Power Query / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+I created a Fabric Dataflow Gen2 Web API connection to retrieve csv file data from an Environment Canada daily environmental data web API. The API provides parameters for specific date ranges eg start and end dates. I wanted to get data for a date range that had a fixed start date but dynamic end date …
+  Fabric Dataflow Gen2 Web API connection with dynamic current date parameter Read More »
+
+
+ 
+
+
+
+
+ 
+Attended Data Science Festival Mayday – London, UK – May 20, 2023  
+Leave a Comment 
+
+			 / AI & ML / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Attended the excellent Data Science Festival Mayday event May 20, 2023 in London, UK at CodeNode, Moorgate and Old Street. The venue was two floors with 4 event rooms, large breakout halls, with 40 speakers and attended by 600 people. The talks are recorded and available at the Data Science Festival Mayday site. My main …
+  Attended Data Science Festival Mayday – London, UK – May 20, 2023 Read More »
+
+
+ 
+
+
+
+
+ 
+CBC news article comments analysis and visualization  
+Leave a Comment 
+
+			 / BeautifulSoup, NetworkX, NLTK, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+This post is focuses on a project of the analysis of scaped comments from CBC News website articles. (BTW, there are lots of “CBC’s” in the world. The one I am referring to is the Canadian Broadcasting Corporation.) Another post details web scraping method used to get the articles and their comments. As a Canadian …
+  CBC news article comments analysis and visualization Read More »
+
+
+ 
+
+
+
+
+ 
+Canada cell tower distribution QGIS visualization  
+Leave a Comment 
+
+			 / Geocoding, QGIS / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+opencellid.org  has global cell tower location data that I used to do a series of QGIS maps showing Canada’s cell phone tower distribution. The data includes at latitude, longitude and radio generation eg 4G (LTE) or 3G/2G (GSM, UMTS or CDMA). Canada cell tower distribution 4G (red) and 3G/2G (blue) Southern Ontario cell tower distribution …
+  Canada cell tower distribution QGIS visualization Read More »
+
+
+ 
+
+
+
+
+ 
+CBC news article comments web scraping  
+Leave a Comment 
+
+			 / BeautifulSoup, Javascript, NetworkX, NLTK, Python, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+This post is focuses on a project where I scaped comments from CBC News website articles. (BTW, there are lots of “CBC’s” in the world. The one I am referring to is the Canadian Broadcasting Corporation.) There is another post that focuses on analysis and visualization of the scraped data. As a Canadian often travelling …
+  CBC news article comments web scraping Read More »
+
+
+ 
+
+ 
+
+
+Posts navigation
+← Previous Page
+1
+2
+3
+…
+17
+Next Page →
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+

@@ -1,0 +1,591 @@
+
+
+
+
+
+
+Display Django queryset results on Google Map – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Display Django queryset results on Google Map 
+4 Comments 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 29, 2016 
+
+
+I wanted to be able to show locations by latitude and longitude with data from Django 1.8 website on a Google Map using the Google Maps API.
+I used the accepted answer from a stackoverflow question to create a Google Map with multiple markers that had the store name with a link that would open that store’s details when clicked.
+I did the following:
+
+copied the stackoverflow solution javascript and html code into new Django template called fountain_map.html
+created new Django view called fountain_map for that template
+create new urls.py line to route the fountain_map url for new view/template
+
+The stackoverflow answer used Google Maps javascript that had a javascript array like this:
+    var locations = [
+      [‘Bondi Beach’, -33.890542, 151.274856, 4],
+      [‘Coogee Beach’, -33.923036, 151.259052, 5],
+      [‘Cronulla Beach’, -34.028249, 151.157507, 3],
+      [‘Manly Beach’, -33.80010128657071, 151.28747820854187, 2],
+      [‘Maroubra Beach’, -33.950198, 151.259302, 1]
+    ];
+
+However while the example has this hard coded list of locations I wanted a dynamic list populated by queryset records from the new view.
+So I created a queryset in the view that retrieved the location records:
+   
+
+map_points = Fountains.objects.filter(lat__isnull=False)
+
+
+Note that I filtered to only retrieve records that had a lat value so I wasn’t sending records that couldn’t be mapped.
+Since the queryset object is not immediately readable by the javascript as the location variable, it needed to be transformed into a format acceptable for the javascript.
+There are a couple of options:
+
+Use Django’s serialization to turn it into JSON
+Loop through queryset object and manually build the array in correct format, this could be done in the view or in the template
+
+I choose to do this transformation in the template. Django’s serialization has lots of documentation and lots of SO question and answer but seemed easier to do this in template for now.
+So in the template i simply looped through the map_point queryset object to create the array that the var locations required.
+The javascript required the square brackets as shown in example above along with quotes around the location name.
+Note that the Stack Overflow answer also has a digit as the fourth item in the record but I excluded that in mine. Not sure what it was but user obviously wanted to show it in marker label or something like that.
+Anyways my template loop looked like this:
+      var locations = [
+        {% for point in map_points %}
+            {% if point.lat = None %}
+            {% else %}
+              {{ point.name }}’, {{ point.lat }}, {{ point.lon }}],
+            {% endif %}
+        {% endfor%}
+        ]
+
+You can see that I retrieved the following values for the locations array from the queryset results:
+
+name (fountain name to show on marker label popup)
+id (so that it could be used to create marker link to the Django view for that store)
+lat
+lon
+
+That was all I needed to do and gave me a Google Map showing each fountain’s location with a Google red pin marker. When user clicked on marker, the fountain name would show that had link to that fountain’s detail page.
+
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to move Google Chart x-axis to top of chart
+
+ 
+Leave a Comment 
+
+			 / Google Charts, Javascript / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Always remember to start Python Virtualenv
+
+ 
+Leave a Comment 
+
+			 / Django, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Django recreate database table
+
+ 
+Leave a Comment 
+
+			 / Django, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+				4 thoughts on “Display Django queryset results on Google Map”			
+
+
+
+
+
+Rob December 22, 2016 at 7:49 pm  
+
+
+Hi Curtis, There are surprisingly few understandable replies in this context in reference to django, so I am trying to follow yours.  I have done all the steps up until you moving things over to the model, i.e. copying out the script from the accepted answer, creating the views and urls – I get the map to show on the screen, however none of the markers are populating.  What additional changes did you need to make to the script in order to have it work from within the django/html template framework? Thanks.
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis May 6, 2017 at 4:02 pm  
+
+
+My reply is a bit late but here are some troubleshooting steps. 
+First verify that Django is actually creating any dataset at all, and if it is, is it actually the correct dataset eg does it have fields in expected order, with field names as expected? Is the query returning dataset with zero rows?
+Then verify that the template is actually getting the dataset and that it is able to use the data correctly. Is dataset named correctly, is the template looping through dataset in a way that returns results?
+Then verify that the Maps Javascript is actually getting the dataset and able to use it.
+To verify results simply either print out results using Python or Javascript and view results in your web browser developer pane.
+Key thing is to move methodically step by step of the way to zero in on where the issue is.
+
+Reply 
+ 
+
+
+
+
+
+
+
+
+Brian June 10, 2017 at 3:56 am  
+
+
+Hi Curtis, thanks for this. Have you been able to populate markers with a queryset and get ‘info windows’ to work properly?  All of the tutorials I’ve seen use a static set of marker locations with static info window content which works ok…but looping (i++’ing) through queryset results does not seem to work.  Any thoughts?
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis August 24, 2017 at 11:49 pm  
+
+
+Hey Brian. My example above does just what you describe. The locations are result from Django queryset. I loop through queryset in template to populate a Google Maps javascript variable that contains an array with all fountains (eg their names, url to its page in my site, and its lat and lon).
+The Google Maps javascript then loops through the array. This is same loop that examples have, instead it loops through the static array hard coded in the example. In my case, I use Django template to create that array. The key thing is to make the array variable in correct format.
+I created the array variable named “locations” above, which creates something like this in when the page is viewed eg when template is run.
+var locations = [
+['Fountain 1 name', 49.279504, -123.1162],
+['Fountain 2 name', 49.278868, -123.1149],
+]
+This is done within the Google Maps javascript so the variable is available to the javascript to use as follows. I am pretty sure the javascript below is same as Google Maps examples.
+
+-- start Google Maps javascript
+     var locations = [
+    ['Fountain 1 name', 49.279504, -123.1162],
+    ['Fountain 2 name', 49.278868, -123.1149],
+    ]
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: new google.maps.LatLng(49.279504, -123.1162),
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+    }
+
+-- end Google Maps javascript
+
+
+Reply 
+ 
+
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

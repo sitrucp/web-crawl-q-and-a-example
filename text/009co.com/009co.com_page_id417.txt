@@ -1,0 +1,325 @@
+
+
+
+
+
+
+Blog Posts – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+Blog Posts  
+
+Gestalt communication facilitated by multi-modal generative AI? Category: AI & ML, ChatGPT, LLMMicrosoft Windows Copilot General Availability September 26, 2023 Category: Microsoft CopilotVoip.ms get all call detail records using getCDR API Category: API, PHPOpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis Category: ChatGPT, Environmental science, PythonAttended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023 Category: FabricFabric Dataflow Gen2 Web API connection with dynamic current date parameter Category: Fabric, Power BI, Power QueryAttended Data Science Festival Mayday – London, UK – May 20, 2023 Category: AI & MLCBC news article comments analysis and visualization Category: BeautifulSoup, NetworkX, NLTK, PythonCanada cell tower distribution QGIS visualization Category: Geocoding, QGISCBC news article comments web scraping Category: BeautifulSoup, Javascript, NetworkX, NLTK, Python, Web DevelopmentXero.com data consolidation and reporting solution selection Category: Business Intelligence, ERP, XeroCanadian Government First Nations long term water advisory data Category: Business Intelligence, Excel Pivot Chart, Excel Pivot Table, Javascript, Plotly, Power Query, Python, Web DevelopmentCOVID-19 Data Analysis and Visualization Summary Category: Amazon Web Services (AWS), D3.js, Geocoding, Javascript, Plotly, Power Query, PythonTendiesTown.com – WallStreetBets gain and loss analysis Category: API, Django, Plotly, PythonUse Excel Power Query to get data from Our World In Data Category: Power Query@SirPatStew #ASonnetADay dashboard Category: API, Javascript, Plotly, Python, Twitter APIThe human radio-broadcast bubble Category: ScienceAmazon AWS Transcribe used to get 2020 presidential debate #1 speaker segments Category: Amazon Web Services (AWS), Plotly, PythonD3.js SVG animation – COVID-19 rate “race” visualization Category: D3.js, Javascript, Web DevelopmentAmazon AWS Textract – WHO “Draft landscape of COVID-19 candidate vaccines” – convert PDF to csv Category: Amazon Web Services (AWS), PythonPeriodic chart elements by origin from SVG using Python Category: Plotly, PythonRetrieve and process Environment Canada hydrometric and climate data using Python Category: Environmental science, PythonPlotly Express Python remove legend title Category: Plotly, PythonLegend and polygon colors for Leaflet choropleth using Chroma.js Category: Javascript, Web DevelopmentScraping public health web page using Python, BeautifulSoup4, Requests and Pandas Category: Amazon Web Services (AWS), BeautifulSoup, PythonHeat maps of Canadian activity changes due to COVID-19 using Google Community Mobility Reports Category: D3.js, Excel Pivot Chart, Excel Pivot Table, Javascript, Power Query, Web DevelopmentChoropleth map of Canada COVID-19 cases by health region using Leaflet and D3.js Category: D3.js, Geocoding, Javascript, PythonPrepaid and gift credit card feature comparison for multiple countries Category: Django, Python, Web DevelopmentDelete Google Calendar events by date using Google Script Category: Google Calendar, Google ScriptOneDrive SharePoint Migration Tool (SPMT) Category: Azure, Office 365, OneDriveAWS S3 csv file as D3 report data source Category: Amazon Web Services (AWS), D3.js, Javascript, Web DevelopmentIntroduction to Excel Power Query aka Power BI Query Category: Power BI, Power QueryAWS RDS Postgres database external secure connection Category: Amazon Web Services (AWS)How to use Hadoop HDFS as a datasource for Power BI Category: Hadoop, Power BIHow to use Python as a datasource for Power BI Category: Power BI, PythonComparison of my old Palm vs my new Pocket PC (from 2004) Category: Palm PilotBC Executive Compensation Tableau Visualization Category: Python, TableauBusiness Intelligence – IT Black Box Challenge Category: Business IntelligenceTwitter Followers and List Membership Tracking Category: Amazon Web Services (AWS), API, Chart.js, Python, Twitter APIInstalling Hadoop on Windows 8.1 Category: HadoopVultr and Digital Ocean make it easy to get projects going fast Category: Web DevelopmentDjango form geocode submitted address to get lat, lon and postal code Category: Django, Geocoding, Python, Web DevelopmentLeaflet.js choropleth map color by count using geoJSON datasource Category: Django, Geocoding, Javascript, Postgres, Python, Web DevelopmentCanadian Canola seed crushing more efficient at extracting canola oil Category: TableauChart.js tooltip format number with commas Category: Chart.js, JavascriptPython get image color palette Category: Postgres, PythonExcel Power Query tutorial using Canadian potato production statistics Category: Excel Pivot Chart, Excel Pivot Table, Power QueryDjango recreate database table Category: Django, PythonCanadian TCS FDI Officers Twitter list member analysis Category: Python, Tableau, Twitter APIUse Excel Power Query to scrape & combine Wikipedia tables Category: Power QueryHow to update Office 365 password in Power BI dataset refresh Category: Office 365, Power BI, SharepointHow to avoid wide margins on a Power BI dashboard Category: Power BIHow to use Google Adsense API to download Adsense data Category: API, Google Adsense, PythonCreate Python 3 Virtualenv on machine with Python 2 & 3 installed Category: PythonUse OneDrive API to upload files to Office 365 Sharepoint Site Category: Azure, Office 365, OneDrive, Python, SharepointCareful! Don’t click “Try Power BI for free” Category: Office 365, Power BI, SharepointHow to schedule Power BI dataset refresh Category: Office 365, Power BI, Power Query, SharepointPower BI Online – get data from Office 365 Sharepoint file Category: API, Azure, Office 365, OneDrive, Power BI, SharepointOneDrive API features Category: API, Azure, Office 365, OneDrive, Power BI, Python, SharepointTracking Cuba Gooding Jr’s Twitter follower count Category: Google Charts, MySQL, Python, Twitter API, Web DevelopmentDell ecommerce web site scraping analysis Category: BeautifulSoup, PythonPower Query MySQL database connection Category: Power QueryHow to serve multiple domain name websites with one CakePHP application Category: CakePHP, MySQLAlways remember to start Python Virtualenv Category: Django, PythonFlask SQLAlchemy relationship associations and backref Category: Flask, Python, SQLAlchemyUsing ATMs as wifi hotspot Category: Web DevelopmentGet list of custom segments from Google Analytics API Category: Google Analytics, PythonDisplay Django queryset results on Google Map Category: Django, Google Maps API, JavascriptHow to setup and and use a Twitter API application Category: Twitter APIHow to move Google Chart x-axis to top of chart Category: Google Charts, JavascriptBC Hydro’s amazing #BCStorm social media turnaround Category: Power BI, Power Query, Python, Twitter APIHow to create OData data source Gateway for Power BI Report Category: Office 365, Power BIIntroducing Speedvisit – a quick and easy way to record visits from people Category: CakePHP, PHP, SaaS, Web DevelopmentHow to filter referral spam from Google Analytics using API and Python Category: API, Google Analytics, PythonTableau vizualization of Toronto Dine Safe data Category: API, Geocoding, Python, TableauSingle CakePHP application & MySQL database to serve multiple domains Category: CakePHP, PHPHow a new salmon stream was carved from the land Category: Environmental scienceTableau vizualization of Vancouver Car2Go vehicle locations Category: TableauHow to vizualize a work schedule using a Qlikview Gantt chart Category: QlikviewHow a UK tent rental company used Google analytics and Tableau to improve sales Category: Google Analytics, TableauTime based SLA KPI created using MS Access VBA Category: MS Access, VBAVisualization of Toronto’s 311 contact centre open data Category: Excel Pivot Chart, Excel Pivot Table, Open DataIntroducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas Category: API, Google Maps API, Javascript, PHP, Web DevelopmentLinkedIn ‘People You May Know’ web scraping and analysis Category: BeautifulSoup, PythonVisualizing human arterial blood flow with a D3.js Sankey chart Category: D3.js
+
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+

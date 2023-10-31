@@ -1,0 +1,473 @@
+
+
+
+
+
+
+Use Excel Power Query to get data from Our World In Data – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Use Excel Power Query to get data from Our World In Data 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  March 8, 2021 
+
+
+Our World In Data (OWID) has been doing a hero’s job of collating the world’s covid vaccine distribution and administration data. They generate additional metrics and allow site visitors to analyse them in awesome interactive visualizations.
+However, I wanted to do some analysis that went beyond what was possible on the site. No problem, because the OWID team also provides the data as csv files in their Github repository.
+These csv files are easily manually downloaded from Github to be used. But as the OWID vaccine data is updated regularly, often twice per day, you will probably want to automate the retrieval of updated csv files from Github.
+There are many tools and methods to automate this but in this blog post I want to quickly highlight how Excel users can use Excel’s Power Query Get Data->From Other Sources->From Web feature to link to the csv files in Github. (Read my other blog post to learn more about Power Query.)
+Once implemented you only need to click refresh to get latest csv data from OWID’s Github repository.
+First, you need to get a url for the csv file’s in the OWID Github repository.
+The easiest way to get correct url is to open the csv file in Github in Raw format by clicking on the file name and then clicking on the Raw button on top right corner of page. This will open the csv file in native “raw” format. Then you can simply copy the url from browser location bar.
+You can also manually create a url to any Github repository file as follows below. Let’s use the vaccinations.csv file in OWID’s Github repository as an example.
+https://raw.githubusercontent.com/owid/COVID-19-data/master/public/data/vaccinations/vaccinations.csv
+The vaccinations.csv Github repository file url has the following parts:
+
+
+
+Base url: https://raw.githubusercontent.com
+Repository owner: owid
+Repository name: COVID-19-data
+Repository branch: master
+Repository base element: public
+Repository folders: data/vaccinations
+Repository file name: vaccinations.csv
+
+
+
+Based on this example you should be able to manually create a url for any file in any Github repository.
+Once you have your url, you can test if it is correct by simply copy pasting it into a browser location bar and verifying the url is good, and retrieves the data you are looking for.
+After verifying the url is correct, go to your Excel file, find the Excel Power Query Get Data feature and select From Other Sources – From Web  which will show input field for a url. Paste your url into the input field and simply click Load, which will load the csv file data into an Excel worksheet.
+Now instead of manually downloading data from Github, you can simply click refresh and automatically retrieve the most recent csv file from the OWID Github repository.
+Here is full M-code for a Query connected to the OWID Github “vaccinations.csv”. You can copy the code below and paste it into a blank Query Advanced Editor and it will return OWID data to your Excel file.
+ let
+Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/owid/COVID-19-data/master/public/data/vaccinations/vaccinations.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"location", type text}, {"iso_code", type text}, {"date", type date}, {"total_vaccinations", Int64.Type}, {"people_vaccinated", Int64.Type}, {"people_fully_vaccinated", Int64.Type}, {"daily_vaccinations_raw", Int64.Type}, {"daily_vaccinations", Int64.Type}, {"total_vaccinations_per_hundred", type number}, {"people_vaccinated_per_hundred", type number}, {"people_fully_vaccinated_per_hundred", type number}, {"daily_vaccinations_per_million", Int64.Type}})
+in
+#"Changed Type"
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+BC Hydro’s amazing #BCStorm social media turnaround
+
+ 
+Leave a Comment 
+
+			 / Power BI, Power Query, Python, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Power Query MySQL database connection
+
+ 
+Leave a Comment 
+
+			 / Power Query / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+  
+
+How to schedule Power BI dataset refresh
+
+ 
+Leave a Comment 
+
+			 / Office 365, Power BI, Power Query, Sharepoint / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+  
+
+Use Excel Power Query to scrape & combine Wikipedia tables
+
+ 
+2 Comments 
+
+			 / Power Query / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

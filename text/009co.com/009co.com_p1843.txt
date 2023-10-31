@@ -1,0 +1,492 @@
+
+
+
+
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  July 9, 2023 
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis is pretty amazing! I put it to the test on some data I analysed recently.
+The data was a multi-year daily set of a river’s level and discharge measurements at a specific location on the river. The river level is measured in meters and the discharge in cubic meters per second. The data comes from a Canadian government website.
+I had originally created Power BI analysis and reporting using this data. I was curious to see if ChatGPT 4 Advanced Data Analysis could match the analysis and visualizations done in Power BI and how long it would take. TLDR ChatGPT 4 Advanced Data Analysis could do it much faster with relatively good analysis and visualizations.
+Original Power BI Report
+
+The data used in ChatGPT 4 Advanced Data Analysis was an extracted from the Power BI report dataset as a single csv file with one row per measurement per day per parameter and had the following columns:
+
+
+
+Date – formatted as YYYY/MM/DD
+Parameter – either level or discharge
+Value – decimal number
+
+
+
+In a new ChatGPT chat, I selected ChatGPT 4 and ChatGPT 4 Advanced Data Analysis.
+
+This provides a prompt which has a file upload feature. I could then upload the csv file and make the first prompt below asking “what is the relationship between the parameters level and discharge?”
+
+The response gave some basic inputs about the shape of the data in the csv file along with an impressive insight that the data had to be reshaped in order to analyse the relationship between level and discharge so it could create a scatter plot of level vs discharge and calculate a correlation coefficient.
+
+In the responses you can click the “Show work” button to reveal the Python code and results generated. In this next screenshot you can see it load the csv and show its contents.
+
+The resulting scatter plot is something I created myself manually in my previous analysis. In the world of water flow analysis this visualization can be called a “rating curve”. Each location in a river can be characterized by its rating curve. Then one only needs to collect river water level values and then calculate the discharge based on the rating curve.
+
+The response also included some analysis of the results along with the calculated correlation coefficient to support the identification of a positive correlation between level and discharge.
+
+I then provided information this was water flow measurements and asked it to visualize each parameter by year.
+
+The response reshaped the data again so it could create a stacked line chart by year for each of level and discharge over the months and days of the year.
+
+This visualization allows a visual comparison of annual flows by month and day. This can help identify anomalies visually. The overall annual trend is more water flow in the spring in this river’s case primarily due to snow melt.
+
+In order to better visualize level and discharge changes over time I asked it to plot both values by day over all years.
+
+The analysis in the response isn’t very novel but it does include an obligatory caution about comparing parameters in a chart with two y-axis. However, in this case, level and discharge are related.
+It may be interesting to note that while discharge is relatively constant over time, the level is decreasing. This indicates that the river channel is becoming  wider and more shallow at this location.
+
+I also asked it to identify anomalous time periods for each parameter. It gave a description of what it could do to respond to this and proceeded to do the analysis. In this case it identified it could calculate “z-scores” and then identify statistical outliers based on daily z-score values.
+
+
+It then listed years that had anomalies along with count of days with high absolute z-score values.
+
+I asked it visualize these and it produced a clustered bar chart of level and discharge anomalous counts by year.
+
+I paused during my analysis and came back a few hours later to continue. In the meantime, the chat had timed out which dropped the Python cache of its previous work including the uploaded csv file so it has to apologize for not being about to continue until it can rerun code.
+
+It also it needed me to re-upload the csv file so it could then rerun all of its work from the beginning.
+
+As an example of reworking the analysis, I then modified the level and discharge value line chart so it was split by year using sub-plots and it did a pretty good job of that.
+
+I was able to successfully continue modifying the visualization. Some of these are described below as way of examples.
+
+ChatGPT 4 Advanced Data Analysis made this analysis fast and easy. I makes it easy to avoid having to do a lot of manual exploratory analysis on the data. While there are a lot of tools on the market including the Q&A feature in Power BI to help quickly learn about a dataset, it was very fast and useful using ChatGPT 4 Advanced Data Analysis.
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How a new salmon stream was carved from the land
+
+ 
+Leave a Comment 
+
+			 / Environmental science / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

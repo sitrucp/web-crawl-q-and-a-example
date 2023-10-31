@@ -1,0 +1,436 @@
+
+
+
+
+
+
+Curtis Pokrant – Page 8 – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+Author name: Curtis Pokrant
+
+
+
+ 
+
+
+
+
+
+ 
+Comparison of my old Palm vs my new Pocket PC (from 2004)  
+Leave a Comment 
+
+			 / Palm Pilot / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+Here is a blog post from old Word Press site I wrote back in July 7, 2004 Comparison of my old Palm vs my new Pocket PC I thought I would write this to share some of my experiences making the transition from the Palm platform to Windows CE/Pocket PC, as well as some of …
+  Comparison of my old Palm vs my new Pocket PC (from 2004) Read More »
+
+
+ 
+
+
+
+
+ 
+BC Executive Compensation Tableau Visualization  
+Leave a Comment 
+
+			 / Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+The Province of British Columbia publishes public agency executive compensation each year. The data is grouped by: Sector – Employers are categorized in one of six sectors – Colleges, Crown Corporations, Education, Health, Public Service, Universities Employer – Employers belong to one Sector. There are about 190 employers such as BC Assessment Authority, BC Housing Management Commission, BC Hydro, etc …
+  BC Executive Compensation Tableau Visualization Read More »
+
+
+ 
+
+
+
+
+ 
+Business Intelligence – IT Black Box Challenge  
+Leave a Comment 
+
+			 / Business Intelligence / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+The process of engaging IT teams can be difficult to understand for many non-technical people. IT is perceived as a ‘black box’ because its inner workings are often not-transparent. BI teams may not realize that their business side coworkers do not know how to engage them. When IT workers reach out to engage business users …
+  Business Intelligence – IT Black Box Challenge Read More »
+
+
+ 
+
+
+
+
+ 
+Twitter Followers and List Membership Tracking  
+3 Comments 
+
+			 / Amazon Web Services (AWS), API, Chart.js, Python, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+I have created my own historical reporting of my Twitter account followers and list memberships. I have hosted the reporting on this open webpage. Most people know what followers are but the list memberships aren’t as well known so here are definitions of them. Twitter Followers – Twitter followers are other Twitter accounts who follow …
+  Twitter Followers and List Membership Tracking Read More »
+
+
+ 
+
+
+
+
+ 
+Installing Hadoop on Windows 8.1  
+Leave a Comment 
+
+			 / Hadoop / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+It turned out to be quite simple to install Hadoop on Windows 8.1 I have been using Hadoop Virtual Machine images from Cloudera, Hortonworks or MapR when I wanted to work with Hadoop on my laptop. However these VMs are big files and take up precious hard drive space. So I thought I would be …
+  Installing Hadoop on Windows 8.1 Read More »
+
+
+ 
+
+ 
+
+
+Posts navigation
+← Previous Page
+1
+…
+7
+8
+9
+…
+17
+Next Page →
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+

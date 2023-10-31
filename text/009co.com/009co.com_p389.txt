@@ -1,0 +1,550 @@
+
+
+
+
+
+
+How to use Google Adsense API to download Adsense data – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+How to use Google Adsense API to download Adsense data 
+1 Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  June 8, 2016 
+
+
+Google’s APIs make getting Adsense (or any other Google service) data easy to download. The code below downloads Adsense data saving results to csv file.
+The code uses Google’s AdSense Management API, OAuth 2.0 authorization and the google-api-python-client SDK.
+Overview
+When you run this code for the first time it will open a web browser to get approval for the API application to access your Adsense account data.
+When this approval is granted the code saves a refresh token that is used for all future executions of the code instead of requiring the web browser approval. This is handy if you want to run this code using a cron job like I do.
+Here is the code
+In summary, the code does the following:
+
+Authenticates against API application
+Queries the scope to get list of accounts
+Loops through accounts
+Returns requested metrics and dimensions from Adsense account
+Writes results to csv file
+
+ 
+import csv
+from datetime import datetime, timedelta
+from apiclient import sample_tools
+from apiclient.discovery import build
+from oauth2client import client
+
+todaydate = datetime.today().strftime('%Y-%m-%d')
+
+def main():    
+    ## Authenticate and construct service
+    scope = ['https://www.googleapis.com/auth/adsense.readonly']
+    client_secrets_file = 'client_secrets.json' 
+    
+    ## Authenticate and construct service
+    service, flags = sample_tools.init('', 'adsense', 'v1.4', __doc__, client_secrets_file, parents=[], scope=scope)
+    
+    ## Get accounts
+    accounts = service.accounts().list().execute()
+     
+    try:
+        ## Get account(s) data
+        results = service.accounts().reports().generate(
+            accountId='pub-xxxxxxxxxxxxxxxxxx',
+            startDate='2012-01-01', # choose your own start date
+            endDate= todaydate,
+            metric=['EARNINGS', 'CLICKS','AD_REQUESTS'],
+            dimension=['DOMAIN_NAME','DATE','AD_FORMAT_NAME']).execute()
+    
+    except client.AccessTokenRefreshError:
+        print ('The credentials have been revoked or expired, please re-run the '
+           'application to re-authorize')
+           
+    ## output results into csv
+    header = ['hostname','date','type','earnings','clicks','ad_requests']
+    
+    with open('output_adsense.csv', 'wb') as file:
+        file.write(','.join(header) + '\n')        
+        for row in results.get('rows'):
+            file.write(','.join(row) + '\n')
+
+    ## print status for log
+    print str(datetime.now()) + ' adsense'
+    
+if __name__ == '__main__':
+	main()
+
+Create API Application, get client_secrets.json
+As alluded to above you need to create an API application. This is done in the Google Developers Console . If you haven’t already signed up for this you have to do that first.
+Create Project
+If you haven’t already you will also have to create a Project. Your API application will be inside this Project. In the Developers Console you can create new Project with drop down at top right.
+
+ 
+Once you have a Project you can go to the Enabled APIs tab to select which Google service API(s) you want to include in the project. For this code’s purposes you can just select Adsense Management API.
+Create Application – Select API Type
+Use the Create credentials button to create your new application. (You are creating the credentials for your new app.)
+When you click the button you get choice of three options (see below).  Important point that raises lots of questions: Adsense cannot use a Service Account to authenticate.  That was what I thought I could use to avoid having to do user authentication since I am running code on my server in cron job.
+No problem though because as you will see later, there is a one time only step to have user authorize Adsense account access. From that point on, the authentication is done using a refresh token.
+So my code above uses the OAuth client ID. So select that for your application too.
+
+Create Application – Select Application Type
+Then you will be asked to choose the application type. For my purposes I do not want web application which will require real redirect URIs. I just want simple plain app. So I chose Other.
+
+You will then get client secret and client id which you can copy or get later. You don’t need these as you will get them in the client_secret.json file you download next.
+So just change default application name to something unique so you can identify it later.
+Create Application – OAuth Consent Screen
+This is not something critical but you have to provide an email and application name to show in the browser pop up for authentication.
+The idea is to give a user (you) information about who is asking for permission to access your Adsense account (you are).
+
+ 
+Create Application – Download Client Secret JSON File
+Then click the download button to download the client_secret.sjon file.  Once the JSON file is downloaded click create.
+
+The JSON file downloads with longer name like “client_secret-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.json”. You will have to rename the JSON file so it is spelled “client_secret.json”.
+Use Code and client_secret.json File to Authenticate 
+Put the python code above into .py file along with the client_secret.json file into a folder.
+Local server (desktop/laptop)
+Run the .py file using the command line which should do the following:
+
+Pop up browser and go to Google login page where and ask you to sign in and allow or allow if you already logged in.
+The command line will advance and finish.
+Creates a .dat file in your folder.
+
+The .dat file name will be whatever you named your .py file. This dat file is your refresh token that will be used to authenticate access in future.
+Remote Server
+Copy your Python, client_secret and .dat (refresh token) files to server and run their by cron jobs.
+ 
+Code Variables
+You may want to change the Python code to select different Adsense metrics and dimensions. I am only selecting a handful of the API metrics and dimensions. You can check out  these in more detail AdSense Management API Metrics and Dimensions documentation.
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+				1 thought on “How to use Google Adsense API to download Adsense data”			
+
+
+Pingback: admob 广告开发者报表 api – hatlonely的小站 
+
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

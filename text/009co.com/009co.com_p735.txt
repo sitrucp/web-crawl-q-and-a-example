@@ -1,0 +1,728 @@
+
+
+
+
+
+
+Twitter Followers and List Membership Tracking – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Twitter Followers and List Membership Tracking 
+3 Comments 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  October 16, 2016 
+
+
+I have created my own historical reporting of my Twitter account followers and list memberships. I have hosted the reporting on this open webpage.
+Most people know what followers are but the list memberships aren’t as well known so here are definitions of them.
+Twitter Followers – Twitter followers are other Twitter accounts who follow my account. A Twitter Follower may follow my account for a few days and then unfollow me at any time afterwards.
+Twitter List Memberships – Twitter accounts can also create their own Lists and then add other Twitter accounts to the lists. For example a Twitter account may create a List called “Tweet about Big Data” to track Twitter accounts they believe “Tweet about Big Data”. Twitter accounts may add my account to their List and remove it at any time afterwards.
+The Twitter data retrieval, writing to database, and data querying are all done on a web server.
+In order to record changes in counts of these you need to have daily historical data. The Twitter API doesn’t provide historical data so you need create it yourself by retrieving and saving daily data somewhere.
+Three Python scripts using Twitter API, Python Tweepy and AWS SDK are scheduled to run daily using cron jobs.
+Two scripts retrieve followers and list memberships and insert the data into a PostgreSQL database. This daily retrieval builds the daily history.
+Another script queries the database table to create reporting datasets of new, active and dropped followers and list memberships that are exported as csv files to a AWS S3 folder which also has files for a AWS S3 hosted static website.
+The AWS S3 hosted static website uses Chart.js and D3.js Javascript charting libraries to read and visualize the data. This post does not describe how to read the csv files but I have written another post that describes this AWS S3 csv file as D3 report data source
+Screenshots of visualizations are shown below.
+Daily Follower Counts
+Weekly New and Dropped Follow Counts
+
+Follower Duration Days
+
+The Python code to retrieve the Twitter data, transform it and create csv files and upload them to AWS is below.
+The code to retrieve Twitter followers:
+import sys, os
+import csv
+from datetime import datetime, date
+import tweepy
+from dateutil import tz
+import psycopg2
+
+## get secrets
+sys.path.insert(0, '/home/secrets/')
+from secrets import secrets
+from twitter_keys_tokens import twitter_api_keys
+
+conn = psycopg2.connect(
+    host = secrets['host'],
+    dbname = secrets['dbname'],
+    user = secrets['user'],
+    password = secrets['password']
+    )
+cursor = conn.cursor()
+
+## twitter consumer key and secret
+consumer_key = twitter_api_keys['consumer_key']
+consumer_secret = twitter_api_keys['consumer_secret']
+
+#get twitter auth
+auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
+api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+
+today = datetime.now().date()
+
+def get_followers():
+
+    twitter_followers = []
+    
+    for user in tweepy.Cursor(api.followers, screen_name="twitterusername").items():
+        twitter_followers.append(user)
+        
+    for user in twitter_followers:
+        query = "INSERT INTO twitter_followers \
+                (date, \
+                follower_id, \
+                name, \
+                screen_name) \
+                VALUES \
+                (%s, %s, %s, %s)";
+        data = (today,
+                str(user.id).strip(),
+                str(user.name.encode('utf8','ignore')).replace(',','').strip(),
+                str(user.screen_name.encode('utf8','ignore')).strip()
+                )
+        cursor.execute(query, data)
+        conn.commit()
+
+    conn.close()
+    
+    ## print job status to log
+    print str(datetime.now()) + ' twitter followers'    
+            
+if __name__ == '__main__':
+	get_followers()
+
+The code to retrieve Twitter list memberships:
+import sys, os
+import csv
+from datetime import datetime, date
+import tweepy
+from dateutil import tz
+import psycopg2
+
+## get database creds
+sys.path.insert(0, '/home/secrets/') 
+from secrets import secrets
+from twitter_keys_tokens import twitter_api_keys
+
+conn = psycopg2.connect(
+    host = secrets['host'],
+    dbname = secrets['dbname'],
+    user = secrets['user'],
+    password = secrets['password']
+    )
+cursor = conn.cursor()
+
+## twitter consumer key and secret
+consumer_key = twitter_api_keys['consumer_key']
+consumer_secret = twitter_api_keys['consumer_secret']
+
+#get twitter auth
+auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
+api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+
+today = datetime.now().date()
+
+def get_list_memberships():
+
+    twitter_list_memberships = []
+    
+    for list in tweepy.Cursor(api.lists_memberships, screen_name="twitterusername").items():
+        twitter_list_memberships.append(list)
+        #print list.full_name
+        
+    for list in twitter_list_memberships:
+
+        query = "INSERT INTO twitter_list_memberships \
+                (date, \
+                id_str, \
+                name, \
+                full_name, \
+                member_count, \
+                subscriber_count, \
+                mode, \
+                following, \
+                user_screen_name) \
+                VALUES \
+                (%s, %s, %s, %s, %s, %s, %s, %s, %s)";
+        data = (today,
+                list.id_str.encode('utf8','ignore'),
+                list.name.encode('utf8','ignore'),
+                list.full_name.encode('utf8','ignore'),
+                list.member_count,
+                list.subscriber_count,
+                list.mode,
+                list.following,
+                list.user.screen_name.encode('utf8','ignore'))
+        cursor.execute(query, data)
+        conn.commit()
+        
+    conn.close()
+    
+    ## print status for log
+    print str(datetime.now()) + ' twitter list memberships'    
+            
+if __name__ == '__main__':
+	get_list_memberships()
+
+The code to create csv files and upload to AWS S3 bucket:
+from boto.s3.connection import S3Connection
+from boto.s3.key import Key
+from datetime import datetime
+from os import listdir
+from os.path import isfile, join
+import sys
+import csv
+import psycopg2
+import re
+from collections import Counter
+
+upload_path = '/home/twitter/aws_s3_site/'
+
+sys.path.insert(0, '/home/secret/')
+from aws_keys import aws_keys
+from secrets import secrets
+
+## create aws S3 connection
+conn = S3Connection(aws_keys['AWS_KEY'], aws_keys['AWS_SECRET'])
+bucket = conn.get_bucket('twitter-bucket', validate=False)
+
+## create db connection
+conn = psycopg2.connect(
+    host = secrets['host'],
+    dbname = secrets['dbname'],
+    user = secrets['user'],
+    password = secrets['password']
+    )
+cur = conn.cursor()
+
+## get data sets from db
+
+## followers
+cur.execute ("select something here;")
+followers = list(cur.fetchall())
+
+## lists
+cur.execute ("select something here;")
+lists = list(cur.fetchall())
+
+conn.close()
+
+## write db data to csv files, save in upload folder
+
+## followers
+with open(upload_path + 'followers.csv', 'wb') as file:
+    writer = csv.writer(file, delimiter = ',', lineterminator='\n')
+    for row in followers:
+        writer.writerow(row)
+
+## lists
+with open(upload_path + 'lists.csv', 'wb') as file:
+    writer = csv.writer(file, delimiter = ',', lineterminator='\n')
+    for row in lists:
+        writer.writerow(row)
+            	
+## upload csv files to S3 twitter-bucket
+    
+upload_files = [f for f in listdir(upload_path) if isfile(join(upload_path, f))]
+
+# delete existing bucket keys to reset
+for key in bucket.list():
+    if '.csv' in key:
+        bucket.delete_key(key)
+  
+# complete uploading to AWS
+for file in upload_files:
+    k = Key(bucket)
+    k.key = file
+    k.set_contents_from_filename(upload_path + file)
+    
+## write success to cron log
+print str(datetime.now()) + ' aws s3 twitter upload'
+
+
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+				3 thoughts on “Twitter Followers and List Membership Tracking”			
+
+
+
+
+
+Matteo M June 23, 2017 at 8:46 am  
+
+
+HI Curtis,
+This is an amazing post!
+I was wondering if you had, by any chance, posted the Python code somewhere!
+I am trying to learn more about Twitter APIs and this would be an amazing personal project!
+Thank you for your help,
+Matteo from Italy
+
+Reply 
+ 
+
+
+
+
+
+
+Matteo M June 23, 2017 at 8:47 am  
+
+
+HI Curtis,
+This is an amazing post!
+I was wondering if you had, by any chance, posted the Python code somewhere!
+I am trying to learn more about Twitter APIs and this would be an amazing personal project!
+Thank you for your help,
+Matteo from Italy
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis August 24, 2017 at 11:36 pm  
+
+
+Thanks Matteo. I haven’t gotten around to including the Python code in this site.
+But check out other posts I have that include Twitter API Python code that might be interesting for you too!
+http://009co.com/?p=508
+http://009co.com/?p=215
+http://009co.com/?p=278
+I have learned most of what I need to use the Twitter API through searching other people’s blogs and StackOverflow. I have had to modify almost all of the code on my own though once I found other people’s code.
+Conceptually it is pretty straightforward but the details as always make it a bit more challenging.
+First you need Twitter Developer account which can be same user as any regular Twitter account. Then you need to create API keys that will uniquely identify you to the Twitter API. Depending on what you are doing you may also be required to setup authentication.
+I recommend using Tweepy which is Python module that is made to interact with Twitter API. You then have to just learn how to use Tweepy rather than interact with Twitter API directly which makes it easier.
+Good luck!
+
+Reply 
+ 
+
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

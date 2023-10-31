@@ -1,0 +1,457 @@
+
+
+
+
+
+
+Vultr and Digital Ocean make it easy to get projects going fast – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Vultr and Digital Ocean make it easy to get projects going fast 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  August 12, 2016 
+
+
+Recently I developed a Django web application for a friend. I wanted to be able to get it up and out onto the internet so she could view it and get others to do user testing.
+Normally I host my web applications on my Webfaction account. But I wanted to keep this project separate so I went over to Digital Ocean and spun up a virtual server to host the Django web application.
+We didn’t have a domain name for this site yet so just used the Digital Ocean provided IP address to access the site and created a Self-Signed SSL Certificate for Apache and forced all traffic to HTTPS to enable secure browsing.
+I have used Digital Ocean for development purposes and to share projects with others from time to time. I have also used Vultr.
+
+Digital Ocean – Use this link to open account and get $10 credit.
+Vultr – use this link to open account and get $20 credit (summer 2016 promotion).
+
+
+Both have monthly price plans that can also be pro-rated depending on how many days you use them so you can spin them up for a few minutes or days and pay accordingly.  I am using the basic plans on both which are good enough for my demonstration development web application purposes.
+
+Digital Ocean – $5 plan includes 1 cpu, 512MB of RAM, 20GB SSD storage and 1000GB Bandwidth
+Vultr – $5 plan includes 1 cpu, 768MB Memory, 15 GB SSD storage and 1000GB Bandwidth
+
+Beware though that unlike the huge number of shared hosting such as Webfaction, Digital Ocean and Vultr virtual servers are yours to own and manage. You get root access to the server and are responsible for managing the server, OS, how it is configured and secured, etc.
+That is definitely something you should consider. There are lots of new things to learn. However there are tutorials and lots of help available on the internet so l recommend at least attempting to setup either or both to learn first hand. The cost is small and risk very low. Knowledge gained and benefits are well worth it.
+Many comparison reviews seem to prefer Vultr over Digital Ocean for performance and features. However Digital Ocean was first and has done excellent job of documentation for getting many web applications setup. But Vultr does have good documentation too. You can’t really go wrong with either for development projects. If you don’t like one, just switch to the other!
+ 
+ 
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Introducing Speedvisit – a quick and easy way to record visits from people
+
+ 
+Leave a Comment 
+
+			 / CakePHP, PHP, SaaS, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Using ATMs as wifi hotspot
+
+ 
+Leave a Comment 
+
+			 / Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tracking Cuba Gooding Jr’s Twitter follower count
+
+ 
+Leave a Comment 
+
+			 / Google Charts, MySQL, Python, Twitter API, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

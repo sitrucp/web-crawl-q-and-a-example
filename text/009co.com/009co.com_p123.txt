@@ -1,0 +1,410 @@
+
+
+
+
+
+
+How a new salmon stream was carved from the land – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+How a new salmon stream was carved from the land 
+Leave a Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 22, 2016 
+
+
+Back in the days when I was working in environmental science, the consulting firm I was working for was doing storm water drainage planning in Surrey, BC, Canada.
+The City of Surrey was planning for a new sub-division. The new sub-division would have lots of new hardened surfaces eg roads, roofs, and lawns instead of natural scrub and tree cover, which would require more frequent and higher volume water drainage to be channeled somewhere.
+Our company proposed diverting this new water flow under a road and into a city right of way. The right of way was a huge section of land that was covered in natural grassland, dense shrubs, trees and a marshy area. The proposed new watercourse would flow about 1000 metres through the property and drain into the Serpentine River. Normally stormwater drainage engineers would simply channel drainage into ditches and/or covered storm water drainage that would eventually reaching the Serpentine River anyways.
+The new channel was designed to mimic a natural watercourse that may have been created naturally in this field given the field’s topography, soil type and a water flow rate and volume that our engineers estimated from new sub-division.
+Creating a new watercourse is a mix of science, art, physics and engineering. Water has a predictable pattern of flowing over a surface given the surface topography, soil type and  water flow rate and volume. Try putting some drops of water on one end of cookie baking sheet and then slowly lift that side up. The water drops will flow down the cookie sheet and form an s-shaped path. The higher you lift it the more straight the pattern. The same thing happens in nature.
+There are other features of natural watercourses that need to be considered. The watercourse will have specific curve measurements in its s-shape. The size of curve, the depth of the outside bank, the gradient of the stream bed from the inside bank to the outside bank varies with flow.
+One of the goals for this new watercourse was to provide natural habitat for fish and wildlife. So we wanted to include features that would mimic what could happen naturally such as providing stream cover in form of undercut banks, overhanging trees, grass, shrubs.
+Also because we didn’t want nature to dramatically alter the stream’s course which is a natural occurrence we wanted to ensure that that shape would resist erosion. We provided bank protection in form of large tree root wads and other placements of bank hardening.
+Our company had a specialist who had created scores of similar water courses. The advice I got was to use a large engineering plan drawing of the field and start sketching out the water course.
+So I literally took pencil to drawings and started drawing what I thought the stream would look like. Then we worked backwards, accounting for soil type, expected water flow, curve of bend, depth of flow.
+I left the company before the stream was constructed but the eventual shape was pretty close to what we had drawn. As construction progressed modifications were required to accommodate soil composition variances and some of the bank hardening was not used due to concerns about its long term integrity.
+However within 2 years there was fish and wildlife habitat where there was none before. That is pretty cool!
+Here is Google Maps aerial photo of the new stream. Below is a screenshot with dotted line showing where stream is located.
+
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+Retrieve and process Environment Canada hydrometric and climate data using Python
+
+ 
+Leave a Comment 
+
+			 / Environmental science, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+ 
+Leave a Comment 
+
+			 / ChatGPT, Environmental science, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

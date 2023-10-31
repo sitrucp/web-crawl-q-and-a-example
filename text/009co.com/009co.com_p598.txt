@@ -1,0 +1,589 @@
+
+
+
+
+
+
+Chart.js tooltip format number with commas – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Chart.js tooltip format number with commas 
+7 Comments 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  July 22, 2016 
+
+
+Chart.js V2.0 is a useful javascript charting library. It looks great, has ton of features though it is new enough that there is still some work to find out how to get some relatively simple things done.
+In this case I wanted to format the chart’s tooltip. Tooltips are the pop-ups that show when you hover mouse over a bar or line in a chart and show the yAxis value along with any other information you want to include.
+By default Chart.js tooltips do not format numbers with commas and there was no simple option to do this.
+After some Googling, I found out it required using Chart.js callbacks feature which can be used to format chart elements. Note V1 used a different method that modified a tooltip’s template but that is now deprecated in V2.0.
+The callback is in the Options’ tooltips section. You put function into the callback that uses regex to insert commas.
+callbacks: {
+    label: function(tooltipItem, data) {
+        return tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+},
+This can be done as a global change to all charts in the page or just to a specific chart which is what I used and is shown in the example below.
+The result is that the tooltip now has a commas.
+
+
+
+
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+Introducing Cardivvy – a website showing Car2Go real time car locations, parking and service areas
+
+ 
+Leave a Comment 
+
+			 / API, Google Maps API, Javascript, PHP, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to move Google Chart x-axis to top of chart
+
+ 
+Leave a Comment 
+
+			 / Google Charts, Javascript / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Display Django queryset results on Google Map
+
+ 
+4 Comments 
+
+			 / Django, Google Maps API, Javascript / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Leaflet.js choropleth map color by count using geoJSON datasource
+
+ 
+Leave a Comment 
+
+			 / Django, Geocoding, Javascript, Postgres, Python, Web Development / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+				7 thoughts on “Chart.js tooltip format number with commas”			
+
+
+
+
+
+Paulo March 2, 2018 at 8:54 pm  
+
+
+Add this in order show the label name before the value, when you have multiple datasets:
+tooltips: {
+                mode: ‘index’,
+                label: ‘myLabel’,
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        return data.datasets[tooltipItem.datasetIndex].label + ‘: ‘+ tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, “.”);
+                    }
+                }
+            }
+
+Reply 
+ 
+
+
+
+
+
+
+Dodi Dwitura October 25, 2019 at 9:13 am  
+
+
+thank you very much . that’s work
+
+Reply 
+ 
+
+
+
+
+
+
+
+
+Edwin August 13, 2018 at 9:38 pm  
+
+
+Gracias por tu aporte me sirvió mucho
+
+Reply 
+ 
+
+
+
+
+
+
+Novitalia November 13, 2019 at 10:01 am  
+
+
+Thanks,. you saved my day
+
+Reply 
+ 
+
+
+
+
+
+
+Guntar August 21, 2020 at 6:22 pm  
+
+
+HI, thank you for the great / helpful article.
+In the article you mentioned that the callback function can be “done as a global change to all charts in the page or just to a specific chart”.
+Can you please share how it can be done globally?
+Thank you.
+
+Reply 
+ 
+
+
+
+
+
+
+Curtis August 21, 2020 at 8:12 pm  
+
+
+Hey Guntar, glad it was helpful! 
+Chart.js has a concept called “global parameters” that allows you to specify chart options as separate functions and they will apply to all charts. This is nice feature so you do not have to repeat same function in multiple charts.
+The ‘global parameters’ options are described in documentation  
+I haven’t tested this but I think this should be global definition for the tool tip option in my example:
+Chart.defaults.global.tooltips.callbacks.label = function(tooltipItem, data) {
+        return tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+},
+
+Reply 
+ 
+
+
+
+
+
+
+Guntar August 21, 2020 at 8:55 pm  
+
+
+Thank you Curtis for help!
+I got it working, below is my version on how to set, in my case, Tooltip options globally and format as Currency
+“`
+import Chart from ‘chart.js’
+Chart.defaults.global.tooltips.backgroundColor = ‘rgba(50,50,50,0.8)’;
+Chart.defaults.global.tooltips.titleFontSize = 14;
+Chart.defaults.global.tooltips.bodyFontSize = 14;
+Chart.defaults.global.tooltips.xPadding = 10;
+Chart.defaults.global.tooltips.titleMarginBottom = 8;
+Chart.defaults.global.tooltips.position = ‘nearest’;
+Chart.defaults.global.tooltips.displayColors = false;
+Chart.defaults.global.tooltips.callbacks.label = (tooltip) => this.currency(tooltip.value);
+currency(value){
+  return ‘$’+value.replace(/\B(?=(\d{3})+(?!\d))/g, “,”);
+}
+“`
+
+Reply 
+ 
+
+
+
+
+
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+

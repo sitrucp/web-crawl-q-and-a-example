@@ -1,0 +1,764 @@
+
+
+
+
+
+
+Dell ecommerce web site scraping analysis – 009co Consulting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Skip to content
+
+
+
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to 009co Consulting
+Blog Posts
+COVID-19 Data Analysis and Visualization
+Environmental Science Experience
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					009co Consulting
+				
+
+
+				Business Intelligence | Analytics | Digital Solutions
+			
+ 
+
+
+
+
+
+
+
+Main Menu
+
+ 
+
+
+
+
+
+
+
+
+
+COVID-19 Data Analysis and VisualizationEnvironmental Science ExperienceWelcome to 009co ConsultingBlog Posts 
+
+
+
+
+
+
+
+
+
+
+Dell ecommerce web site scraping analysis 
+1 Comment 
+
+			 / By  
+
+				Curtis Pokrant			
+
+
+
+		 /  January 29, 2016 
+
+
+Once upon a time, I needed to find Dell monitor data to analyse.
+A quick search brought me to their eCommerce web site which had all the monitor data I needed and all I had to do was get the data out of the website.
+To get the data from the website I used the Python and Python module Scrapy to scrape the webpage and write data to a csv file.
+Based on the data I got from the site the counts of monitors by size and country are presented below.
+
+ 
+ 
+However this data is probably not accurate. In fact I know it isn’t. There was a surprising number of variances in the monitor descriptions including screen size which made it hard to get quick accurate counts. I had to do some data munging to clean up the data but there is still a bit more to do.
+The surprising thing is that there do not appear to be specific data points for each of the monitor descriptions components. This website is being generated from a data source likely a database that contains Dell’s products. This database does not appear to have fields for each independent data point that are used to categorize and describe Dell monitors.
+The reason I say this is that the monitor descriptions single string of text. Within the text string are things like the monitor size, model, common name, and various other features.
+These are not in same order, do not all have same spelling, format such as use of text separators, lower or upper case.
+Most descriptions are formatted like this example:
+“Dell UltraSharp 24 InfinityEdge Monitor – U2417H”.
+However the many variations on this format at listed below. There is obviously no standardization for Dell to enter monitor descriptions for their ecommerce site.
+
+Monitor Dell S2240T serie S 21.5″
+Dell P2214H – Monitor LED – 22-pulgadas – 1920 x 1080 – 250 cd/m2 – 1000:1 – 8 ms – DVI-D
+Dell 22 Monitor | P2213 56cm(22′) Black No Stand
+Monitor Dell UltraSharp de 25″ | Monitor UP2516D
+Dell Ultrasharp 25 Monitor – UP2516D with PremierColor
+Dell 22 Monitor – S2216M
+Monitor Dell UltraSharp 24: U2415
+Dell S2340M 23 Inch LED monitor – Widescreen 60Hz Full HD Monitor
+
+Some descriptions include the monitor size unit of measurement, usually in inches, sometimes in centimeters, and sometimes none at all.
+Sometimes hyphens are used to separate description sections but other times the pipe character ( | ) is used to separate content. Its a real mish mash.
+Description do not have consistent order of description components. Sometimes part number is after monitor size, sometimes it is elsewhere.
+The problem with this is that customers browsing the site will have to work harder to compare monitors taking into account these variances.
+I’d bet this leads to lost sales or poorly chosen sales that result in refunds or disappointed customers.
+I’d also bet that Dell enterprise customers and resellers also have a hard time parsing these monitor descriptions too.
+This did affect my ability to easily get the data to do analysis of monitors by description categories because they were not in predictable locations and were presented in many different formats.
+Another unusual finding was that it looks like Dell has designated default set of 7 monitors to a large number of two digit country codes. For example Bhutan (bt) and Bolivia (rb) both have the same 7 records, as do many others. Take look at the count of records per country at bottom of page. Many countries have only 7 monitors.
+Here is the step by step process used to scrape this data.
+The screenshot below shows the ecommerce web site page structure. The monitor information is presented on the page in a set of nested HTML tags which contain the monitor data.
+
+These nested HTML tags can be scraped relatively easily. A quick review revealed that the web pages contained identifiable HTML tags that held the data I needed. Those tags are named in Python code below.
+The website’s url also had consistent structure so I could automate navigating through paged results as well as navigate through multiple countries to get monitor data for more than one Dell country in the same sessions.
+Below is an example of the url for the Dell Canada eCommerce web site’s page 1:
+https://accessories.dell.com/sna/category.aspx?c=ca&category_id=6481&l=en&s=dhs&ref=3245_mh&cs=cadhs1&~ck=anav&p=1
+The only two variables in url that change for the crawling purposes are:
+
+The “c” variable was a 2 character country code eg “ca” = Canada, “sg” = Singapore, “my” = Malaysia, etc.
+The “p” variable was a number representing the count of web pages that a country’s monitors are shown on about 10 monitors per page. No country I looked at had more than 5 pages of monitors.
+
+Dell is a multi-national corporation so likely has many countries in this eCommerce database.
+Rather than guess what they are I got a list of two character country codes from Wikipedia that I could use to create urls to see if that country has data. As a bonus the Wikipedia list gives me the country name.
+The Wikipedia country code list needs a bit of clean-up. Some entries are clearly not countries but some type of administrative designation. Some countries are listed twice with two country codes. For example Argentina has “ar” and “ra”. For practical purposes if the Dell url can’t be created from this country codes in this list then the code just skips to next one country code.
+The Python code I used is shown below. It outputs a csv file with the website data for each country with the following columns:
+
+date (of scraping)
+country_code (country code entered from Wikipedia)
+country (country name from Wikipedia)
+page (page number of website results)
+desc (HTML tag containing string of text)
+prod_name (parsed from desc)
+size (parsed from desc)
+model (parsed from desc)
+delivery (HTML tag containing just this string)
+price (HTML tag containing just this string)
+url (url generated from country code and page)
+
+The code loops through the list of countries that I got from Wikipedia and within each country it also loops through the pages of results while pagenum < 6:.
+I hard coded the number of page loops to 6 as no country had more than 5 pages of results. I could have used other methods perhaps looping until url returned 404 or page not found. It was easier to hard code based on manual observation.
+Dell eCommerce website scraping Python code
+
+#-*- coding: utf-8 -*-
+import urllib2
+import urllib
+from cookielib import CookieJar
+
+from bs4 import BeautifulSoup
+import csv
+import re
+from datetime import datetime
+
+countries={
+    'AC':'Ascension Island',
+    'AD':'Andorra',
+    'AE':'United Arab Emirates',
+     ... etc
+    'ZM':'Zambia',
+    'ZR':'Zaire',
+    'ZW':'Zimbabwe'
+}
+
+def main():
+
+    output = list()
+    todaydate = datetime.today().strftime('%Y-%m-%d')
+    
+    with open('dell_monitors.csv', 'wb') as file:
+        writer = csv.DictWriter(file, fieldnames = ['date', 'country_code', 'country', 'page', 'desc', 'prod_name', 'size', 'model', 'delivery', 'price', 'url'], delimiter = ',')
+        writer.writeheader()
+        
+        for key in sorted(countries):
+            country_code = key.lower()
+            country = countries[key]
+            pagenum = 1      
+            while pagenum < 6:
+                url = "https://accessories.dell.com/sna/category.aspx?c="+country_code+"&category_id=6481&l=en&s=dhs&ref=3245_mh&cs=cadhs1&~ck=anav&p=" + str(pagenum)
+                #HTTPCookieProcessor allows cookies to be accepted and avoid timeout waiting for prompt
+                page = urllib2.build_opener(urllib2.HTTPCookieProcessor).open(url).read()
+                soup = BeautifulSoup(page)           
+                if soup.find("div", {"class":"rgParentH"}):
+                    tablediv = soup.find("div", {"class":"rgParentH"})
+                    tables = tablediv.find_all('table')
+                    data_table = tables[0] # outermost table parent =0 or no parent
+                    rows = data_table.find_all("tr")
+                    
+                    for row in rows:
+                        rgDescription = row.find("div", {"class":"rgDescription"})
+                        rgMiscInfo = row.find("div", {"class":"rgMiscInfo"})
+                        pricing_retail_nodiscount_price = row.find("span", {"class":"pricing_retail_nodiscount_price"})
+
+                        if rgMiscInfo: 
+                            delivery = rgMiscInfo.get_text().encode('utf-8')
+                        else:
+                            delivery = ''
+                            
+                        if pricing_retail_nodiscount_price:
+                            price = pricing_retail_nodiscount_price.get_text().encode('utf-8').replace(',','')
+                        else:
+                            price = ''
+                            
+                        if rgDescription:
+                            desc = rgDescription.get_text().encode('utf-8')
+                            prod_name = desc.split("-")[0].strip()
+                            try:
+                                size1 = [int(s) for s in prod_name.split() if s.isdigit()]
+                                size = str(size1[0])
+                            except:
+                                size = 'unknown'
+                            try:
+                                model = desc.split("-")[1].strip()
+                            except:
+                                model = desc
+                                
+                            results = str(todaydate)+","+country_code+","+country+","+str(pagenum)+","+desc+","+prod_name+","+size+","+model+","+delivery+","+price+","+url
+                            
+                            file.write(results + '\n')
+                    
+                    pagenum +=1
+                else:
+                    #skip to next country
+                    pagenum = 6 
+                    continue
+
+                
+if __name__ == '__main__':
+    main()
+
+
+
+The Python code scraping output is attached here as a csv file.
+The summary is a list of the scraping output that shows a list of country codes, countries and count of Dell monitor records scraped from a web page using the country code Wikipedia had for these countries.
+af – Afghanistan – 7 records
+ax – Aland – 7 records
+as – American Samoa – 7 records
+ad – Andorra – 7 records
+aq – Antarctica – 7 records
+ar – Argentina – 12 records
+ra – Argentina – 7 records
+ac – Ascension Island – 7 records
+au – Australia – 36 records
+at – Austria – 6 records
+bd – Bangladesh – 7 records
+be – Belgium – 6 records
+bx – Benelux Trademarks and Design Offices – 7 records
+dy – Benin – 7 records
+bt – Bhutan – 7 records
+rb – Bolivia – 7 records
+bv – Bouvet Island – 7 records
+br – Brazil – 37 records
+io – British Indian Ocean Territory – 7 records
+bn – Brunei Darussalam – 7 records
+bu – Burma – 7 records
+kh – Cambodia – 7 records
+ca – Canada – 46 records
+ic – Canary Islands – 7 records
+ct – Canton and Enderbury Islands – 7 records
+cl – Chile – 44 records
+cn – China – 46 records
+rc – China – 7 records
+cx – Christmas Island – 7 records
+cp – Clipperton Island – 7 records
+cc – Cocos (Keeling) Islands – 7 records
+co – Colombia – 44 records
+ck – Cook Islands – 7 records
+cu – Cuba – 7 records
+cw – Curacao – 7 records
+cz – Czech Republic – 6 records
+dk – Denmark – 23 records
+dg – Diego Garcia – 7 records
+nq – Dronning Maud Land – 7 records
+tp – East Timor – 7 records
+er – Eritrea – 7 records
+ew – Estonia – 7 records
+fk – Falkland Islands (Malvinas) – 7 records
+fj – Fiji – 7 records
+sf – Finland – 7 records
+fi – Finland – 5 records
+fr – France – 17 records
+fx – Korea – 7 records
+dd – German Democratic Republic – 7 records
+de – Germany – 17 records
+gi – Gibraltar – 7 records
+gr – Greece – 5 records
+gl – Greenland – 7 records
+wg – Grenada – 7 records
+gu – Guam – 7 records
+gw – Guinea-Bissau – 7 records
+rh – Haiti – 7 records
+hm – Heard Island and McDonald Islands – 7 records
+va – Holy See – 7 records
+hk – Hong Kong – 47 records
+in – India – 10 records
+ri – Indonesia – 7 records
+ir – Iran – 7 records
+ie – Ireland – 7 records
+im – Isle of Man – 7 records
+it – Italy – 1 records
+ja – Jamaica – 7 records
+jp – Japan – 49 records
+je – Jersey – 7 records
+jt – Johnston Island – 7 records
+ki – Kiribati – 7 records
+kr – Korea – 34 records
+kp – Korea – 7 records
+rl – Lebanon – 7 records
+lf – Libya Fezzan – 7 records
+li – Liechtenstein – 7 records
+fl – Liechtenstein – 7 records
+mo – Macao – 7 records
+rm – Madagascar – 7 records
+my – Malaysia – 25 records
+mv – Maldives – 7 records
+mh – Marshall Islands – 7 records
+mx – Mexico – 44 records
+fm – Micronesia – 7 records
+mi – Midway Islands – 7 records
+mc – Monaco – 7 records
+mn – Mongolia – 7 records
+mm – Myanmar – 7 records
+nr – Nauru – 7 records
+np – Nepal – 7 records
+nl – Netherlands – 8 records
+nt – Neutral Zone – 7 records
+nh – New Hebrides – 7 records
+nz – New Zealand – 37 records
+rn – Niger – 7 records
+nu – Niue – 7 records
+nf – Norfolk Island – 7 records
+mp – Northern Mariana Islands – 7 records
+no – Norway – 19 records
+pc – Pacific Islands – 7 records
+pw – Palau – 6 records
+ps – Palestine – 7 records
+pg – Papua New Guinea – 7 records
+pe – Peru – 43 records
+rp – Philippines – 7 records
+pi – Philippines – 7 records
+pn – Pitcairn – 7 records
+pl – Poland – 4 records
+pt – Portugal – 7 records
+bl – Saint Barthelemy – 7 records
+sh – Saint Helena – 7 records
+wl – Saint Lucia – 7 records
+mf – Saint Martin (French part) – 7 records
+pm – Saint Pierre and Miquelon – 7 records
+wv – Saint Vincent – 7 records
+ws – Samoa – 7 records
+sm – San Marino – 7 records
+st – Sao Tome and Principe – 7 records
+sg – Singapore – 37 records
+sk – Slovakia – 23 records
+sb – Solomon Islands – 7 records
+gs – South Georgia and the South Sandwich Islands – 7 records
+ss – South Sudan – 7 records
+es – Spain – 10 records
+lk – Sri Lanka – 7 records
+sd – Sudan – 7 records
+sj – Svalbard and Jan Mayen – 7 records
+se – Sweden – 6 records
+ch – Switzerland – 21 records
+sy – Syrian Arab Republic – 7 records
+tw – Taiwan – 43 records
+th – Thailand – 40 records
+tl – Timor-Leste – 7 records
+tk – Tokelau – 7 records
+to – Tonga – 7 records
+ta – Tristan da Cunha – 7 records
+tv – Tuvalu – 7 records
+uk – United Kingdom – 35 records
+un – United Nations – 7 records
+us – United States of America – 7 records
+hv – Upper Volta – 7 records
+su – USSR – 7 records
+vu – Vanuatu – 7 records
+yv – Venezuela – 7 records
+vd – Viet-Nam – 7 records
+wk – Wake Island – 7 records
+wf – Wallis and Futuna – 7 records
+eh – Western Sahara – 7 records
+yd – Yemen – 7 records
+zr – Zaire – 7 records
+
+Grand Total – 1760 records
+
+
+
+
+Post navigation
+← Previous PostNext Post →
+  Related Posts   
+
+
+ 
+
+LinkedIn ‘People You May Know’ web scraping and analysis
+
+ 
+Leave a Comment 
+
+			 / BeautifulSoup, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+Tableau vizualization of Toronto Dine Safe data
+
+ 
+Leave a Comment 
+
+			 / API, Geocoding, Python, Tableau / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+How to filter referral spam from Google Analytics using API and Python
+
+ 
+Leave a Comment 
+
+			 / API, Google Analytics, Python / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+BC Hydro’s amazing #BCStorm social media turnaround
+
+ 
+Leave a Comment 
+
+			 / Power BI, Power Query, Python, Twitter API / By  
+
+				Curtis Pokrant			
+
+
+ 
+
+
+
+
+
+ 
+
+
+				1 thought on “Dell ecommerce web site scraping analysis”			
+
+
+
+
+
+Mokhtar Ebrahim December 27, 2018 at 8:04 pm  
+
+
+I loved your code.
+Nice practical example for web scraping.
+Thanks!
+
+Reply 
+ 
+
+
+
+
+Leave a Comment Cancel ReplyYour email address will not be published. Required fields are marked *Type here..Name*
+Email*
+Website
+ 
+
+Δ 
+This site uses Akismet to reduce spam. Learn how your comment data is processed.
+
+
+
+
+
+
+Recent Blog Posts
+
+
+Gestalt communication facilitated by multi-modal generative AI?
+
+
+Microsoft Windows Copilot General Availability September 26, 2023
+
+
+Voip.ms get all call detail records using getCDR API
+
+
+OpenAI ChatGPT 4 Advanced Data Analysis used to do river water flow analysis
+
+
+Attended London Power BI User Group: Introducing Fabric! – London, UK – May 23, 2023
+
+
+Fabric Dataflow Gen2 Web API connection with dynamic current date parameter
+
+
+Attended Data Science Festival Mayday – London, UK – May 20, 2023
+
+
+CBC news article comments analysis and visualization
+
+
+Canada cell tower distribution QGIS visualization
+
+
+CBC news article comments web scraping
+
+
+Blog Categories
+
+AI & ML (2)
+
+Amazon Web Services (AWS) (7)
+
+API (10)
+
+Azure (4)
+
+BeautifulSoup (5)
+
+Business Intelligence (3)
+
+CakePHP (3)
+
+Chart.js (2)
+
+ChatGPT (2)
+
+D3.js (6)
+
+Django (7)
+
+Environmental science (3)
+
+ERP (1)
+
+Excel Pivot Chart (4)
+
+Excel Pivot Table (4)
+
+Fabric (2)
+
+Flask (1)
+
+Geocoding (6)
+
+Google Adsense (1)
+
+Google Analytics (3)
+
+Google Calendar (1)
+
+Google Charts (2)
+
+Google Maps API (2)
+
+Google Script (1)
+
+Hadoop (2)
+
+Javascript (14)
+
+LLM (1)
+
+Microsoft Copilot (1)
+
+MS Access (1)
+
+MySQL (2)
+
+NetworkX (2)
+
+NLTK (2)
+
+Office 365 (8)
+
+OneDrive (4)
+
+Open Data (1)
+
+Palm Pilot (1)
+
+PHP (4)
+
+Plotly (7)
+
+Postgres (2)
+
+Power BI (12)
+
+Power Query (11)
+
+Python (36)
+
+QGIS (1)
+
+Qlikview (1)
+
+SaaS (1)
+
+Science (1)
+
+Sharepoint (6)
+
+SQLAlchemy (1)
+
+Tableau (6)
+
+Twitter API (6)
+
+VBA (1)
+
+Web Development (14)
+
+Xero (1)
+
+
+
+Recent Comments
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Django forms have some complexity when first encountered. Recommend following any basic Django forms tutorial, and applying to your specific…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 30, 2021Ah yes that does help to clear it up. However, I’m facing an issue now that whenever my form is…
+Curtis on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hey NS, The data is saved to database by the form post action eg starting with: if request.method == 'POST':.…
+NS on Django form geocode submitted address to get lat, lon and postal codeMay 25, 2021Hi Curtis, I’m relatively new to django and I’m trying to create a Django application where i can get a…
+Curtis on Legend and polygon colors for Leaflet choropleth using Chroma.jsMay 5, 2021Looks like it is working fine but my code was missing a line break at the end of if then…
+
+Login - Copyright 2021 009co
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Copyright © 2023 009co Consulting
+ 
+
+
+
+
+
+
+
+
+
+ Scroll to Top
+
+
+
+
+
+
+
+
+
+
