@@ -24,8 +24,8 @@ HTTP_URL_PATTERN = r'^http[s]{0,1}://.+$'
 # openai.api_key = '<Your API Key>'
 
 # Define root domain to crawl
-domain = "009co.com"
-full_url = "https://009co.com/"
+domain = "curtispokrant.com"
+full_url = "https://curtispokrant.com/"
 
 # Create a class to parse the HTML and get the hyperlinks
 class HyperlinkParser(HTMLParser):
